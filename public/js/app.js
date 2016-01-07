@@ -8,10 +8,6 @@ myApp.constant('ROLES', {
  );
 
 
-
-//var BaseUrl = 'http://localhost:51098';
-//var BaseUrl = 'https://euromillones-auregithub.c9.io';
-
 var BaseUrl =myURL;
 
 var DireccionesServidor = {

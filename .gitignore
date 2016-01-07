@@ -2,3 +2,4 @@ node_modules/
 .c9/
 miBD.sqlite
 .vscode/
+public/js/constantsServer.js

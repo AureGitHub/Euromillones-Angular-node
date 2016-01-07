@@ -62,5 +62,5 @@ app.use(function (req, res, next) {
 
 // Escucha en el puerto 8080 y corre el server
 app.listen(process.env.PORT || 51098, function () {
-    console.log('App listening on port ' + process.env.PORT || 8080);
+    console.log('App listening on port ' + process.env.PORT || 51098);
 });

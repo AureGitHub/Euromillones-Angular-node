@@ -155,7 +155,7 @@ myApp.config(["$routeProvider", "$httpProvider","ROLES", function ($routeProvide
       controller: 'UserListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
-          return remoteResource.GetServer(DireccionesServidor.dirUserlist);
+          return remoteResource.GoServer('GET',DireccionesServidor.dirUserlist,-1,null);
           }]
       } 
     })

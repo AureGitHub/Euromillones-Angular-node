@@ -6,12 +6,11 @@ function ($http,baseUrl,DireccionesServidor,remoteResource) {
     IdEdiccion : null,
     
     load  :  function () {
-      return   remoteResource.GetServer(DireccionesServidor.dirUserlist);
+         return  remoteResource.GoServer('GET',DireccionesServidor.dirUserlist,-1,null);
     },
      update: function (user) {
-      return $http.put(baseUrl + DireccionesServidor.dirUserUpdate + "/" + user.id , {
-        user: user
-      });
+         
+          return  remoteResource.GoServer('PUT',DireccionesServidor.dirUserUpdate,user.id,user);
     },
     
       updateAdmin: function (user) {

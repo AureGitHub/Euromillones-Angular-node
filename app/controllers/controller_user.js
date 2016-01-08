@@ -130,7 +130,7 @@ exports.getAll = function (req, res) {
 
 exports.updateUser = function (req, res) {   
   
-   var updateUser = req.body.user;
+   var updateUser = req.body;
    var id = req.params.id;
    
    
@@ -175,7 +175,7 @@ exports.updateUser = function (req, res) {
  
 exports.updateUserForAdmin = function (req, res) {   
   
-   var updateUser = req.body.user;
+   var updateUser = req.body;
    var id = req.params.id;
    
    

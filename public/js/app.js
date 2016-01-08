@@ -43,6 +43,35 @@ function RemoteResource($http, $q, AuthenticationFactory,baseUrl) {
     }
     
     
+    
+    this.GoServer = function (method,direccion, id, objeto)
+    {
+        var defered = $q.defer();
+        var promise = defered.promise;
+        
+        
+        var url =  baseUrl + direccion;
+        
+        if(id >-1)
+          url +="/" + id;
+
+        $http({
+            method: method,
+            url: url,
+            data : objeto
+        }).success(function (data, status, headers, config)
+        {
+          AuthenticationFactory.SetSession(data.Security);
+          defered.resolve(data);
+        }).error(function (data, status, headers, config)
+        {
+            defered.reject(status);
+        });
+        return promise;
+    }
+    
+    
+    
     this.DeleteServer = function (direccion, id, objeto)
     {
         var defered = $q.defer();

@@ -74,7 +74,7 @@ myApp.controller("UserListCtrl", ['$scope','$window','datosServer','userFactory'
       $scope.Borrar = function (User) {
           userFactory.IdEdiccion = User.id;
           
-          userFactory.borrar1(User).then(function(){
+          userFactory.borrar(User).then(function(){
               userFactory.load().then(function(data){
                $scope.usuarios =  data.data;
           });

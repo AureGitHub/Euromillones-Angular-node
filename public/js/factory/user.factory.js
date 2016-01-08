@@ -15,9 +15,9 @@ function ($http,baseUrl,DireccionesServidor,remoteResource) {
     },
     
       updateAdmin: function (user) {
-      return $http.put(baseUrl + DireccionesServidor.dirAdminUserUpdate + "/" + user.id , {
-        user: user
-      });
+          
+     return  remoteResource.GoServer('PUT',DireccionesServidor.dirAdminUserUpdate,user.id,user);
+      
     },
     
      create: function (user) {
@@ -26,16 +26,10 @@ function ($http,baseUrl,DireccionesServidor,remoteResource) {
       });
     },
     
-     borrar1: function (user) {
-          return   remoteResource.DeleteServer(DireccionesServidor.dirAdminUserDelete,user.id,user);
-    },
-    
-    
      borrar: function (user) {
-      return $http.delete(baseUrl + DireccionesServidor.dirAdminUserDelete + "/" + user.id , {
-        user: user
-      });
+          return  remoteResource.GoServer('DELETE',DireccionesServidor.dirAdminUserDelete,user.id,user);
     },
+    
     
     
   };

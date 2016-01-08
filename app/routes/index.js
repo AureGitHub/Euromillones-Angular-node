@@ -31,6 +31,7 @@ router.delete('/api/private/product/:id', controller_products.delete);
 router.get('/api/admin/UserList', controller_user.getAll);
 router.put('/api/admin/user/:id', controller_user.updateUserForAdmin);
 router.delete('/api/admin/user/:id', controller_user.delete);
+router.post('/api/admin/user', controller_user.create);
 
 // ****** ADMIN ******************
 

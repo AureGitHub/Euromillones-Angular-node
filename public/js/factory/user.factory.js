@@ -19,10 +19,8 @@ function ($http,baseUrl,DireccionesServidor,remoteResource) {
       
     },
     
-     create: function (user) {
-      return $http.put(baseUrl + DireccionesServidor.dirAdminUserUpdate + "/" + user.id , {
-        user: user
-      });
+     create: function (user) {  
+         return  remoteResource.GoServer('POST',DireccionesServidor.dirUserCreate,-1,user);
     },
     
      borrar: function (user) {

@@ -17,6 +17,7 @@ var DireccionesServidor = {
   dirUserlist : '/api/admin/UserList',
   dirProductoslist : '/api/private/products',
   dirUserUpdate : '/api/private/user',
+  dirUserCreate : '/api/admin/user',
 };
 
 

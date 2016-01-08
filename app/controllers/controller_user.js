@@ -315,6 +315,7 @@ function genToken(user) {
   return {
     token: token,    
     user: {
+      userCompleto : user,
       username : user.username,
       role : user.role,
       expires : expires

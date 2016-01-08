@@ -18,8 +18,15 @@ myApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'UserAuthFactor
                   $window.sessionStorage.username = data.user.username;
                   $window.sessionStorage.role = data.user.role;
                   $window.sessionStorage.expires = data.user.expires;                 
+                  $window.sessionStorage.UserCompleto = JSON.stringify(data.user.userCompleto);    
+                  
+                  
 
                   AuthenticationFactory.check();
+                  
+                  
+                  
+                  
 
                   $location.path("/");
 

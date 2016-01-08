@@ -15,7 +15,8 @@ var DireccionesServidor = {
   dirAdminUserUpdate : '/api/admin/user',
   dirAdminUserDelete : '/api/admin/user',
   dirUserlist : '/api/admin/UserList',
-  dirProductoslist : '/api/private/products'
+  dirProductoslist : '/api/private/products',
+  dirUserUpdate : '/api/private/user',
 };
 
 
@@ -131,8 +132,22 @@ myApp.config(["$routeProvider", "$httpProvider","ROLES", function ($routeProvide
     })
     .when('/UserEdit', {
       templateUrl: 'views/UserEdit.html',
-      controller: 'UserEditCtrl'
+      controller: 'UserEditCtrl',
+      FromMenu : true,
+       data: {
+			  authorized: [ROLES.USUARIO]
+		  }
     })
+    
+    .when('/UserEditAdmin', {
+      templateUrl: 'views/UserEdit.html',
+      controller: 'UserEditCtrl',
+      FromMenu : false,
+       data: {
+			  authorized: [ROLES.ADMIN]
+		  }
+    })
+    
     .otherwise({
       redirectTo: '/login'
     });

@@ -22,6 +22,11 @@
         <label for="CorreoExterno">CorreoExterno</label>
         <input type="text" class="form-control" id="CorreoExterno" placeholder="CorreoExterno" ng-model="user.CorreoExterno">
     </div>
+    
+     <div class="form-group"  ng-show="IsAdmin()">
+        <label for="role ">Rol</label>
+        <input type="text" class="form-control" id="role" placeholder="CorreoExterno" ng-model="user.role">
+    </div>
 
 
 

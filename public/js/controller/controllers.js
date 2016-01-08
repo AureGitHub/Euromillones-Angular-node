@@ -59,8 +59,16 @@ myApp.controller("UserListCtrl", ['$scope','$window','datosServer','userFactory'
     
       $scope.Editar = function (User) {
           userFactory.IdEdiccion = User.id;
-          $location.path("/UserEdit");
+          $location.path("/UserEditAdmin");
       }
+      
+      
+      $scope.Crear = function () {
+          
+           userFactory.IdEdiccion = -1;
+           $location.path("/UserEditAdmin");
+        }
+      
       
       
       $scope.Borrar = function (User) {
@@ -82,19 +90,72 @@ myApp.controller("UserListCtrl", ['$scope','$window','datosServer','userFactory'
   }
 ]);
 
-myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location",
-    function ($scope, userFactory, $location) {
-
-        var result = $.grep(userFactory.lista, function (e) { return e.id == userFactory.IdEdiccion; });
 
 
-        $scope.user=result[0];
+myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'AuthenticationFactory','$route',
+    function ($scope, userFactory, $location,AuthenticationFactory,$route) {
+
+
+    var FromMenu =  $route.current.$$route.FromMenu;
+
+
+    if(FromMenu)
+    {
+        
+        $scope.user=AuthenticationFactory.UserCompleto;
+        
+        //El usuario quiere modificar sus dados
+    }
+    else{
+        //Un admin está modificando / creando un usuario
+         if(userFactory.IdEdiccion>-1){
+            var result = $.grep(userFactory.lista, function (e) { return e.id == userFactory.IdEdiccion; });
+            $scope.user=result[0];
+        }
+    }
+
+        
+       
+        
+        
+        
+        
+        
+         $scope.IsAdmin = function (route) {
+          return AuthenticationFactory.isAdmin;
+        }
+        
 
         $scope.save = function () {
-
+            
+            if(userFactory.IdEdiccion<0)
+            {
+                 userFactory.create($scope.user);
+            }
+            else
+            {
+                if(AuthenticationFactory.isAdmin)
+                    userFactory.updateAdmin($scope.user);
+                else
+                    userFactory.update($scope.user);
+            }
+            
+            //Mensaje de OK
+            
+            $location.path("/UserList");
+            
+            
+            
+           
+        }
+        
+        
+        $scope.Crear = function () {
             userFactory.update($scope.user);
             $location.path("/UserList");
         }
+        
+        
 
         $scope.cancelar = function () {
 

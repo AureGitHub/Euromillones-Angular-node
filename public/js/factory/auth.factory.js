@@ -12,6 +12,7 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
     isLogged: false,
     isAdmin: false,
     isUsuario: false,
+    UserCompleto : null,
     SetSession: function (Security) {
 
       $window.sessionStorage.token = Security.token;
@@ -44,6 +45,8 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
           delete this.user;
           delete $window.sessionStorage.token;
           delete $window.sessionStorage.user;
+          delete this.UserCompleto;
+          
           $location.path("/login");
 
         }
@@ -53,6 +56,12 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
             role: $window.sessionStorage.role,
             expires: $window.sessionStorage.expires
           };
+          
+          if($window.sessionStorage.UserCompleto)
+            this.UserCompleto = JSON.parse($window.sessionStorage.UserCompleto);
+          
+          
+          
 
           var pad = "00";
 

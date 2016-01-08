@@ -9,6 +9,18 @@ function ($http,baseUrl,DireccionesServidor,remoteResource) {
       return   remoteResource.GetServer(DireccionesServidor.dirUserlist);
     },
      update: function (user) {
+      return $http.put(baseUrl + DireccionesServidor.dirUserUpdate + "/" + user.id , {
+        user: user
+      });
+    },
+    
+      updateAdmin: function (user) {
+      return $http.put(baseUrl + DireccionesServidor.dirAdminUserUpdate + "/" + user.id , {
+        user: user
+      });
+    },
+    
+     create: function (user) {
       return $http.put(baseUrl + DireccionesServidor.dirAdminUserUpdate + "/" + user.id , {
         user: user
       });

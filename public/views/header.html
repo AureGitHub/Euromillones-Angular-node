@@ -14,6 +14,10 @@
         </li>        
         <li ng-show="IsLogin()" ng-class="{active:isActive('/page3')}"><a ng-href="#/page3">Page 3 (Sample Factory)</a>
         </li>
+        
+         <li ng-show="IsLogin()" ng-class="{active:isActive('/UserEditCtrl')}"><a ng-href="#/UserEdit">Perfil</a>
+        </li>
+        
         <li ng-show="IsAdmin()" ng-class="{active:isActive('/UserList')}"><a ng-href="#/UserList">Lista Usuarios</a>
         </li>
         <li ng-show="IsLogin()" ><a href="javascript:" ng-click="logout()">Logout</a>

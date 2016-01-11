@@ -339,7 +339,7 @@ exports.login = function (req, res) {
 }
 
 function genToken(user) {
-    var expires = expiresIn(30); // Minutos de session
+    var expires = expiresIn(1); // Minutos de session
   
  
     var token = jwt.encode({

@@ -26,28 +26,25 @@ this.loadNotifications = function (){
 
 
       $scope.IsLogin = function (route) {
-          return AuthenticationFactory.isLogged;
+          return AuthenticationFactory.isLogged();
       }
 
       $scope.IsAdmin = function (route) {
-          return AuthenticationFactory.isAdmin;
+          return AuthenticationFactory.isAdmin();
       }
 
 
 
       $scope.logout = function () {
           UserAuthFactory.logout();
+          
+           $location.path("/");
+          
       }
   }
 ]);
 
 
-myApp.controller("Page3Ctrl", ['$scope','$window','datosServer','AuthenticationFactory',
-  function ($scope,$window,datosServer,AuthenticationFactory) { 
-    $scope.products = datosServer.data; 
-   
-  }
-]);
 
 
 myApp.controller("UserListCtrl", ['$scope','$window','datosServer','userFactory',"$location",
@@ -102,7 +99,7 @@ myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'Authent
     if(FromMenu)
     {
         
-        $scope.user=AuthenticationFactory.UserCompleto;
+        $scope.user=AuthenticationFactory.User;
         
         //El usuario quiere modificar sus dados
     }
@@ -122,7 +119,7 @@ myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'Authent
         
         
          $scope.IsAdmin = function (route) {
-          return AuthenticationFactory.isAdmin;
+          return AuthenticationFactory.isAdmin();
         }
         
 
@@ -134,7 +131,7 @@ myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'Authent
             }
             else
             {
-                if(AuthenticationFactory.isAdmin)
+                if(AuthenticationFactory.isAdmin())
                     userFactory.updateAdmin($scope.user);
                 else
                     userFactory.update($scope.user);

@@ -24,25 +24,6 @@ var DireccionesServidor = {
 
 function RemoteResource($http, $q, AuthenticationFactory,baseUrl) {
 
-    this.GetServer = function (direccion)
-    {
-        var defered = $q.defer();
-        var promise = defered.promise;
-
-        $http({
-            method: 'GET',
-            url: baseUrl + direccion
-        }).success(function (data, status, headers, config)
-        {
-            AuthenticationFactory.SetSession(data.Security);
-            defered.resolve(data);
-        }).error(function (data, status, headers, config)
-        {
-            defered.reject(status);
-        });
-        return promise;
-    }
-    
     
     
     this.GoServer = function (method,direccion, id, objeto)
@@ -73,26 +54,7 @@ function RemoteResource($http, $q, AuthenticationFactory,baseUrl) {
     
     
     
-    this.DeleteServer = function (direccion, id, objeto)
-    {
-        var defered = $q.defer();
-        var promise = defered.promise;
-
-
-        $http({
-            method: 'DELETE',
-            url: baseUrl + direccion + "/" + id,
-            data : objeto
-        }).success(function (data, status, headers, config)
-        {
-            AuthenticationFactory.SetSession(data.Security);
-            defered.resolve(data);
-        }).error(function (data, status, headers, config)
-        {
-            defered.reject(status);
-        });
-        return promise;
-    }
+   
     
 }
 

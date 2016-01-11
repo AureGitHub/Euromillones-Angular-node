@@ -13,20 +13,9 @@ myApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'UserAuthFactor
           if (username !== undefined && password !== undefined) {
 
               UserAuthFactory.login(username, password).success(function (data) {
-
-                  $window.sessionStorage.token = data.token;
-                  $window.sessionStorage.username = data.user.username;
-                  $window.sessionStorage.role = data.user.role;
-                  $window.sessionStorage.expires = data.user.expires;                 
-                  $window.sessionStorage.UserCompleto = JSON.stringify(data.user.userCompleto);    
-                  
-                  
-
-                  AuthenticationFactory.check();
-                  
-                  
-                  
-                  
+                
+                AuthenticationFactory.SetSession(data.Security);
+  
 
                   $location.path("/");
 

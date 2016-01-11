@@ -12,9 +12,14 @@
   <p class="lead">
     <table class="table table-striped">
       <tr>
+         <th>Id</th>
+         <th>Nombre</th>
         <th>username</th>
         <th>password</th>
         <th>role</th>
+        <th>activo</th>
+        <th>CorreoExterno</th>
+        <th></th>
       </tr>      
       <tr ng-repeat="u in usuarios | orderBy:'username'">
         <td>{{u.id}}</td>

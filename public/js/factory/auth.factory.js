@@ -7,25 +7,42 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
 
   var auth = {
 
+  User : null,
 
-
-    isLogged: false,
-    isAdmin: false,
-    isUsuario: false,
-    UserCompleto : null,
+    isLogged : function(){
+          return $window.sessionStorage.token;
+        },
+        
+        
+    isAdmin : function(){
+       return (this.User && this.User.role == ROLES.ADMIN);
+        },
+        
+    isUsuario: function(){
+       return (this.User && this.User.role == ROLES.USUARIO);
+        },
+    
+    
     SetSession: function (Security) {
-
       $window.sessionStorage.token = Security.token;
-      $window.sessionStorage.username = Security.user.username;
-      $window.sessionStorage.role = Security.user.role;
-      $window.sessionStorage.expires = Security.user.expires;
+      $window.sessionStorage.expires = Security.expires;
+      $window.sessionStorage.User = JSON.stringify(Security.user);
+      
+      if($window.sessionStorage.User)
+            this.User = JSON.parse($window.sessionStorage.User);
       this.check();
 
     },
+    deconectar : function()
+    {
+        delete $window.sessionStorage.token;
+        delete $window.sessionStorage.expires;
+        delete $window.sessionStorage.User;
+        delete this.User;
+        
+    },
     check: function () {
-      if ($window.sessionStorage.token && $window.sessionStorage.token) {
-
-
+      if ($window.sessionStorage.token) {
         var today = new Date();
         var dateExpire = new Date(parseInt($window.sessionStorage.expires));
         var diffMs = (dateExpire - today); // milliseconds between now & dateExpire
@@ -39,47 +56,24 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
           alert('Su sesión ha caducado!!!!!!');
 
           this.FechaInExpire = "CADUCADA!!!!";
-          this.isLogged = false;
-          this.isAdmin = false;
-          this.isUsuario = false;
-          delete this.user;
-          delete $window.sessionStorage.token;
-          delete $window.sessionStorage.user;
-          delete this.UserCompleto;
+         
+         this.deconectar();
           
           $location.path("/login");
 
         }
         else {
-          this.user = {
-            username: $window.sessionStorage.username,
-            role: $window.sessionStorage.role,
-            expires: $window.sessionStorage.expires
-          };
           
-          if($window.sessionStorage.UserCompleto)
-            this.UserCompleto = JSON.parse($window.sessionStorage.UserCompleto);
+           if($window.sessionStorage.User)
+              this.User = JSON.parse($window.sessionStorage.User);
           
+          this.FechaInExpire = dateExpire.getHours() + ":" +  dateExpire.getMinutes();
           
-          
-
-          var pad = "00";
-
-          this.FechaInExpire = 'Horas :' + pad.substring(0, pad.length - diffHrs.toString().length) + diffHrs +
-          "  Min:" + pad.substring(0, pad.length - diffMins.toString().length) + diffMins;
-          this.isLogged = true;
-          this.isAdmin = this.user.role == ROLES.ADMIN;
-          this.isUsuario = this.user.role == ROLES.USUARIO;
         }
 
 
       } else {
-        this.isLogged = false;
-        this.isAdmin = false;
-        this.isUsuario = false;
-        delete this.user;
-
-
+         this.deconectar();
       }
     },
   }
@@ -89,7 +83,6 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
 
 // his factory is responsible for contacting the login endpoint and validating the user. And also logging out the user.
 myApp.factory('UserAuthFactory', ['$window', '$location', '$http', 'AuthenticationFactory', 'baseUrl', 'DireccionesServidor', function ($window, $location, $http, AuthenticationFactory, BaseUrl, DireccionesServidor) {
-
 
 
   return {
@@ -103,16 +96,9 @@ myApp.factory('UserAuthFactory', ['$window', '$location', '$http', 'Authenticati
     logout: function () {
 
       if (AuthenticationFactory.isLogged) {
+        AuthenticationFactory.deconectar();
 
-        AuthenticationFactory.isLogged = false;
-        delete AuthenticationFactory.user;
-
-
-        delete $window.sessionStorage.token;
-        delete $window.sessionStorage.user;
-
-
-        $location.path("/login");
+        
       }
 
     }

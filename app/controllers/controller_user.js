@@ -310,7 +310,11 @@ exports.login = function (req, res) {
         where: { username: username, password: password }
     }).then(function (user) {
         if (user) {
-            res.json(genToken(user));
+            
+             res.json({
+                    data: 'OK',
+                    Security: genToken(user),
+                });
         } else {
             res.status(401);
             res.json({
@@ -345,12 +349,8 @@ function genToken(user) {
 
     return {
         token: token,
-        user: {
-            userCompleto: user,
-            username: user.username,
-            role: user.role,
-            expires: expires
-        }
+        expires: expires,
+        user:user
     };
 }
 

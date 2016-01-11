@@ -15,8 +15,6 @@ myApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'UserAuthFactor
               UserAuthFactory.login(username, password).success(function (data) {
                 
                 AuthenticationFactory.SetSession(data.Security);
-  
-
                   $location.path("/");
 
               }).error(function (status) {

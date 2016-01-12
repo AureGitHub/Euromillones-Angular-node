@@ -1,10 +1,11 @@
-myApp.controller("HeaderCtrl", ['$scope', '$location','$interval', 'UserAuthFactory', 'AuthenticationFactory',
-  function ($scope, $location,$interval, UserAuthFactory, AuthenticationFactory) {
+myApp.controller("HeaderCtrl", ['$scope', '$location','$interval', 'UserAuthFactory', 'AuthenticationFactory','growl',
+  function ($scope, $location,$interval, UserAuthFactory, AuthenticationFactory,growl) {
       /*
       $scope.user = {
           username: AuthenticationFactory.user.username,
           expires: AuthenticationFactory.expires
       };*/
+
 
 
       $scope.user = {
@@ -17,26 +18,33 @@ myApp.controller("HeaderCtrl", ['$scope', '$location','$interval', 'UserAuthFact
           var username = $scope.user.username,
         password = $scope.user.password;
 
-          if (username !== undefined && password !== undefined) {
+        
 
-              UserAuthFactory.login(username, password).success(function (data) {
-                
-                AuthenticationFactory.SetSession(data.Security);
-                  $location.path("/");
-
-              }).error(function (status) {
-                  alert('Oops something went wrong!');
-              });
-          } else {
-              alert('Invalid credentials');
-          }
+          UserAuthFactory.login(username, password).then(function (data) {
+              growl.success('Se ha conectado correctamente',{title: 'Conectado'});
+              $location.path("/");
+          });
+        
 
       };
 
 this.loadNotifications = function (){
 
-    if(AuthenticationFactory.isLogged)
+    if(AuthenticationFactory.isLogged())
+    {
         AuthenticationFactory.check();
+        
+        if(!AuthenticationFactory.User)
+        {
+            growl.info('Su sesión ha expirado.',{title: ''});
+            $location.path("/");
+        }
+        
+       
+    }
+        
+        
+        
    };
 
 
@@ -51,17 +59,20 @@ this.loadNotifications = function (){
       }
 
 
-      $scope.IsLogin = function (route) {
+      $scope.IsLogin = function () {
           return AuthenticationFactory.isLogged();
       }
 
-      $scope.IsAdmin = function (route) {
+      $scope.IsAdmin = function () {
           return AuthenticationFactory.isAdmin();
       }
 
 
 
       $scope.logout = function () {
+          
+           growl.success('Se ha desconectado correctamente',{title: 'Desconexión'});
+          
           UserAuthFactory.logout();
           
            $location.path("/");
@@ -69,6 +80,18 @@ this.loadNotifications = function (){
       }
   }
 ]);
+
+
+
+
+myApp.controller("HomeCtrl", ['$scope',
+  function ($scope) { 
+      
+   
+      
+  }
+]);
+
 
 
 
@@ -114,12 +137,54 @@ myApp.controller("UserListCtrl", ['$scope','$window','datosServer','userFactory'
 ]);
 
 
+myApp.controller("RolListCtrl", ['$scope','$window','datosServer','userFactory',"$location",
+  function ($scope,$window,datosServer,userFactory,$location) { 
+      
+    $scope.roles = datosServer.data;  
+    
+      $scope.Editar = function (User) {
+          userFactory.IdEdiccion = User.id;
+          $location.path("/UserEditAdmin");
+      }
+      
+      
+      $scope.Crear = function () {
+          
+           userFactory.IdEdiccion = -1;
+           $location.path("/UserEditAdmin");
+        }
+      
+      
+      
+      $scope.Borrar = function (User) {
+          userFactory.IdEdiccion = User.id;
+          
+          userFactory.borrar(User).then(function(){
+              userFactory.load().then(function(data){
+               $scope.usuarios =  data.data;
+          });
+          });
+          
+          
+          
+          
+          
+          
+      }
+      
+  }
+]);
 
-myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'AuthenticationFactory','$route',
-    function ($scope, userFactory, $location,AuthenticationFactory,$route) {
+
+
+
+myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'AuthenticationFactory','$route','growl',
+    function ($scope, userFactory, $location,AuthenticationFactory,$route,growl) {
 
 
     var FromMenu =  $route.current.$$route.FromMenu;
+
+   
 
 
     if(FromMenu)
@@ -130,16 +195,38 @@ myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'Authent
         //El usuario quiere modificar sus dados
     }
     else{
+        
+        
+       
+        
         //Un admin está modificando / creando un usuario
          if(userFactory.IdEdiccion>-1){
             var result = $.grep(userFactory.lista, function (e) { return e.id == userFactory.IdEdiccion; });
             $scope.user=result[0];
         }
     }
+    
+    
+     if(AuthenticationFactory.isAdmin())
+    {
+         $scope.ListaRoles=[
+                    {Id : '1', Name : 'Administrador'},
+                    {Id : '2', Name : 'Usuario'}
+                    ];
+        
+        $scope.RolSeleccionado = $.grep($scope.ListaRoles, function (e) { return e.Id ==  $scope.user.role; })[0];
+        
+        
+                    
+    }
+    
 
         
        
-        
+        $scope.dropboxitemselected = function(item){
+            $scope.RolSeleccionado = item;
+            $scope.user.role = item.Id;
+        }
         
         
         
@@ -158,16 +245,20 @@ myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'Authent
             else
             {
                 if(AuthenticationFactory.isAdmin())
-                    userFactory.updateAdmin($scope.user);
+                    userFactory.updateAdmin($scope.user).then(function(){
+                        growl.success('Guardado correctamente',{title: 'Guardado'});
+                         if(!FromMenu)
+                            $location.path("/UserList");
+                        
+                    });
                 else
-                    userFactory.update($scope.user);
+                    userFactory.update($scope.user).then(function(){
+                        growl.success('Guardado correctamente',{title: 'Guardado'});
+                        
+                    });
             }
             
             //Mensaje de OK
-            
-            $location.path("/UserList");
-            
-            
             
            
         }

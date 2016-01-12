@@ -1,10 +1,4 @@
 <div class="container">
-  <div class="page-header">
-    <h3>Lista de  Usuarios
-      <code>/api/admin/UserList</code>
-    </h3>
-  </div>
- 
  <p>
     <button type="button" ng-click="Crear()" class="btn btn-primary">Crear Jugador</button>
  </p>
@@ -19,7 +13,7 @@
         <th>role</th>
         <th>activo</th>
         <th>CorreoExterno</th>
-        <th></th>
+        <th>Accion</th>
       </tr>      
       <tr ng-repeat="u in usuarios | orderBy:'username'">
         <td>{{u.id}}</td>
@@ -29,8 +23,8 @@
         <td>{{u.role}}</td>
         <td>{{u.activo}}</td>
         <td>{{u.CorreoExterno}}</td>
-         <td><button type="button" ng-click="Editar(u)" class="btn btn-primary">Editar</button></td>
-         <td><button type="button" ng-click="Borrar(u)" class="btn btn-primary">Borrar</button></td>
+         <td><button type="button" ng-click="Editar(u)" class="btn btn-primary">Editar</button>
+         <button type="button" ng-click="Borrar(u)" class="btn btn-primary">Borrar</button></td>
         
         
       </tr>

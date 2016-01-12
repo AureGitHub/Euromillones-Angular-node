@@ -52,14 +52,9 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
           
         if (diffHrs == 0 && diffMins == 0) //Session ha muerto
         {
-
-          alert('Su sesión ha caducado!!!!!!');
-
           this.FechaInExpire = "CADUCADA!!!!";
-         
          this.deconectar();
           
-          $location.path("/login");
 
         }
         else {
@@ -82,20 +77,23 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
 }]);
 
 // his factory is responsible for contacting the login endpoint and validating the user. And also logging out the user.
-myApp.factory('UserAuthFactory', ['$window', '$location', '$http', 'AuthenticationFactory', 'baseUrl', 'DireccionesServidor', function ($window, $location, $http, AuthenticationFactory, BaseUrl, DireccionesServidor) {
+myApp.factory('UserAuthFactory', ['$window', '$location', '$http', 'AuthenticationFactory', 'baseUrl', 'DireccionesServidor', 'remoteResource',
+function ($window, $location, $http, AuthenticationFactory, BaseUrl, DireccionesServidor,remoteResource) {
 
 
   return {
     login: function (username, password) {
-      return $http.post(BaseUrl + DireccionesServidor.Login, {
-        username: username,
-        password: password
-      });
+      
+      var user = {
+        username:username,
+        password : password
+      };
+       return  remoteResource.GoServer('POST',DireccionesServidor.Login,-1,user);
     },
 
     logout: function () {
 
-      if (AuthenticationFactory.isLogged) {
+      if (AuthenticationFactory.isLogged()) {
         AuthenticationFactory.deconectar();
 
         
@@ -106,7 +104,8 @@ myApp.factory('UserAuthFactory', ['$window', '$location', '$http', 'Authenticati
 }]);
  
 //This factory is responsible for sending in the access token and the key along with each request to the server.
-myApp.factory('TokenInterceptor', function ($q, $window) {
+myApp.factory('TokenInterceptor',['$q','$window','AuthenticationFactory',
+function ($q, $window,AuthenticationFactory) {
   return {
     request: function (config) {
       config.headers = config.headers || {};
@@ -119,7 +118,15 @@ myApp.factory('TokenInterceptor', function ($q, $window) {
     },
 
     response: function (response) {
+      
+      console.log("status :" + response.status);
+     
       return response || $q.when(response);
+    },
+    
+     responseError: function (response) {
+      return $q.reject(response);
     }
+    
   };
-});
+}]);

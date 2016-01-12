@@ -1,4 +1,4 @@
-var myApp = angular.module('angularTodo', ['ngRoute', 'ngStorage']);
+var myApp = angular.module('angularTodo', ["ngRoute", "ngStorage","angular-growl"]);
 
 
 myApp.constant('ROLES', {
@@ -15,6 +15,7 @@ var DireccionesServidor = {
   dirAdminUserUpdate : '/api/admin/user',
   dirAdminUserDelete : '/api/admin/user',
   dirUserlist : '/api/admin/UserList',
+  dirRollist : '/api/admin/RolList',
   dirProductoslist : '/api/private/products',
   dirUserUpdate : '/api/private/user',
   dirUserCreate : '/api/admin/user',
@@ -22,7 +23,7 @@ var DireccionesServidor = {
 
 
 
-function RemoteResource($http, $q, AuthenticationFactory,baseUrl) {
+function RemoteResource($http, $q, AuthenticationFactory,baseUrl,growl,$window) {
 
     
     
@@ -47,7 +48,17 @@ function RemoteResource($http, $q, AuthenticationFactory,baseUrl) {
           defered.resolve(data);
         }).error(function (data, status, headers, config)
         {
-            defered.reject(status);
+            if(status >= 500)
+            {
+                growl.error("Se ha producido un error en el servidor. Póngase en contacto con el administrador. Código error (" + status + ")",{title: 'Error Fatal'});
+                 
+            }
+            else
+            {
+                growl.error(data.message ,{title: 'Error'});
+            }
+            defered.reject(data);
+            
         });
         return promise;
     }
@@ -68,9 +79,10 @@ function RemoteResourceProvider() {
   } 
  
   
-  this.$get = ['$http', '$q', 'AuthenticationFactory', function ($http, $q,AuthenticationFactory) {
+  this.$get = ['$http', '$q', 'AuthenticationFactory','growl', '$window',
+  function ($http, $q,AuthenticationFactory,growl,$window) {
 
-    return new RemoteResource($http, $q,AuthenticationFactory, _baseUrl);
+    return new RemoteResource($http, $q,AuthenticationFactory, _baseUrl,growl,$window);
   }];
 }
 
@@ -88,29 +100,22 @@ myApp.config(['baseUrl','DireccionesServidor', 'remoteResourceProvider',
 
 
 
-myApp.config(["$routeProvider", "$httpProvider","ROLES", function ($routeProvider, $httpProvider,ROLES) {
+myApp.config(["$routeProvider", "$httpProvider","ROLES", "growlProvider",
+function ($routeProvider, $httpProvider,ROLES,growlProvider) {
+
+
+ growlProvider.globalTimeToLive({success: 2000});
+ growlProvider.globalPosition('top-center');
 
   $httpProvider.interceptors.push('TokenInterceptor');
-
+  
+   
   $routeProvider
    .when('/', {
-      templateUrl: 'views/home.html'
+      templateUrl: 'views/home.html',
+       controller: 'HomeCtrl'
     })
-    .when('/login', {
-      templateUrl: 'views/login.html',
-      controller: 'LoginCtrl'
-    }).when('/page3', {
-      templateUrl: 'views/page3.html',
-      controller: 'Page3Ctrl',
-      data: {
-			authorized: [ROLES.USUARIO]
-		},
-        resolve: {
-        datosServer: ['remoteResource', function (remoteResource) {
-          return remoteResource.GetServer(DireccionesServidor.dirProductoslist);
-          }]
-      } 
-    }).when('/UserList', {
+  .when('/UserList', {
       templateUrl: 'views/UserList.html',
       data: {
 			authorized: [ROLES.ADMIN]
@@ -119,6 +124,18 @@ myApp.config(["$routeProvider", "$httpProvider","ROLES", function ($routeProvide
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
           return remoteResource.GoServer('GET',DireccionesServidor.dirUserlist,-1,null);
+          }]
+      } 
+    })
+    .when('/RolList', {
+      templateUrl: 'views/RolList.html',
+      data: {
+			authorized: [ROLES.ADMIN]
+		},
+      controller: 'RolListCtrl',
+      resolve: {
+        datosServer: ['remoteResource', function (remoteResource) {
+          return remoteResource.GoServer('GET',DireccionesServidor.dirRollist,-1,null);
           }]
       } 
     })
@@ -139,9 +156,8 @@ myApp.config(["$routeProvider", "$httpProvider","ROLES", function ($routeProvide
 			  authorized: [ROLES.ADMIN]
 		  }
     })
-    
     .otherwise({
-      redirectTo: '/login'
+      redirectTo: '/'
     });
 }]);
 
@@ -155,13 +171,13 @@ myApp.run(["$rootScope", "$window", "$location", "AuthenticationFactory","ROLES"
 
         if(nextRoute.data!=null && nextRoute.data.authorized!=null)
         {
-            if(!AuthenticationFactory.isLogged)
+            if(!AuthenticationFactory.isLogged())
             {
                  $location.path("/");
                  return;
             }
 
-            if($.inArray(ROLES.ADMIN, nextRoute.data.authorized) > -1 && !AuthenticationFactory.isAdmin){
+            if($.inArray(ROLES.ADMIN, nextRoute.data.authorized) > -1 && !AuthenticationFactory.isAdmin()){
                 $location.path("/");
                 return;
             }

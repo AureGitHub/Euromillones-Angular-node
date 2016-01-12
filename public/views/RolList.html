@@ -1,0 +1,29 @@
+<div class="container">
+ <p>
+    <button type="button" ng-click="Crear()" class="btn btn-primary">Crear Jugador</button>
+ </p>
+ 
+  <p class="lead">
+    <table class="table table-striped">
+      <tr>
+         <th>Id</th>
+         <th>Codigo</th>
+        <th>Name</th>
+       
+      </tr>      
+      <tr ng-repeat="r in roles | orderBy:'Name'">
+        <td>{{r.id}}</td>
+        <td>{{r.Codigo}}</td>
+        <td>{{r.Name}}</td>
+        
+         <td><button type="button" ng-click="Editar(r)" class="btn btn-primary">Editar</button>
+         <button type="button" ng-click="Borrar(r)" class="btn btn-primary">Borrar</button></td>
+        
+        
+      </tr>
+     
+    </table>
+  </p>
+ 
+</div>
+

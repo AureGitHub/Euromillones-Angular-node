@@ -4,6 +4,7 @@ var router = express();
 
 var controller_user = require('../controllers/controller_user');
 var controller_products = require('../controllers/controller_products');
+var controller_tipos = require('../controllers/controller_tipos');
 
 
 var models = require('../models/models');
@@ -32,6 +33,12 @@ router.get('/api/admin/UserList', controller_user.getAll);
 router.put('/api/admin/user/:id', controller_user.updateUserForAdmin);
 router.delete('/api/admin/user/:id', controller_user.delete);
 router.post('/api/admin/user', controller_user.create);
+
+//++++++++++++ Tipos
+
+router.get('/api/admin/RolList', controller_tipos.getRolesAll);
+
+
 
 // ****** ADMIN ******************
 

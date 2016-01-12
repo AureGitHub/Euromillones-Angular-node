@@ -33,7 +33,7 @@ exports.validateRequest = function (req, res, next) {
                 res.status(400);
                 res.json({
                     "status": 400,
-                    "message": "Token Expired"
+                    "message": "Token de seguridad ha expirado"
                 });
                 return;
             }
@@ -60,7 +60,7 @@ exports.validateRequest = function (req, res, next) {
                         res.status(403);
                         res.json({
                             "status": 403,
-                            "message": "Not Authorized"
+                            "message": "No está autorizado para realizar esta operación"
                         });
                     }
 
@@ -69,10 +69,9 @@ exports.validateRequest = function (req, res, next) {
 
                 } else {
                     // No user with this name exists, respond back with a 401
-                    res.status(401);
-                    res.json({
-                        "status": 401,
-                        "message": "Invalid User"
+                     res.status(401);
+                     res.json({
+                        "message": "Usuario / Password Incorrecto"
                     });
                     return;
                 }
@@ -81,7 +80,7 @@ exports.validateRequest = function (req, res, next) {
                     res.status(500);
                     res.json({
                         "status": 500,
-                        "message": "Oops something went wrong",
+                        "message": err,
                         "error": err
                     });
 
@@ -94,7 +93,7 @@ exports.validateRequest = function (req, res, next) {
             res.status(500);
             res.json({
                 "status": 500,
-                "message": "Oops something went wrong",
+                "message": err,
                 "error": err
             });
         }
@@ -102,13 +101,58 @@ exports.validateRequest = function (req, res, next) {
 
 
     } else {
-        res.status(401);
+        res.status(400);
         res.json({
-            "status": 401,
-            "message": "Invalid Token or Key"
+            "status": 400,
+            "message": "Token de seguridad inválido"
         });
         return;
     }
+}
+
+
+exports.login = function (req, res) {
+ 
+    var username = req.body.username || '';
+    var password = req.body.password || '';
+
+    if (username == '' || password == '') {
+        res.status(401);
+        res.json({
+            "status": 401,
+            "message": "Credenciales incorrectas"
+        });
+        return;
+    }
+
+
+    models.Jugadores.find({
+        where: { username: username, password: password }
+    }).then(function (user) {
+        if (user) {
+             res.status(200);
+             res.json({
+                    Security: genToken(user),
+                });
+        } else {
+            res.status(401);
+             res.json({
+                "message": "Usuario / Password Incorrecto"
+            });
+            return;
+
+        }
+    }
+        ).catch(function (error) {
+            res.status(500 );
+            res.json({
+                "message": error
+            });
+            return;
+        });
+
+
+
 }
 
 
@@ -291,55 +335,10 @@ exports.delete = function (req, res) {
 
 
 
-exports.login = function (req, res) {
 
-    var username = req.body.username || '';
-    var password = req.body.password || '';
-
-    if (username == '' || password == '') {
-        res.status(401);
-        res.json({
-            "status": 401,
-            "message": "Invalid credentials"
-        });
-        return;
-    }
-
-
-    models.Jugadores.find({
-        where: { username: username, password: password }
-    }).then(function (user) {
-        if (user) {
-            
-             res.json({
-                    data: 'OK',
-                    Security: genToken(user),
-                });
-        } else {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
-
-        }
-    }
-        ).catch(function (error) {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
-        });
-
-
-
-}
 
 function genToken(user) {
-    var expires = expiresIn(30); // Minutos de session
+    var expires = expiresIn(15); // Minutos de session
   
  
     var token = jwt.encode({

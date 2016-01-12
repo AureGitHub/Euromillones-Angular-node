@@ -27,7 +27,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Tipos <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li ng-show="IsAdmin()" ng-class="{active:isActive('/RolList')}"><a ng-href="#/RolList">Roles</a></li>
-                        
+
                     </ul>
                 </li>
             </ul>
@@ -35,40 +35,44 @@
 
                 <li ng-show="!IsLogin()" class="dropdown" id="menuLogin">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">
-                     
+
                         <button type="button" class="btn btn-danger btn-default btn-sm">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Conectar
                         </button>
                     </a>
                     <div class="dropdown-menu" style="padding:17px;">
-                         <form ng-submit="login()">
-                        <div class="form-group">
-                            <label for="username">Usuario</label>
-                            <input type="text" class="form-control" id="username" placeholder="Username" ng-model="user.username" required>
+                        <form ng-submit="login()">
+                            <div class="form-group">
+                                <label for="username">Usuario</label>
+                                <input type="text" class="form-control" id="username" placeholder="Username" ng-model="user.username" required>
 
-                        </div>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password" required>
-                        </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password" required>
+                            </div>
 
-                        <button type="submit"  class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                     </form>
                 </li>
 
 
+                <li ng-show="session.VerMonedaServer">
+                    <img src="img/Moneda1Euro.gif" alt="Smiley face" height="50" width="50">
+                   
+                </li>
 
                 <li ng-show="IsLogin()">
                     <a ng-href="#/UserEdit">
-                         <span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
-                        <span class="text-right">{{session.User.username}}</span> | 
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <span class="text-right">{{session.User.username}}</span> |
                         <span class="text-right">Expira:{{session.FechaInExpire}}</span></a>
                 </li>
-                
-                
-                 <li ng-show="IsLogin()">
+
+
+                <li ng-show="IsLogin()">
                     <a title="Desconexion" href="javascript:" ng-click="logout()">
                         <button type="button" class="btn btn-success btn-default btn-sm">
                             <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Desconectar
@@ -84,4 +88,3 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-

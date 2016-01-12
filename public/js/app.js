@@ -1,4 +1,4 @@
-var myApp = angular.module('angularTodo', ["ngRoute", "ngStorage","angular-growl"]);
+var myApp = angular.module('angularTodo', ['ngRoute', 'ngStorage','angular-growl','ui.bootstrap']);
 
 
 myApp.constant('ROLES', {
@@ -15,10 +15,12 @@ var DireccionesServidor = {
   dirAdminUserUpdate : '/api/admin/user',
   dirAdminUserDelete : '/api/admin/user',
   dirUserlist : '/api/admin/UserList',
-  dirRollist : '/api/admin/RolList',
   dirProductoslist : '/api/private/products',
   dirUserUpdate : '/api/private/user',
   dirUserCreate : '/api/admin/user',
+  
+   dirRollist : '/api/admin/RolList',
+   dirRolUpdate : '/api/admin/RolUpdate',
 };
 
 
@@ -48,7 +50,7 @@ function RemoteResource($http, $q, AuthenticationFactory,baseUrl,growl,$window) 
           defered.resolve(data);
         }).error(function (data, status, headers, config)
         {
-            if(status >= 500)
+            if(status >= 500 || status==-1)
             {
                 growl.error("Se ha producido un error en el servidor. Póngase en contacto con el administrador. Código error (" + status + ")",{title: 'Error Fatal'});
                  
@@ -166,6 +168,8 @@ myApp.run(["$rootScope", "$window", "$location", "AuthenticationFactory","ROLES"
     AuthenticationFactory.check();
 
     $rootScope.session = AuthenticationFactory;
+    
+    $rootScope.session.VerMonedaServer = false;
 
     $rootScope.$on("$routeChangeStart", function (event, nextRoute, currentRoute) {        
 

@@ -1,29 +1,57 @@
 <div class="container">
- <p>
-    <button type="button" ng-click="Crear()" class="btn btn-primary">Crear Jugador</button>
- </p>
- 
-  <p class="lead">
-    <table class="table table-striped">
-      <tr>
-         <th>Id</th>
-         <th>Codigo</th>
-        <th>Name</th>
-       
-      </tr>      
-      <tr ng-repeat="r in roles | orderBy:'Name'">
-        <td>{{r.id}}</td>
-        <td>{{r.Codigo}}</td>
-        <td>{{r.Name}}</td>
-        
-         <td><button type="button" ng-click="Editar(r)" class="btn btn-primary">Editar</button>
-         <button type="button" ng-click="Borrar(r)" class="btn btn-primary">Borrar</button></td>
-        
-        
-      </tr>
-     
-    </table>
-  </p>
- 
-</div>
 
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Modificar Rol</h3>
+        </div>
+        <form ng-submit="ok()">
+            <div class="modal-body">
+
+
+                <div class="form-group">
+                    <label for="Codigo">Codigo</label>
+                    <input type="text" class="form-control" id="Codigo" placeholder="Codigo" ng-model="rol.Codigo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Descripcion">Descripcion</label>
+                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="rol.Name" required>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" ng-click="cancel()" class="btn btn-warning">Cancalar</button>
+            </div>
+        </form>
+    </script>
+
+
+
+    <p class="lead">
+        <table class="table table-striped">
+            <tr>
+
+                <th>Codigo</th>
+                <th>Name</th>
+
+            </tr>
+            <tr ng-repeat="r in roles | orderBy:'Name'">
+
+                <td>{{r.Codigo}}</td>
+                <td>{{r.Name}}</td>
+
+                <td>
+                    <button type="button" ng-click="Editar(r)" class="btn btn-primary">Editar</button>
+                    <button type="button" ng-click="Borrar(r)" class="btn btn-primary">Borrar</button>
+                </td>
+
+
+            </tr>
+
+        </table>
+    </p>
+
+</div>

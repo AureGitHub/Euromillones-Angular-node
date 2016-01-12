@@ -159,7 +159,9 @@ exports.login = function (req, res) {
 
 exports.getAll = function (req, res) {
 
-    models.Jugadores.findAll().then(function (usuarios) {
+    models.Jugadores.findAll({
+         include:  { model: models.TiposRol, required: true}
+    }).then(function (usuarios) {
         res.json({
             data: usuarios,
             Security: req.tokenRefresh,
@@ -302,6 +304,7 @@ exports.delete = function (req, res) {
 
     models.Jugadores.find({
         where: { id: id }
+  
     }).then(function (jugador) {
         if (jugador) {
 

@@ -37,6 +37,7 @@ router.post('/api/admin/user', controller_user.create);
 //++++++++++++ Tipos
 
 router.get('/api/admin/RolList', controller_tipos.getRolesAll);
+router.put('/api/admin/RolUpdate/:id', controller_tipos.RolUpdate);
 
 
 

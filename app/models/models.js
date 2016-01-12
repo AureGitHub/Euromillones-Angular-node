@@ -14,6 +14,9 @@ var DatosPreCarga = require('./datosPreCarga.js');
 var Jugadores = sequelize.import(path.join(__dirname, 'jugadores'));
 var TiposRol = sequelize.import(path.join(__dirname, 'tiposRol'));
 
+//REL JUGADORES x TiposRol
+Jugadores.belongsTo(TiposRol, { foreignKey: 'role' });
+
 exports.Jugadores = Jugadores;
 exports.TiposRol = TiposRol;
 

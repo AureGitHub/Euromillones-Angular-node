@@ -62,7 +62,10 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
            if($window.sessionStorage.User)
               this.User = JSON.parse($window.sessionStorage.User);
           
-          this.FechaInExpire = dateExpire.getHours() + ":" +  dateExpire.getMinutes();
+          var pad = "00";
+          var hora = pad.substring(0, pad.length - dateExpire.getHours().toString().length) + dateExpire.getHours().toString();
+          var min = pad.substring(0, pad.length - dateExpire.getMinutes().toString().length) + dateExpire.getMinutes().toString();
+          this.FechaInExpire = hora + ":" +  min;
           
         }
 
@@ -104,10 +107,12 @@ function ($window, $location, $http, AuthenticationFactory, BaseUrl, Direcciones
 }]);
  
 //This factory is responsible for sending in the access token and the key along with each request to the server.
-myApp.factory('TokenInterceptor',['$q','$window','AuthenticationFactory',
-function ($q, $window,AuthenticationFactory) {
+myApp.factory('TokenInterceptor',['$q','$window','AuthenticationFactory','$rootScope',
+function ($q, $window,AuthenticationFactory,$rootScope) {
   return {
     request: function (config) {
+        $rootScope.session.VerMonedaServer = true;
+        
       config.headers = config.headers || {};
       if ($window.sessionStorage.token) {
         config.headers['X-Access-Token'] = $window.sessionStorage.token;
@@ -118,13 +123,14 @@ function ($q, $window,AuthenticationFactory) {
     },
 
     response: function (response) {
-      
+      $rootScope.session.VerMonedaServer = false;
       console.log("status :" + response.status);
      
       return response || $q.when(response);
     },
     
      responseError: function (response) {
+          $rootScope.session.VerMonedaServer = false;
       return $q.reject(response);
     }
     

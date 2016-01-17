@@ -1,12 +1,21 @@
 
 var models = require('../models/models.js');
 
+function Ejecuta(Tabla,req, res, next)
+{
+     Tabla.findAll().then(function (dato) {
+        res.data = dato;
+        next();
+    })
+    .catch(function (error) {
+        next(error);
+        });
+}
+
 exports.getRolesAll = function (req, res, next) {
 
-    models.TiposRol.findAll().then(function (Rol) {
-        res.data = Rol;
-        next(Rol);
-    });
+    Ejecuta(models.TiposRol,req, res, next);
+    
 }
 
 

@@ -69,8 +69,8 @@ exports.validateRequest = function (req, res, next) {
 
                 } else {
                     // No user with this name exists, respond back with a 401
-                     res.status(401);
-                     res.json({
+                    res.status(401);
+                    res.json({
                         "message": "Usuario / Password Incorrecto"
                     });
                     return;
@@ -113,7 +113,7 @@ exports.validateRequest = function (req, res, next) {
 
 
 exports.login = function (req, res) {
- 
+
     var username = req.body.username || '';
     var password = req.body.password || '';
 
@@ -131,13 +131,13 @@ exports.login = function (req, res) {
         where: { username: username, password: password }
     }).then(function (user) {
         if (user) {
-             res.status(200);
-             res.json({
-                    Security: genToken(user),
-                });
+            res.status(200);
+            res.json({
+                Security: genToken(user),
+            });
         } else {
             res.status(401);
-             res.json({
+            res.json({
                 "message": "Usuario / Password Incorrecto"
             });
             return;
@@ -145,7 +145,7 @@ exports.login = function (req, res) {
         }
     }
         ).catch(function (error) {
-            res.status(500 );
+            res.status(500);
             res.json({
                 "message": error
             });
@@ -161,7 +161,7 @@ exports.login = function (req, res) {
 exports.getAll = function (req, res) {
 
     models.Jugadores.findAll({
-         include:  { model: models.TiposRol, required: true}
+        include: { model: models.TiposRol, required: true }
     }).then(function (usuarios) {
         res.json({
             data: usuarios,
@@ -169,7 +169,16 @@ exports.getAll = function (req, res) {
 
         });
     }
-        );
+        ).catch(function (error) {
+            res.status(500);
+            res.json({
+                "status": 500,
+                "message": error
+            });
+            return;
+        });
+        
+    ;
 }
 
 
@@ -305,7 +314,7 @@ exports.delete = function (req, res) {
 
     models.Jugadores.find({
         where: { id: id }
-  
+
     }).then(function (jugador) {
         if (jugador) {
 
@@ -353,7 +362,7 @@ function genToken(user) {
     return {
         token: token,
         expires: expires,
-        user:user
+        user: user
     };
 }
 

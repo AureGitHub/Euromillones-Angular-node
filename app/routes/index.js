@@ -52,6 +52,14 @@ function finalizar (req, res, next) {
         });
 }
 
+exports.MWError  = function MError (error,req, res, next) {
+     res.status(500);
+            res.json({
+                "status": 500,
+                "message": error
+            });
+}
+
 
 router.get('/api/admin/RolList', finalizar);
 

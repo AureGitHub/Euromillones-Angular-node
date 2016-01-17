@@ -40,13 +40,11 @@ app.use(function (req, res, next) {
 app.all('/api/private/*', [validateRequest]);
 app.all('/api/admin/*', [validateRequest]);
 
-
-/*
-app.use('/me',secure);
-app.use('/authenticate',secure);
-app.use('/signin',secure);
-*/
 app.use('/', route);
+
+
+
+
 
 
 // If no route is matched by now, it must be a 404

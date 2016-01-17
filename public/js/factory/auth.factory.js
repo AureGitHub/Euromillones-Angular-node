@@ -105,13 +105,29 @@ function ($window, $location, $http, AuthenticationFactory, BaseUrl, Direcciones
     }
   }
 }]);
+
+
+function AntesDeIrServidor($rootScope)
+{
+   $rootScope.session.VerMonedaServer = true;
+   $( ":button" ).button('loading');
+}
+
+
+function FinDeIrServidor($rootScope)
+{
+  $rootScope.session.VerMonedaServer = false;
+  $( ":button" ).button('reset');
+}
+
  
 //This factory is responsible for sending in the access token and the key along with each request to the server.
 myApp.factory('TokenInterceptor',['$q','$window','AuthenticationFactory','$rootScope',
 function ($q, $window,AuthenticationFactory,$rootScope) {
   return {
     request: function (config) {
-        $rootScope.session.VerMonedaServer = true;
+       
+       AntesDeIrServidor($rootScope);
         
       config.headers = config.headers || {};
       if ($window.sessionStorage.token) {
@@ -123,14 +139,17 @@ function ($q, $window,AuthenticationFactory,$rootScope) {
     },
 
     response: function (response) {
-      $rootScope.session.VerMonedaServer = false;
+      
+      FinDeIrServidor($rootScope);
+      
+      
       console.log("status :" + response.status);
      
       return response || $q.when(response);
     },
     
      responseError: function (response) {
-          $rootScope.session.VerMonedaServer = false;
+           FinDeIrServidor($rootScope);
       return $q.reject(response);
     }
     

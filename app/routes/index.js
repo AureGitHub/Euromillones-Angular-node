@@ -40,6 +40,31 @@ router.get('/api/admin/RolList', controller_tipos.getRolesAll);
 router.put('/api/admin/RolUpdate/:id', controller_tipos.RolUpdate);
 
 
+function finalizar (req, res, next) {
+    
+    var Rol = res.data;
+    res.data = null;
+    
+     res.json({
+            data: Rol,
+            Security: req.tokenRefresh,
+
+        });
+}
+
+
+router.get('/api/admin/RolList', finalizar);
+
+
+
+
+
+
+
+
+
+
+
 
 // ****** ADMIN ******************
 

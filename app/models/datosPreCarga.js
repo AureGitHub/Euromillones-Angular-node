@@ -1,8 +1,52 @@
 
 module.exports.ROLES =  [
-    {Codigo : 1, Name : 'Administrador'},
-    {Codigo : 2, Name : 'Usuario'}
+    {id : 1, descripcion : 'Administrador'},
+    {id : 2, descripcion : 'Usuario'}
 ];
+
+module.exports.TIPO_ACCION =  [
+          { id: 1, descripcion: 'Visita' },
+          { id: 2, descripcion: 'Consulta Movimientos' },
+          { id: 3, descripcion: 'Consulta Apuestas' },
+          { id: 4, descripcion: 'Consulta Jugadores-Apuesta' },
+          { id: 5, descripcion: 'Ver Boleto' },
+          { id: 6, descripcion: 'Hacer Quiniela' },
+          { id: 7, descripcion: 'Entra Hacer Pronostico Quiniela' },
+          { id: 8, descripcion: 'Graba Pronostico Quiniela' },
+          { id: 9, descripcion: 'Genera Resultado aleatorio Quiniela' },
+          { id: 0, descripcion: 'Grabar Quiniela' },
+          { id: 11, descripcion: 'Entrar Ingreso' },
+          { id: 12, descripcion: 'Grabar Ingreso' },
+          { id: 13, descripcion: 'Crear Apuesta' },
+          { id: 14, descripcion: 'Cerrar Apuesta' },
+          { id: 15, descripcion: 'Finalizar Apuesta' },
+          { id: 16, descripcion: 'Crear Usuario' },
+          
+          
+];
+
+
+module.exports.TIPO_ESTADO =  [
+          { id: 1, descripcion: 'Abierta' },
+          { id: 2, descripcion: 'Cerrada' },
+          { id: 3, descripcion: 'Finalizada' }
+          
+          
+];
+
+
+
+module.exports.TIPO_MOVIMIENTO =  [
+          { id: 1, descripcion: 'Ingreso' },
+          { id: 2, descripcion: 'Apuesta' },
+          { id: 3, descripcion: 'Ingreso Inicial' },
+          { id: 4, descripcion: 'Ingreso Manual' },
+          { id: 5, descripcion: 'Retirada. Manual' },
+          { id: 6, descripcion: 'Retirada Man. Baja' }
+          
+];
+
+
 
 module.exports.JUGADORES =  [
           { id: 0, username: 'jdesande', password:'123456', Nombre: 'Jose Aurelio de Sande Villarroel', activo: 1, CorreoExterno: 'aure.desande@gmail.com', role: 1 },

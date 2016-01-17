@@ -7,15 +7,9 @@
         <form ng-submit="ok()">
             <div class="modal-body">
 
-
-                <div class="form-group">
-                    <label for="Codigo">Codigo</label>
-                    <input type="text" class="form-control" id="Codigo" placeholder="Codigo" ng-model="rol.Codigo" required>
-                </div>
-
                 <div class="form-group">
                     <label for="Descripcion">Descripcion</label>
-                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="rol.Name" required>
+                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="rol.descripcion" required>
                 </div>
 
 
@@ -34,14 +28,12 @@
         <table class="table table-striped">
             <tr>
 
-                <th>Codigo</th>
-                <th>Name</th>
+                
+                <th>Descripcion</th>
 
             </tr>
-            <tr ng-repeat="r in roles | orderBy:'Name'">
-
-                <td>{{r.Codigo}}</td>
-                <td>{{r.Name}}</td>
+            <tr ng-repeat="r in roles | orderBy:'descripcion'">
+                <td>{{r.descripcion}}</td>
 
                 <td>
                     <button type="button" ng-click="Editar(r)" class="btn btn-primary">Editar</button>

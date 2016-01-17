@@ -1,16 +1,12 @@
 
 var models = require('../models/models.js');
 
-exports.getRolesAll = function (req, res) {
+exports.getRolesAll = function (req, res, next) {
 
     models.TiposRol.findAll().then(function (Rol) {
-        res.json({
-            data: Rol,
-            Security: req.tokenRefresh,
-
-        });
-    }
-        );
+        res.data = Rol;
+        next(Rol);
+    });
 }
 
 
@@ -24,10 +20,8 @@ exports.RolUpdate = function (req, res) {
         where: { id: id }
     }).then(function (rol) {
         if (rol) {
-
-            rol.Codigo = updateRol.Codigo;
-            rol.Nombre = updateRol.Name;
-           
+            
+            rol.descripcion = updateRol.descripcion;
 
             rol.save().then(function () {
                 res.json({

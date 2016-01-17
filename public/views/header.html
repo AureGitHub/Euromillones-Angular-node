@@ -20,8 +20,19 @@
                 <li ng-show="IsAdmin()" ng-class="{active:isActive('/UserList')}"><a ng-href="#/UserList">Lista Usuarios</a></li>
 
                 </li>
+                
+    
+                <li class="dropdown" ng-show="IsAdmin()">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Apuesta<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-show="IsAdmin()" ng-class="{active:isActive('/ApuestaCrear')}"><a ng-href="#/ApuestaCrear">Crear</a></li>
+                        <li ng-show="IsAdmin()" ng-class="{active:isActive('/ApuestaCerrar')}"><a ng-href="#/ApuestaCerrar">Cerrar</a></li>
+                        <li ng-show="IsAdmin()" ng-class="{active:isActive('/ApuestaFinalizar')}"><a ng-href="#/ApuestaFinalizar">Finalizar</a></li>
 
+                    </ul>
+                </li>
 
+                
 
                 <li class="dropdown" ng-show="IsAdmin()">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Tipos <span class="caret"></span></a>
@@ -30,6 +41,10 @@
 
                     </ul>
                 </li>
+                
+                
+                
+                
             </ul>
             <ul class="nav navbar-nav navbar-right">
 

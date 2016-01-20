@@ -1,6 +1,8 @@
 
 var models = require('../models/models.js');
 
+var utils = require('./utils.js');
+
 function Ejecuta(Tabla,req, res, next)
 {
      Tabla.findAll().then(function (dato) {
@@ -13,9 +15,7 @@ function Ejecuta(Tabla,req, res, next)
 }
 
 exports.getRolesAll = function (req, res, next) {
-
-    Ejecuta(models.TiposRol,req, res, next);
-    
+    utils.GetData(models.TiposRol,req, res, next)
 }
 
 

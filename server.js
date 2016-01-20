@@ -42,14 +42,6 @@ app.all('/api/admin/*', [validateRequest]);
 
 app.use('/', route);
 
-app.use(function MError (error,req, res, next) {
-     res.status(500);
-            res.json({
-                "status": 500,
-                "message": error
-            });
-});
-
 
 
 

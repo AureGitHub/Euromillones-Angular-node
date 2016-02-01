@@ -12,6 +12,8 @@
     "jsonwebtoken": "0.4.0",
     "morgan": "latest",
     "body-parser": "~1.0.0",
-    "jwt-simple": "latest"
+    "jwt-simple": "latest",
+    "log4js": "latest",
+    "q": "latest"
   }
 }

@@ -10,14 +10,14 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         validate: { notEmpty: {msg: "-> Falta Nombre"}} 
       },
-       activo : {
-        type: DataTypes.BOOLEAN
+       IdEstado : {
+        type: DataTypes.INTEGER
       },
        CorreoExterno : {
         type: DataTypes.STRING
       },
       
-        role : {
+        IdRol : {
         type: DataTypes.INTEGER
       }
       

@@ -2,6 +2,7 @@ var express =  require('express');
 var router = express();
 
 
+
 var controller_user = require('../controllers/controller_user');
 var controller_products = require('../controllers/controller_products');
 var controller_tipos = require('../controllers/controller_tipos');
@@ -42,17 +43,20 @@ router.put('/api/admin/RolUpdate/:id', controller_tipos.RolUpdate);
 
 function finalizar (req, res, next) {
     
-    var Rol = res.data;
+    var dato = res.data;
     res.data = null;
     
      res.json({
-            data: Rol,
+            data: dato,
             Security: req.tokenRefresh,
 
         });
 }
 
 exports.MWError  = function MError (error,req, res, next) {
+    
+    logger.fatal(error);
+    
      res.status(500);
             res.json({
                 "status": 500,
@@ -61,7 +65,7 @@ exports.MWError  = function MError (error,req, res, next) {
 }
 
 
-router.get('/api/admin/RolList', finalizar);
+router.all('/api/admin/*', finalizar);
 
 
 

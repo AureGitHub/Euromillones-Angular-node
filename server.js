@@ -7,6 +7,17 @@ var bodyParser = require("body-parser");
 var morgan = require("morgan");
 
 
+var log4js = require('log4js'); 
+//console log is loaded by default, so you won't normally need to do this
+//log4js.loadAppender('console');
+log4js.loadAppender('file');
+//log4js.addAppender(log4js.appenders.console());
+log4js.addAppender(log4js.appenders.file('logs/euromillones.log'), 'euromillones');
+
+var logger = log4js.getLogger('euromillones');
+logger.setLevel('ERROR');
+
+
 // Configuración
 app.configure(function () {  
     // Localización de los ficheros estÃ¡ticos
@@ -48,13 +59,14 @@ app.use('/', route);
 
 
 // If no route is matched by now, it must be a 404
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    res.json({
-        "status": 404,
-        "message": "Página no encontrada"
-    });
+app.use(function (error,req, res, next) {
+    logger.fatal(error);
+    
+     res.status(500);
+            res.json({
+                "status": 500,
+                "message": error
+            });
 });
 
 

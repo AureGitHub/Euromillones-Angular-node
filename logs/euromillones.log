@@ -1,0 +1,36 @@
+[2016-02-01 16:00:52.338] [FATAL] euromillones - [TypeError: val.replace is not a function]
+TypeError: val.replace is not a function
+    at Object.SqlString.escape (/home/ubuntu/workspace/node_modules/sequelize/lib/sql-string.js:61:15)
+    at Object.QueryGenerator.escape (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:983:22)
+    at Object.QueryGenerator.whereItemQuery (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2228:22)
+    at /home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1875:25
+    at /home/ubuntu/workspace/node_modules/sequelize/node_modules/lodash/index.js:3073:15
+    at baseForOwn (/home/ubuntu/workspace/node_modules/sequelize/node_modules/lodash/index.js:2046:14)
+    at Function.result (/home/ubuntu/workspace/node_modules/sequelize/node_modules/lodash/index.js:3378:16)
+    at Object.QueryGenerator.whereItemsQuery (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1874:9)
+    at Object.QueryGenerator.getWhereConditions (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2288:19)
+    at Object.QueryGenerator.selectQuery (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1464:28)
+    at QueryInterface.select (/home/ubuntu/workspace/node_modules/sequelize/lib/query-interface.js:657:25)
+    at null.<anonymous> (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:1373:32)
+    at tryCatcher (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/util.js:11:23)
+    at Promise.module.exports.Promise._settlePromiseFromHandler (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:489:31)
+    at Promise.module.exports.Promise._settlePromise (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:546:18)
+    at Promise.module.exports.Promise._settlePromise0 (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:591:10)
+[2016-02-01 16:18:12.460] [FATAL] euromillones - [TypeError: val.replace is not a function]
+TypeError: val.replace is not a function
+    at Object.SqlString.escape (/home/ubuntu/workspace/node_modules/sequelize/lib/sql-string.js:61:15)
+    at Object.QueryGenerator.escape (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:983:22)
+    at Object.QueryGenerator.whereItemQuery (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2228:22)
+    at /home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1875:25
+    at /home/ubuntu/workspace/node_modules/sequelize/node_modules/lodash/index.js:3073:15
+    at baseForOwn (/home/ubuntu/workspace/node_modules/sequelize/node_modules/lodash/index.js:2046:14)
+    at Function.result (/home/ubuntu/workspace/node_modules/sequelize/node_modules/lodash/index.js:3378:16)
+    at Object.QueryGenerator.whereItemsQuery (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1874:9)
+    at Object.QueryGenerator.getWhereConditions (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2288:19)
+    at Object.QueryGenerator.selectQuery (/home/ubuntu/workspace/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1464:28)
+    at QueryInterface.select (/home/ubuntu/workspace/node_modules/sequelize/lib/query-interface.js:657:25)
+    at null.<anonymous> (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:1373:32)
+    at tryCatcher (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/util.js:11:23)
+    at Promise.module.exports.Promise._settlePromiseFromHandler (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:489:31)
+    at Promise.module.exports.Promise._settlePromise (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:546:18)
+    at Promise.module.exports.Promise._settlePromise0 (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:591:10)

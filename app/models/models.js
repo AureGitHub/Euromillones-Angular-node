@@ -47,17 +47,21 @@ exports.TiposRol = TiposRol;
 exports.TiposUsuarioEstado = TiposUsuarioEstado;
 
 
-var CrearLosTipos = function () {
+var CrearLosTipos = function() {
 
   var deferred = Q.defer();
 
-  utils.CrearTabla(TiposUsuarioEstado, DatosPreCarga.TiposUsuarioEstado).then(function() {
-    utils.CrearTabla(Tipo_Estado, DatosPreCarga.TIPO_ESTADO).then(function() {
-      utils.CrearTabla(TiposRol, DatosPreCarga.ROLES).then(function() {
-        deferred.resolve();
-      });
-    });
-  });
+  Q.all([
+      utils.CrearTabla(TiposUsuarioEstado, DatosPreCarga.TiposUsuarioEstado),
+      utils.CrearTabla(Tipo_Estado, DatosPreCarga.TIPO_ESTADO),
+      utils.CrearTabla(TiposRol, DatosPreCarga.ROLES)
+    ])
+    .then(function() {
+      deferred.resolve();
+    })
+    .catch(function(error) {
+      deferred.reject(error);
+    })
 
   return deferred.promise;
 
@@ -66,18 +70,17 @@ var CrearLosTipos = function () {
 
 sequelize.sync().then(function() {
 
-  CrearLosTipos().then(function() {
-    console.log('Tipos creados.............');
-    utils.CrearTabla(Apuestas, DatosPreCarga.Apuestas).then(function() {
-      console.log('Apuestas creadas.............');
+    CrearLosTipos().then(function() {
+      console.log('Tipos creados.............');
+      utils.CrearTabla(Apuestas, DatosPreCarga.Apuestas).then(function() {
+        console.log('Apuestas creadas.............');
+      });
+      utils.CrearTabla(Jugadores, DatosPreCarga.JUGADORES).then(function() {
+        console.log('Jugadores creados.............');
+      });
     });
-    utils.CrearTabla(Jugadores, DatosPreCarga.JUGADORES).then(function() {
-      console.log('Jugadores creados.............');
-    });
-  });
 
-})
-.catch(function(error){
-  console.log('no se ha podido crear la BD. Motivo : ' + error);
-})
-;
+  })
+  .catch(function(error) {
+    console.log('no se ha podido crear la BD. Motivo : ' + error);
+  });

@@ -1,50 +1,50 @@
 var Q = require("q");
-
 var path = require('path');
-
+var utils = require('../utils/utils.js');
+var DatosPreCarga = require('../utils/datosPreCarga.js');
 var Sequelize = require('sequelize');
 
 // Usar BBDD SQLite:
 var sequelize = new Sequelize(null, null, null, {
   dialect: "sqlite",
-  storage: "miBD.sqlite"
+  storage: "app/LocalBD/miBD.sqlite"
 });
 
 
-var utils = require('../controllers/utils.js');
-
-var DatosPreCarga = require('./datosPreCarga.js');
 
 
-var Jugadores = sequelize.import(path.join(__dirname, 'jugadores'));
-var TiposRol = sequelize.import(path.join(__dirname, 'tiposRol'));
+var Apuestas = sequelize.import(path.join(__dirname, 'Apuestas'));
+var Jugadores = sequelize.import(path.join(__dirname, 'Jugadores'));
+var TiposEstadosApuesta = sequelize.import(path.join(__dirname, 'TiposEstadosApuesta'));
+var TiposEstadosUsuario = sequelize.import(path.join(__dirname, 'TiposEstadosUsuario'));
+var TiposRoles = sequelize.import(path.join(__dirname, 'TiposRoles'));
 
-var Tipo_Estado = sequelize.import(path.join(__dirname, 'tipo_estado'));
-var TiposUsuarioEstado = sequelize.import(path.join(__dirname, 'tipo_usuarioEstado'));
-var Apuestas = sequelize.import(path.join(__dirname, 'apuestas'));
+
+
+
 
 
 
 //REL APUESTAS x ESTADO
-Apuestas.belongsTo(Tipo_Estado, {
+Apuestas.belongsTo(TiposEstadosApuesta, {
   foreignKey: 'IdEstado'
 });
 
-//REL JUGADORES x TiposRol
-Jugadores.belongsTo(TiposRol, {
+//REL JUGADORES x TiposRoles
+Jugadores.belongsTo(TiposRoles, {
   foreignKey: 'IdRol'
 });
 
 //REL JUGADORES x Tipo EstadoUsuario
-Jugadores.belongsTo(TiposUsuarioEstado, {
+Jugadores.belongsTo(TiposEstadosUsuario, {
   foreignKey: 'IdEstado'
 });
 
 
 exports.Jugadores = Jugadores;
-exports.TiposRol = TiposRol;
+exports.TiposRoles = TiposRoles;
 
-exports.TiposUsuarioEstado = TiposUsuarioEstado;
+exports.TiposEstadosUsuario = TiposEstadosUsuario;
 
 
 var CrearLosTipos = function() {
@@ -52,9 +52,9 @@ var CrearLosTipos = function() {
   var deferred = Q.defer();
 
   Q.all([
-      utils.CrearTabla(TiposUsuarioEstado, DatosPreCarga.TiposUsuarioEstado),
-      utils.CrearTabla(Tipo_Estado, DatosPreCarga.TIPO_ESTADO),
-      utils.CrearTabla(TiposRol, DatosPreCarga.ROLES)
+      utils.CrearTabla(TiposEstadosUsuario, DatosPreCarga.TiposEstadosUsuario),
+      utils.CrearTabla(TiposEstadosApuesta, DatosPreCarga.TiposEstadosApuesta),
+      utils.CrearTabla(TiposRoles, DatosPreCarga.TiposRoles)
     ])
     .then(function() {
       deferred.resolve();
@@ -75,7 +75,7 @@ sequelize.sync().then(function() {
       utils.CrearTabla(Apuestas, DatosPreCarga.Apuestas).then(function() {
         console.log('Apuestas creadas.............');
       });
-      utils.CrearTabla(Jugadores, DatosPreCarga.JUGADORES).then(function() {
+      utils.CrearTabla(Jugadores, DatosPreCarga.Jugadores).then(function() {
         console.log('Jugadores creados.............');
       });
     });

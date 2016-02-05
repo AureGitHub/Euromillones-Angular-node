@@ -15,11 +15,11 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
         
         
     isAdmin : function(){
-       return (this.User && this.User.role == ROLES.ADMIN);
+       return (this.User && this.User.IdRol == ROLES.ADMIN);
         },
         
     isUsuario: function(){
-       return (this.User && this.User.role == ROLES.USUARIO);
+       return (this.User && this.User.IdRol == ROLES.USUARIO);
         },
     
     

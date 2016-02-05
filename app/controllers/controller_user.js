@@ -47,9 +47,9 @@ exports.validateRequest = function (req, res, next) {
                 if (dbUser) {
 
                     if (
-                        req.url.indexOf('/api/admin/') >= 0 && dbUser.role == Roles.ADMIN  //Acceso de Admin
+                        req.url.indexOf('/api/admin/') >= 0 && dbUser.IdRol == Roles.ADMIN  //Acceso de Admin
                         ||
-                        (req.url.indexOf('/api/private/') >= 0 && (dbUser.role == Roles.ADMIN || dbUser.role == Roles.USUARIO))
+                        (req.url.indexOf('/api/private/') >= 0 && (dbUser.IdRol == Roles.ADMIN || dbUser.IdRol == Roles.USUARIO))
                         ) {
 
                         req.tokenRefresh = genToken(dbUser);
@@ -243,7 +243,7 @@ exports.updateUserForAdmin = function (req, res) {
             jugador.password = updateUser.password;
             jugador.CorreoExterno = updateUser.CorreoExterno;
             jugador.activo = updateUser.activo;
-            jugador.role = updateUser.role;
+            jugador.IdRol = updateUser.IdRol;
 
 
             jugador.save().then(function () {
@@ -289,7 +289,7 @@ exports.create = function (req, res) {
                 Nombre: createUser.Nombre,
                 activo: 1,
                 CorreoExterno: createUser.CorreoExterno,
-                role: createUser.role
+                IdRol: createUser.IdRol
             }
         ]).then(function () {
             res.json({

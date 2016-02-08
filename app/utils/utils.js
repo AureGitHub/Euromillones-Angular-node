@@ -40,14 +40,17 @@ exports.CrearTabla = function(Tabla, datosIniciales) {
 }
 
 
-exports.Update = function(Tabla, where,itemUpdated) {
+exports.Update = function(Tabla, where,itemUpdated,extraUpdatePropio) {
     var deferred = Q.defer();
+    
+    if(!extraUpdatePropio) // Si no se especifica ninguno propio, se utiliza el basico para cada tabla
+        extraUpdatePropio=models[Tabla].name;
 
     models[Tabla].find({
         where: where
     }).then(function(item) {
         if (item) {
-            updatePropio[ models[Tabla].name](item, itemUpdated);
+            updatePropio[extraUpdatePropio](item, itemUpdated);
             item.save().then(function() {
                 deferred.resolve(item);
             });
@@ -70,7 +73,7 @@ exports.Update = function(Tabla, where,itemUpdated) {
 exports.GetData = function(Tabla, where, req, res, next) {
 
     if (where) {
-        Tabla.find({
+         models[Tabla].find({
             where: where
         }).then(function(dato) {
             res.data = dato;
@@ -80,7 +83,7 @@ exports.GetData = function(Tabla, where, req, res, next) {
         });
     }
     else {
-        Tabla.findAll().then(function(dato) {
+         models[Tabla].findAll().then(function(dato) {
                 res.data = dato;
                 next();
             })

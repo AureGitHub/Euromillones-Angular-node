@@ -41,6 +41,14 @@ router.get('/api/admin/RolList', controller_tipos.getRolesAll);
 router.put('/api/admin/RolUpdate/:id', controller_tipos.RolUpdate);
 
 
+router.get('/api/admin/EstadoApuestaList', controller_tipos.TiposEstadosApuestaAll);
+router.put('/api/admin/EstadoApuestaUpdate/:id', controller_tipos.TiposEstadosApuestaUpdate);
+
+router.get('/api/admin/EstadoJugadoresList', controller_tipos.TiposEstadosJugadorAll);
+router.put('/api/admin/EstadoJugadoresUpdate/:id', controller_tipos.TiposEstadosJugadorUpdate);
+
+
+
 function finalizar (req, res, next) {
     
     var dato = res.data;

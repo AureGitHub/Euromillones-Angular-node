@@ -1,6 +1,6 @@
 var models = require('../models/models.js');
 var jwt = require("jwt-simple");
-
+var utils = require('../utils/utils.js');
 
 
 var constants = require('../constant.js');
@@ -161,7 +161,7 @@ exports.login = function (req, res) {
 exports.getAll = function (req, res) {
 
     models.Jugadores.findAll({
-        include: { model: models.TiposRol, required: true }
+        include: { model: models.TiposRoles, required: true }
     }).then(function (usuarios) {
         res.json({
             data: usuarios,
@@ -182,96 +182,27 @@ exports.getAll = function (req, res) {
 }
 
 
-exports.updateUser = function (req, res) {
+exports.updateUser = function (req, res,next) {
 
-    var updateUser = req.body;
-    var id = req.params.id;
-
-
-    models.Jugadores.find({
-        where: { id: id }
-    }).then(function (jugador) {
-        if (jugador) {
-
-            jugador.username = updateUser.username;
-            jugador.Nombre = updateUser.Nombre;
-            jugador.password = updateUser.password;
-            jugador.CorreoExterno = updateUser.CorreoExterno;
-
-            jugador.save().then(function () {
-                res.json({
-                    data: 'OK',
-                    Security: req.tokenRefresh,
-                });
-            });
-
-        } else {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
-
-        }
-    }
-        ).catch(function (error) {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
+     utils.Update('Jugadores',{ id: req.body.id }, req.body)
+        .then(function(dato){
+             res.data = dato;
+             next();
+        }).catch(function(error){
+             next(error);
         });
-
 }
 
 
-exports.updateUserForAdmin = function (req, res) {
-
-    var updateUser = req.body;
-    var id = req.params.id;
-
-
-    models.Jugadores.find({
-        where: { id: id }
-    }).then(function (jugador) {
-        if (jugador) {
-
-            jugador.username = updateUser.username;
-            jugador.Nombre = updateUser.Nombre;
-            jugador.password = updateUser.password;
-            jugador.CorreoExterno = updateUser.CorreoExterno;
-            jugador.activo = updateUser.activo;
-            jugador.IdRol = updateUser.IdRol;
-
-
-            jugador.save().then(function () {
-                res.json({
-                    data: 'OK',
-                    Security: req.tokenRefresh,
-                });
-            });
-
-        } else {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
-
-        }
-    }
-        ).catch(function (error) {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
+exports.updateUserForAdmin = function (req, res,next) {
+    
+     utils.Update('Jugadores',{ id: req.body.id }, req.body,'JugadoresForAdmin')
+        .then(function(dato){
+             res.data = dato;
+             next();
+        }).catch(function(error){
+             next(error);
         });
-
 }
 
 

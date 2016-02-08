@@ -11,16 +11,22 @@ myApp.constant('ROLES', {
 var BaseUrl =myURL;
 
 var DireccionesServidor = {
-  Login : '/login',
-  dirAdminUserUpdate : '/api/admin/user',
-  dirAdminUserDelete : '/api/admin/user',
-  dirUserlist : '/api/admin/UserList',
-  dirProductoslist : '/api/private/products',
-  dirUserUpdate : '/api/private/user',
-  dirUserCreate : '/api/admin/user',
-  
-   dirRollist : '/api/admin/RolList',
-   dirRolUpdate : '/api/admin/RolUpdate',
+    Login : '/login',
+    dirAdminUserUpdate : '/api/admin/user',
+    dirAdminUserDelete : '/api/admin/user',
+    dirUserlist : '/api/admin/UserList',
+    dirProductoslist : '/api/private/products',
+    dirUserUpdate : '/api/private/user',
+    dirUserCreate : '/api/admin/user',
+    
+    dirRollist : '/api/admin/RolList',
+    dirRolUpdate : '/api/admin/RolUpdate',
+    
+    dirEstadoJugadoresList : '/api/admin/EstadoJugadoresList',
+    dirEstadoJugadoresUpdate : '/api/admin/EstadoJugadoresUpdate',
+    
+    dirEstadoApuestaList : '/api/admin/EstadoApuestaList',
+    dirEstadoApuestaUpdate : '/api/admin/EstadoApuestaUpdate',
 };
 
 
@@ -141,6 +147,31 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
           }]
       } 
     })
+     .when('/EstadoJugadoresList', {
+      templateUrl: 'views/EstadoJugadoresList.html',
+      data: {
+			authorized: [ROLES.ADMIN]
+		},
+      controller: 'EstadoJugadoresListCtrl',
+      resolve: {
+        datosServer: ['remoteResource', function (remoteResource) {
+          return remoteResource.GoServer('GET',DireccionesServidor.dirEstadoJugadoresList,-1,null);
+          }]
+      } 
+    })
+     .when('/EstadoApuestaList', {
+      templateUrl: 'views/EstadoApuestaList.html',
+      data: {
+			authorized: [ROLES.ADMIN]
+		},
+      controller: 'EstadoApuestaListCtrl',
+      resolve: {
+        datosServer: ['remoteResource', function (remoteResource) {
+          return remoteResource.GoServer('GET',DireccionesServidor.dirEstadoApuestaList,-1,null);
+          }]
+      } 
+    })
+    
     .when('/UserEdit', {
       templateUrl: 'views/UserEdit.html',
       controller: 'UserEditCtrl',

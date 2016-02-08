@@ -16,7 +16,7 @@ var sequelize = new Sequelize(null, null, null, {
 var Apuestas = sequelize.import(path.join(__dirname, 'Apuestas'));
 var Jugadores = sequelize.import(path.join(__dirname, 'Jugadores'));
 var TiposEstadosApuesta = sequelize.import(path.join(__dirname, 'TiposEstadosApuesta'));
-var TiposEstadosUsuario = sequelize.import(path.join(__dirname, 'TiposEstadosUsuario'));
+var TiposEstadosJugador = sequelize.import(path.join(__dirname, 'TiposEstadosJugador'));
 var TiposRoles = sequelize.import(path.join(__dirname, 'TiposRoles'));
 
 
@@ -36,7 +36,7 @@ Jugadores.belongsTo(TiposRoles, {
 });
 
 //REL JUGADORES x Tipo EstadoUsuario
-Jugadores.belongsTo(TiposEstadosUsuario, {
+Jugadores.belongsTo(TiposEstadosJugador, {
   foreignKey: 'IdEstado'
 });
 
@@ -44,7 +44,9 @@ Jugadores.belongsTo(TiposEstadosUsuario, {
 exports.Jugadores = Jugadores;
 exports.TiposRoles = TiposRoles;
 
-exports.TiposEstadosUsuario = TiposEstadosUsuario;
+exports.TiposEstadosJugador = TiposEstadosJugador;
+
+exports.TiposEstadosApuesta = TiposEstadosApuesta;
 
 
 var CrearLosTipos = function() {
@@ -52,7 +54,7 @@ var CrearLosTipos = function() {
   var deferred = Q.defer();
 
   Q.all([
-      utils.CrearTabla(TiposEstadosUsuario, DatosPreCarga.TiposEstadosUsuario),
+      utils.CrearTabla(TiposEstadosJugador, DatosPreCarga.TiposEstadosJugador),
       utils.CrearTabla(TiposEstadosApuesta, DatosPreCarga.TiposEstadosApuesta),
       utils.CrearTabla(TiposRoles, DatosPreCarga.TiposRoles)
     ])

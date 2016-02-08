@@ -1,0 +1,50 @@
+<div class="container">
+
+    <script type="text/ng-template" id="myModalEstadosJugador.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Modificar Estado Jugador</h3>
+        </div>
+        <form ng-submit="ok()">
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="Descripcion">Descripcion</label>
+                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="EstadoJugador.descripcion" required>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" ng-click="cancel()" class="btn btn-warning">Cancalar</button>
+            </div>
+        </form>
+    </script>
+
+
+
+    <p class="lead">
+        <table class="table table-striped">
+            <tr>
+
+                
+                <th>Descripcion</th>
+                <th>Accion</th>
+
+            </tr>
+            <tr ng-repeat="r in EstadosJugador | orderBy:'descripcion'">
+                <td>{{r.descripcion}}</td>
+
+                <td>
+                    <button type="button" ng-click="Editar(r)" class="btn btn-primary">Editar</button>
+                    <button type="button" ng-click="Borrar(r)" class="btn btn-primary">Borrar</button>
+                </td>
+
+
+            </tr>
+
+        </table>
+    </p>
+
+</div>

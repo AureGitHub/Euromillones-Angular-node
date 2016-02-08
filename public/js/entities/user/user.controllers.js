@@ -9,7 +9,7 @@ myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'userFacto
             
             if(!User){
                 $scope.UserEdit={};
-                $scope.UserEdit.role = 2;
+                $scope.UserEdit.IdRol = 2;
             }
             else
                 $scope.UserEdit = User;
@@ -102,7 +102,7 @@ myApp.controller('ModalUserCtrl', function ($rootScope,$scope, $uibModalInstance
 
     $scope.userEdit = UserEdit;
     
-    $scope.RolSeleccionado = $.grep($scope.ListaRoles, function (e) { return e.Id == $scope.userEdit.role; })[0];
+    $scope.RolSeleccionado = $.grep($scope.ListaRoles, function (e) { return e.Id == $scope.userEdit.IdRol; })[0];
     
     
 
@@ -114,7 +114,7 @@ myApp.controller('ModalUserCtrl', function ($rootScope,$scope, $uibModalInstance
 
         $scope.dropboxitemselected = function (item) {
             $scope.RolSeleccionado = item;
-            $scope.userEdit.role = item.Id;
+            $scope.userEdit.IdRol = item.Id;
         }
     
 
@@ -162,7 +162,7 @@ myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'Authent
                 { Id: '2', Name: 'Usuario' }
             ];
 
-            $scope.RolSeleccionado = $.grep($scope.ListaRoles, function (e) { return e.Id == $scope.user.role; })[0];
+            $scope.RolSeleccionado = $.grep($scope.ListaRoles, function (e) { return e.Id == $scope.user.IdRol; })[0];
 
 
 
@@ -173,7 +173,7 @@ myApp.controller("UserEditCtrl", ['$scope', 'userFactory', "$location", 'Authent
 
         $scope.dropboxitemselected = function (item) {
             $scope.RolSeleccionado = item;
-            $scope.user.role = item.Id;
+            $scope.user.IdRol = item.Id;
         }
 
 

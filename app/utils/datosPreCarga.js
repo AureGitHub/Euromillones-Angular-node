@@ -6,7 +6,7 @@ module.exports.Apuestas= [{
         IdEstado: 1
       }];
 
-module.exports.TiposEstadosUsuario =  [
+module.exports.TiposEstadosJugador =  [
     {id : 0, descripcion : 'Baja'},
     {id : 1, descripcion : 'Activo'}
 ];

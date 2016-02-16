@@ -60,11 +60,12 @@ app.use('/', route);
 
 // If no route is matched by now, it must be a 404
 app.use(function (error,req, res, next) {
+     
     logger.fatal(error);
     
-     res.status(500);
+     res.status(300);
             res.json({
-                "status": 500,
+                "status": 300,
                 "message": error
             });
 });

@@ -80,8 +80,8 @@ myApp.factory('AuthenticationFactory', ['$window', '$location', 'ROLES', functio
 }]);
 
 // his factory is responsible for contacting the login endpoint and validating the user. And also logging out the user.
-myApp.factory('UserAuthFactory', ['$window', '$location', '$http', 'AuthenticationFactory', 'baseUrl', 'DireccionesServidor', 'remoteResource',
-function ($window, $location, $http, AuthenticationFactory, BaseUrl, DireccionesServidor,remoteResource) {
+myApp.factory('UserAuthFactory', ['$window', '$location', '$http', 'AuthenticationFactory', 'baseUrl', 'remoteResource',
+function ($window, $location, $http, AuthenticationFactory, BaseUrl, remoteResource) {
 
 
   return {
@@ -91,7 +91,7 @@ function ($window, $location, $http, AuthenticationFactory, BaseUrl, Direcciones
         username:username,
         password : password
       };
-       return  remoteResource.GoServer('POST',DireccionesServidor.Login,-1,user);
+       return  remoteResource.GoServer('POST','/login',-1,user);
     },
 
     logout: function () {

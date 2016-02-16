@@ -13,7 +13,6 @@ var Roles = {
 
 
 
-
 exports.validateRequest = function (req, res, next) {
     // When performing a cross domain request, you will recieve
     // a preflighted request first. This is to check if our the app
@@ -111,7 +110,6 @@ exports.validateRequest = function (req, res, next) {
 }
 
 
-
 exports.login = function (req, res) {
 
     var username = req.body.username || '';
@@ -158,58 +156,9 @@ exports.login = function (req, res) {
 
 
 
-exports.getAll = function (req, res) {
-
-    models.Jugadores.findAll({
-        include: { model: models.TiposRoles, required: true }
-    }).then(function (usuarios) {
-        res.json({
-            data: usuarios,
-            Security: req.tokenRefresh,
-
-        });
-    }
-        ).catch(function (error) {
-            res.status(500);
-            res.json({
-                "status": 500,
-                "message": error
-            });
-            return;
-        });
-        
-    ;
-}
-
-
-exports.updateUser = function (req, res,next) {
-
-     utils.Update('Jugadores',{ id: req.body.id }, req.body)
-        .then(function(dato){
-             res.data = dato;
-             next();
-        }).catch(function(error){
-             next(error);
-        });
-}
-
-
-exports.updateUserForAdmin = function (req, res,next) {
-    
-     utils.Update('Jugadores',{ id: req.body.id }, req.body,'JugadoresForAdmin')
-        .then(function(dato){
-             res.data = dato;
-             next();
-        }).catch(function(error){
-             next(error);
-        });
-}
-
-
 exports.create = function (req, res) {
 
     var createUser = req.body;
-
 
     models.Jugadores.bulkCreate(
         [
@@ -236,45 +185,6 @@ exports.create = function (req, res) {
                 });
                 return;
             });
-}
-
-
-exports.delete = function (req, res) {
-
-    var id = req.params.id;
-
-    models.Jugadores.find({
-        where: { id: id }
-
-    }).then(function (jugador) {
-        if (jugador) {
-
-            jugador.destroy().then(function () {
-                res.json({
-                    data: 'OK',
-                    Security: req.tokenRefresh,
-                });
-            });
-
-        } else {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
-
-        }
-    }
-        ).catch(function (error) {
-            res.status(401);
-            res.json({
-                "status": 401,
-                "message": "Invalid credentials"
-            });
-            return;
-        });
-
 }
 
 

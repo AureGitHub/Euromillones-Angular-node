@@ -1,6 +1,6 @@
 // **************** ROLES ************************************************************************
-myApp.controller("RolListCtrl", ['$scope', '$window', 'datosServer', 'listasFactory', '$location', '$uibModal', 'growl',
-    function ($scope, $window, datosServer, listasFactory, $location, $uibModal, growl) {
+myApp.controller("RolListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas',
+    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
 
         $scope.roles = datosServer.data;
 
@@ -21,9 +21,9 @@ myApp.controller("RolListCtrl", ['$scope', '$window', 'datosServer', 'listasFact
 
             modalInstance.result.then(function (rolUpdate) {
 
-                listasFactory.updateRol(rolUpdate).then(function () {
+                accesoBDfactory.update(Tablas.TiposRoles,rolUpdate).then(function () {
 
-                    listasFactory.loadRoles().then(function () {
+                    accesoBDfactory.get(Tablas.TiposRoles).then(function () {
                         growl.success('Guardado correctamente', { title: 'Guardado' });
                     });
                 });
@@ -67,8 +67,8 @@ myApp.controller('ModalRolCtrl', function ($scope, $uibModalInstance, rol) {
 
 
 // **************** EstadoApuesta ************************************************************************
-myApp.controller("EstadoApuestaListCtrl", ['$scope', '$window', 'datosServer', 'listasFactory', '$location', '$uibModal', 'growl',
-    function ($scope, $window, datosServer, listasFactory, $location, $uibModal, growl) {
+myApp.controller("EstadoApuestaListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas',
+    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
 
         $scope.EstadosApuesta = datosServer.data;
 
@@ -89,9 +89,9 @@ myApp.controller("EstadoApuestaListCtrl", ['$scope', '$window', 'datosServer', '
 
             modalInstance.result.then(function (EstadoApuestaUpdate) {
 
-                listasFactory.updateEstadoApuesta(EstadoApuestaUpdate).then(function () {
+                accesoBDfactory.update(Tablas.TiposEstadosApuesta,EstadoApuestaUpdate).then(function () {
 
-                    listasFactory.loadEstadoApuesta().then(function () {
+                    accesoBDfactory.get(Tablas.TiposEstadosApuesta).then(function () {
                         growl.success('Guardado correctamente', { title: 'Guardado' });
                     });
                 });
@@ -135,8 +135,8 @@ myApp.controller('ModalEstadoApuestaCtrl', function ($scope, $uibModalInstance, 
 
 
 // **************** EstadoApuesta ************************************************************************
-myApp.controller("EstadoJugadoresListCtrl", ['$scope', '$window', 'datosServer', 'listasFactory', '$location', '$uibModal', 'growl',
-    function ($scope, $window, datosServer, listasFactory, $location, $uibModal, growl) {
+myApp.controller("EstadoJugadoresListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas',
+    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
 
         $scope.EstadosJugador = datosServer.data;
 
@@ -157,9 +157,9 @@ myApp.controller("EstadoJugadoresListCtrl", ['$scope', '$window', 'datosServer',
 
             modalInstance.result.then(function (EstadoJugadorUpdate) {
 
-                listasFactory.updateEstadoJugador(EstadoJugadorUpdate).then(function () {
+                accesoBDfactory.update(Tablas.TiposEstadosJugador, EstadoJugadorUpdate).then(function () {
 
-                    listasFactory.loadEstadoJugador().then(function () {
+                    accesoBDfactory.get(Tablas.TiposEstadosJugador).then(function () {
                         growl.success('Guardado correctamente', { title: 'Guardado' });
                     });
                 });

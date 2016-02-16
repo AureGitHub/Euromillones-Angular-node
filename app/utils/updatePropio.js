@@ -16,7 +16,11 @@ module.exports.TiposEstadosJugador = function(EstadosJugador,updatEstadosJugador
 }
 
 
-var Jugadores = function(jugador,updateUser)
+
+
+
+
+var JugadoresNoAdmin = function(jugador,updateUser)
 {
     jugador.username = updateUser.username;
     jugador.Nombre = updateUser.Nombre;
@@ -24,12 +28,12 @@ var Jugadores = function(jugador,updateUser)
     jugador.CorreoExterno = updateUser.CorreoExterno;
 }
 
-module.exports.Jugadores = Jugadores;
+module.exports.JugadoresNoAdmin = JugadoresNoAdmin;
 
 
-module.exports.JugadoresForAdmin = function(jugador,updateUser)
+module.exports.Jugadores = function(jugador,updateUser)
 {
-    Jugadores(jugador,updateUser);
+    JugadoresNoAdmin(jugador,updateUser);
     jugador.activo = updateUser.activo;
     jugador.IdRol = updateUser.IdRol;
 }

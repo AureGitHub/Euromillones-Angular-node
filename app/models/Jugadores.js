@@ -3,10 +3,11 @@ module.exports = function(sequelize, DataTypes) {
   	'Jugadores',
     { username: {
         type: DataTypes.STRING,
+        unique: true,
         validate: { notEmpty: {msg: "-> Falta login"}}
       },
        password: { type: DataTypes.STRING },
-      Nombre: {
+        Nombre: {
         type: DataTypes.STRING,
         validate: { notEmpty: {msg: "-> Falta Nombre"}} 
       },

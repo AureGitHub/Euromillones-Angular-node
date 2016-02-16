@@ -1,9 +1,8 @@
-myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'userFactory', "$location",'$uibModal', 'growl',
-    function ($scope, $window, datosServer, userFactory, $location, $uibModal, growl) {
+myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', "$location",'$uibModal', 'growl','Tablas',
+    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
 
         $scope.usuarios = datosServer.data;
-
-        userFactory.lista = datosServer.data;
+       
 
         $scope.Editar = function (User) {
             
@@ -30,63 +29,46 @@ myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'userFacto
                 
                 if(!userUpdate.id){
                 
-                    userFactory.create(userUpdate).then(function () {
-                        userFactory.load().then(function (users) {
-                             $scope.usuarios =userFactory.lista=users.data;
-                            growl.success('Creado correctamente', { title: 'Guardado' });
-                        });
+                    accesoBDfactory.create(Tablas.Jugadores, userUpdate).then(function (UserCreated) {
+                       
+                        $scope.usuarios.push(UserCreated.data);
+                        growl.success('Creado correctamente', { title: 'Guardado' });
                     });
                 
                 }
                 else
                 {
-                    userFactory.updateAdmin(userUpdate).then(function () {
-
-                    userFactory.load().then(function (users) {
-                         $scope.usuarios =userFactory.lista=users.data;
+                    accesoBDfactory.update(Tablas.Jugadores, userUpdate).then(function (userUpdated) {
+                        var index = $scope.usuarios.indexOf(userUpdate);
+                        $scope.usuarios[index] = userUpdated.data;
                         growl.success('Guardado correctamente', { title: 'Guardado' });
                     });
-                });
                 }
                 
-                
-
-                
-
-            },function(){
-                 userFactory.load().then(function (users) {
-                         $scope.usuarios =userFactory.lista=users.data;
-                    });
             });
-            
            
         }
         
-        
-        
-         $scope.Editar1 = function (User) {
-            userFactory.IdEdiccion = User.id;
-            $location.path("/UserEditAdmin");
-        }
-        
 
 
-        $scope.Crear = function () {
-
-            userFactory.IdEdiccion = -1;
-            $location.path("/UserEditAdmin");
-        }
 
 
 
         $scope.Borrar = function (User) {
-            userFactory.IdEdiccion = User.id;
-
-            userFactory.borrar(User).then(function () {
-                userFactory.load().then(function (data) {
-                    $scope.usuarios = data.data;
-                });
+            
+            if(confirm("Vas a borrar a " + User.username + ". ¿Continuar?")){
+                
+                accesoBDfactory.delete(Tablas.Jugadores,User).then(function () {
+                    growl.success('Borrado correctamente', { title: 'Borrado' });
+                    var index = $scope.usuarios.indexOf(User);
+                    $scope.usuarios.splice(index, 1);     
             });
+                
+                
+            }
+            
+
+            
         }
     }
 ]);

@@ -10,24 +10,9 @@ myApp.constant('ROLES', {
 
 var BaseUrl =myURL;
 
-var DireccionesServidor = {
-    Login : '/login',
-    dirAdminUserUpdate : '/api/admin/user',
-    dirAdminUserDelete : '/api/admin/user',
-    dirUserlist : '/api/admin/UserList',
-    dirProductoslist : '/api/private/products',
-    dirUserUpdate : '/api/private/user',
-    dirUserCreate : '/api/admin/user',
-    
-    dirRollist : '/api/admin/RolList',
-    dirRolUpdate : '/api/admin/RolUpdate',
-    
-    dirEstadoJugadoresList : '/api/admin/EstadoJugadoresList',
-    dirEstadoJugadoresUpdate : '/api/admin/EstadoJugadoresUpdate',
-    
-    dirEstadoApuestaList : '/api/admin/EstadoApuestaList',
-    dirEstadoApuestaUpdate : '/api/admin/EstadoApuestaUpdate',
-};
+var apiAdmin = '/api/admin/';
+var apiPrivate = '/api/private/';
+
 
 
 
@@ -98,10 +83,16 @@ function RemoteResourceProvider() {
 myApp.provider("remoteResource", RemoteResourceProvider);
 
 myApp.constant('baseUrl', BaseUrl);
-myApp.constant('DireccionesServidor',DireccionesServidor);
+myApp.constant('apiAdmin', apiAdmin);
+myApp.constant('apiPrivate', apiPrivate);
 
-myApp.config(['baseUrl','DireccionesServidor', 'remoteResourceProvider',
-  function (baseUrl,DireccionesServidor, remoteResourceProvider) {
+
+myApp.constant('Tablas', TABLA);
+
+
+
+myApp.config(['baseUrl', 'remoteResourceProvider',
+  function (baseUrl,remoteResourceProvider) {
     remoteResourceProvider.setBaseUrl(baseUrl);   
   }
 ]);
@@ -131,7 +122,7 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
       controller: 'UserListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
-          return remoteResource.GoServer('GET',DireccionesServidor.dirUserlist,-1,null);
+          return remoteResource.GoServer('GET', apiAdmin + TABLA.Jugadores,-1,null);
           }]
       } 
     })
@@ -143,7 +134,7 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
       controller: 'RolListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
-          return remoteResource.GoServer('GET',DireccionesServidor.dirRollist,-1,null);
+          return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposRoles,-1,null);
           }]
       } 
     })
@@ -155,7 +146,7 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
       controller: 'EstadoJugadoresListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
-          return remoteResource.GoServer('GET',DireccionesServidor.dirEstadoJugadoresList,-1,null);
+          return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposEstadosJugador,-1,null);
           }]
       } 
     })
@@ -167,7 +158,7 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
       controller: 'EstadoApuestaListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
-          return remoteResource.GoServer('GET',DireccionesServidor.dirEstadoApuestaList,-1,null);
+          return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposEstadosApuesta,-1,null);
           }]
       } 
     })

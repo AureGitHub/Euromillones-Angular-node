@@ -1,1 +1,1 @@
-module.exports.Jugadores = ['TiposRoles'];
+module.exports.Jugadores = ['TiposRoles','Saldos'];

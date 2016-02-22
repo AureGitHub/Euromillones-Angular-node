@@ -189,9 +189,7 @@ exports.create = function (req, res) {
 
 
 
-
-
-function genToken(user) {
+var genToken=function (user) {
     var expires = expiresIn(15); // Minutos de session
   
  
@@ -206,6 +204,10 @@ function genToken(user) {
         user: user
     };
 }
+
+
+exports.genToken = genToken;
+
 
 function expiresIn(numMin) {
     var dateObj = new Date();

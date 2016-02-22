@@ -105,6 +105,7 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
 
  growlProvider.globalTimeToLive({success: 2000});
  growlProvider.globalPosition('top-center');
+ growlProvider.onlyUniqueMessages(false);
 
   $httpProvider.interceptors.push('TokenInterceptor');
   

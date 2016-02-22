@@ -10,7 +10,8 @@ exports.TABLAS = {
     APUESTAS: 'Apuestas',
     JUGADORES: 'Jugadores',
     TIPOSESTADOSAPUESTA: 'TiposEstadosApuesta',
-    TIPOSUSUARIOESTADO: 'TiposUsuarioEstado'
+    TIPOSUSUARIOESTADO: 'TiposUsuarioEstado',
+    SALDOS : 'Saldos'
     
 };
 
@@ -71,8 +72,18 @@ var get = function(Tabla, where,include) {
     
     if(include)
     {
-        if(inclidePropio[Tabla]){
-            GetInclude= { model: models[inclidePropio[Tabla][0]] , required: true };
+        if(inclidePropio[Tabla])
+        {
+            if(inclidePropio[Tabla].length==1){
+                GetInclude= { model: models[inclidePropio[Tabla][0]] , required: false };
+            }
+            else{
+                 GetInclude=[];
+                 inclidePropio[Tabla].forEach(function(t){
+                     GetInclude.push({model: models[t] , required: false});
+                 })
+                 
+            }
         }
     }
     
@@ -91,6 +102,23 @@ var get = function(Tabla, where,include) {
 
 
 exports.get = get;
+
+var create = function(Tabla, itemToCreated) {
+   var deferred = Q.defer();
+   
+    models[Tabla].create(itemToCreated)
+        .then(function (itemCreated) {
+             get(Tabla,{id :itemCreated.id },true).then(function(item) {
+                deferred.resolve(item[0]);      
+             })
+        })
+        .catch(function (error) {
+           deferred.reject(FormateaError(error,itemToCreated));
+        });
+
+    return deferred.promise;
+
+}
 
 
 exports.update = function(Tabla, where,itemUpdated,extraUpdatePropio) {
@@ -111,7 +139,16 @@ exports.update = function(Tabla, where,itemUpdated,extraUpdatePropio) {
                 });;
             }
             else {
-                deferred.reject('No se ha encontrado el objeto');
+                //Lo creo OJO!!!!!!!!
+                create(Tabla,itemUpdated).then(
+                    function(item) {
+                        deferred.resolve(item);
+                    }
+                    ) .catch(function(error) {
+            deferred.reject(FormateaError(error));
+        });
+                
+                
             }
         })
         .catch(function(error) {
@@ -122,6 +159,7 @@ exports.update = function(Tabla, where,itemUpdated,extraUpdatePropio) {
     return deferred.promise;
 
 }
+
 
 
 exports.delete = function (Tabla, id) {
@@ -151,22 +189,7 @@ exports.delete = function (Tabla, id) {
 
 
 
-exports.create = function(Tabla, itemToCreated) {
-   var deferred = Q.defer();
-   
-    models[Tabla].create(itemToCreated)
-        .then(function (itemCreated) {
-             get(Tabla,{id :itemCreated.id },true).then(function(item) {
-                deferred.resolve(item[0]);      
-             })
-        })
-        .catch(function (error) {
-           deferred.reject(FormateaError(error,itemToCreated));
-        });
-
-    return deferred.promise;
-
-}
+exports.create = create;
 
 
 

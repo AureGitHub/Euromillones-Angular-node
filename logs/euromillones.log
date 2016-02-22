@@ -425,3 +425,73 @@ TypeError: this.build(...).save is not a function
 [2016-02-16 18:53:23.132] [FATAL] euromillones - Duplicado (username)
 [2016-02-16 19:52:47.272] [FATAL] euromillones - Duplicado (aalvare9 )
 [2016-02-16 20:00:26.408] [FATAL] euromillones - Duplicado (aalvare9 )
+[2016-02-17 07:29:34.569] [FATAL] euromillones - Duplicado (jdesande )
+[2016-02-17 07:29:56.876] [FATAL] euromillones - Duplicado (jdesande )
+[2016-02-17 07:31:29.318] [FATAL] euromillones - Duplicado (jdesande )
+[2016-02-17 07:32:16.136] [FATAL] euromillones - Duplicado (jdesande )
+[2016-02-17 09:00:12.818] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: -> Falta CorreoExterno,
+Validation error: Validation isEmail failed
+[2016-02-17 09:02:59.354] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: -> Falta CorreoExterno,
+Validation error: Validation isEmail failed
+[2016-02-17 09:38:12.161] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: -> Falta CorreoExterno,
+Validation error: Validation isEmail failed
+[2016-02-22 16:12:38.206] [FATAL] euromillones - [TypeError: Cannot read property 'getTableName' of undefined]
+TypeError: Cannot read property 'getTableName' of undefined
+    at validateIncludedElement (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:519:27)
+    at /home/ubuntu/workspace/node_modules/sequelize/lib/model.js:447:29
+    at Array.map (native)
+    at validateIncludedElements (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:443:37)
+    at null.<anonymous> (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:1346:32)
+    at tryCatcher (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/util.js:11:23)
+    at Promise.module.exports.Promise._settlePromiseFromHandler (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:489:31)
+    at Promise.module.exports.Promise._settlePromise (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:546:18)
+    at Promise.module.exports.Promise._settlePromise0 (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:591:10)
+    at Promise.module.exports.Promise._settlePromises (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:674:18)
+    at Async._drainQueue (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:125:16)
+    at Async._drainQueues (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:135:10)
+    at Immediate.__dirname.drainQueues [as _onImmediate] (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:16:14)
+    at processImmediate [as _immediateCallback] (timers.js:368:17)
+[2016-02-22 16:13:14.854] [FATAL] euromillones - [TypeError: Cannot read property 'getTableName' of undefined]
+TypeError: Cannot read property 'getTableName' of undefined
+    at validateIncludedElement (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:519:27)
+    at /home/ubuntu/workspace/node_modules/sequelize/lib/model.js:447:29
+    at Array.map (native)
+    at validateIncludedElements (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:443:37)
+    at null.<anonymous> (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:1346:32)
+    at tryCatcher (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/util.js:11:23)
+    at Promise.module.exports.Promise._settlePromiseFromHandler (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:489:31)
+    at Promise.module.exports.Promise._settlePromise (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:546:18)
+    at Promise.module.exports.Promise._settlePromise0 (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:591:10)
+    at Promise.module.exports.Promise._settlePromises (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:674:18)
+    at Async._drainQueue (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:125:16)
+    at Async._drainQueues (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:135:10)
+    at Immediate.__dirname.drainQueues [as _onImmediate] (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:16:14)
+    at processImmediate [as _immediateCallback] (timers.js:368:17)
+[2016-02-22 16:15:00.341] [FATAL] euromillones - [TypeError: Cannot read property 'getTableName' of undefined]
+TypeError: Cannot read property 'getTableName' of undefined
+    at validateIncludedElement (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:519:27)
+    at /home/ubuntu/workspace/node_modules/sequelize/lib/model.js:447:29
+    at Array.map (native)
+    at validateIncludedElements (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:443:37)
+    at null.<anonymous> (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:1346:32)
+    at tryCatcher (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/util.js:11:23)
+    at Promise.module.exports.Promise._settlePromiseFromHandler (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:489:31)
+    at Promise.module.exports.Promise._settlePromise (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:546:18)
+    at Promise.module.exports.Promise._settlePromise0 (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:591:10)
+    at Promise.module.exports.Promise._settlePromises (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:674:18)
+    at Async._drainQueue (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:125:16)
+    at Async._drainQueues (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:135:10)
+    at Immediate.__dirname.drainQueues [as _onImmediate] (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:16:14)
+    at processImmediate [as _immediateCallback] (timers.js:368:17)
+[2016-02-22 17:59:19.155] [FATAL] euromillones - [TypeError: Cannot read property 'name' of undefined]
+TypeError: Cannot read property 'name' of undefined
+    at Object.exports.update (/home/ubuntu/workspace/app/utils/utils.js:127:40)
+    at /home/ubuntu/workspace/app/controllers/controller_Jugadores.js:11:19
+    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
+    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
+    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
+    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
+    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
+    at doNTCallback0 (node.js:417:9)
+    at process._tickCallback (node.js:346:13)

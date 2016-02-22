@@ -37,3 +37,10 @@ module.exports.Jugadores = function(jugador,updateUser)
     jugador.activo = updateUser.activo;
     jugador.IdRol = updateUser.IdRol;
 }
+
+
+module.exports.Saldos = function(saldo,updateSaldos)
+{
+    saldo.saldo = updateSaldos.saldo;
+     
+}

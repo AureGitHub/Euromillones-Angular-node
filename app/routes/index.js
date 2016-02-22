@@ -4,6 +4,7 @@ var router = express();
 
 
 var controller_user = require('../controllers/controller_user');
+var controller_Jugadores = require('../controllers/controller_Jugadores');
 
 
 
@@ -41,7 +42,7 @@ router.post('/api/admin/*', function(req,res,next){
 });
 
 
-router.put('/api/admin/*/:id', function(req,res,next){
+router.put('/api/admin/TiposEstadosApuesta | TiposEstadosJugador | TiposRoles /:id', function(req,res,next){
     var arr = req.url.toString().split("/");
     var Tabla=arr[arr.length - 2];
     utils.update(Tabla,{ id: req.body.id }, req.body).
@@ -54,12 +55,28 @@ router.put('/api/admin/*/:id', function(req,res,next){
 });
 
 
+router.put('/api/admin/Jugadores/:id', function(req,res,next){
+    var arr = req.url.toString().split("/");
+    var Tabla=arr[arr.length - 2];
+    
+    controller_Jugadores.update(Tabla,req.body).
+    then(function(dato){
+             res.data = dato;
+             next();
+        }).catch(function(error){
+             next(error);
+        });
+});
+
+
+
 router.put('/api/private/Jugadores/:id', function(req,res,next){
     var arr = req.url.toString().split("/");
     var Tabla=arr[arr.length - 2];
     utils.update(Tabla,{ id: req.body.id }, req.body,'JugadoresNoAdmin').
     then(function(dato){
              res.data = dato.dataValues;
+             req.tokenRefresh = controller_user.genToken(dato.dataValues);
              next();
         }).catch(function(error){
              next(error);

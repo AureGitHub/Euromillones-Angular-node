@@ -4,6 +4,27 @@ myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDf
         $scope.usuarios = datosServer.data;
        
 
+        $scope.IncrementaSaldo = function (User) {
+            
+            if(isNaN(User.Saldo.IncrementoSaldo) || User.Saldo.IncrementoSaldo==0)
+                return;
+            
+            if(isNaN(User.Saldo.saldo))
+                User.Saldo.saldo=0;
+            User.Saldo.saldo += User.Saldo.IncrementoSaldo;
+            
+            
+            
+             accesoBDfactory.update(Tablas.Saldos,  User.Saldo).then(function () {
+                        var index = $scope.usuarios.indexOf(User);
+                        $scope.usuarios[index] = User;
+                        growl.success('Saldo incrementado correctamente en ' + User.Saldo.IncrementoSaldo + ' €', { title: 'Guardado' });
+                        User.Saldo.IncrementoSaldo="";
+                    });
+            
+            
+        }
+
         $scope.Editar = function (User) {
             
             if(!User){

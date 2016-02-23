@@ -75,6 +75,7 @@
                 <th>activo</th>
                  <th>Saldo</th>
                 <th>Accion</th>
+                <th>Incrementar Saldo</th>
             </tr>
             <tr ng-repeat="u in usuarios | orderBy:'username'">
                 <td>{{u.id}}</td>
@@ -88,6 +89,13 @@
                     <button type="button" ng-click="Editar(u)" class="btn btn-primary">Editar</button>
                     <button type="button" ng-click="Borrar(u)"  class="btn btn-primary">Borrar</button>
                 </td>
+                
+                
+                 <td>
+                    <input type="number" id="Saldo" placeholder=" + Saldo" ng-model="u.Saldo.IncrementoSaldo" required>
+                    <button type="button" ng-click="IncrementaSaldo(u)"  class="btn btn-primary">+</button>
+                </td>
+                
 
 
             </tr>

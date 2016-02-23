@@ -495,3 +495,21 @@ TypeError: Cannot read property 'name' of undefined
     at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
     at doNTCallback0 (node.js:417:9)
     at process._tickCallback (node.js:346:13)
+[2016-02-22 19:53:37.586] [FATAL] euromillones - [TypeError: value.apply is not a function]
+TypeError: value.apply is not a function
+    at Promise.apply (/home/ubuntu/workspace/node_modules/q/q.js:1165:26)
+    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:788:41)
+    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
+    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
+    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
+    at doNTCallback0 (node.js:417:9)
+    at process._tickCallback (node.js:346:13)
+[2016-02-22 19:56:18.397] [FATAL] euromillones - [TypeError: value.apply is not a function]
+TypeError: value.apply is not a function
+    at Promise.apply (/home/ubuntu/workspace/node_modules/q/q.js:1165:26)
+    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:788:41)
+    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
+    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
+    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
+    at doNTCallback0 (node.js:417:9)
+    at process._tickCallback (node.js:346:13)

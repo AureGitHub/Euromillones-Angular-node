@@ -41,8 +41,9 @@ router.post('/api/admin/*', function(req,res,next){
         });
 });
 
-
-router.put('/api/admin/TiposEstadosApuesta | TiposEstadosJugador | TiposRoles /:id', function(req,res,next){
+//app.get('/:type(discussion|page)/:id', ...)
+//router.put('/api/admin/ + (TiposEstadosApuesta | Saldos | TiposEstadosJugador | TiposRoles) /:id', function(req,res,next){
+router.put('/api/admin/:type(Saldos|TiposRoles|TiposEstadosApuesta|TiposEstadosJugador)/:id', function(req,res,next){
     var arr = req.url.toString().split("/");
     var Tabla=arr[arr.length - 2];
     utils.update(Tabla,{ id: req.body.id }, req.body).

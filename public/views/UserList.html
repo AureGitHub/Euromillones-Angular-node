@@ -86,14 +86,23 @@
                 <td>{{u.activo}}</td>
                 <td>{{u.Saldo.saldo}}</td>
                 <td>
-                    <button type="button" ng-click="Editar(u)" class="btn btn-primary">Editar</button>
-                    <button type="button" ng-click="Borrar(u)"  class="btn btn-primary">Borrar</button>
+                   
+                    
+                     <button ng-click="Editar(u)" type="button" class="btn btn-primary" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    </button>
+                    <button ng-click="Borrar(u)" type="button" class="btn btn-danger" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
                 </td>
                 
                 
                  <td>
                     <input type="number" id="Saldo" placeholder=" + Saldo" ng-model="u.Saldo.IncrementoSaldo" required>
-                    <button type="button" ng-click="IncrementaSaldo(u)"  class="btn btn-primary">+</button>
+                     <button ng-click="IncrementaSaldo(u)" type="button" class="btn btn-warning">
+                      <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+                    </button>
+                    
                 </td>
                 
 

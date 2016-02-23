@@ -89,22 +89,13 @@ exports.validateRequest = function (req, res, next) {
 
 
         } catch (err) {
-            res.status(500);
-            res.json({
-                "status": 500,
-                "message": err,
-                "error": err
-            });
+            next(err);
         }
 
 
 
     } else {
-        res.status(400);
-        res.json({
-            "status": 400,
-            "message": "Token de seguridad inválido"
-        });
+         next(new Error("Token de seguridad inválido"));
         return;
     }
 }

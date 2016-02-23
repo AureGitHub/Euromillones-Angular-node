@@ -1,0 +1,62 @@
+<div class="container">
+
+    <script type="text/ng-template" id="myModalGenericList.html">
+        <div class="modal-header">
+            <h1><small>Editar  </small>{{Titulo}}</h1>
+        </div>
+        <form ng-submit="ok()">
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="Descripcion">Descripcion</label>
+                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="item.descripcion" required>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                 <button  type="submit" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                </button>
+                
+                 <button ng-click="cancel()" type="button" class="btn btn-warning" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-off"></span>
+                    </button>
+            </div>
+        </form>
+    </script>
+
+<div class="page-header">
+  <h1><small>Listado de  </small>{{Titulo}}</h1>
+</div>
+
+    <p class="lead">
+        <table class="table table-striped">
+            <tr>
+
+                
+                <th>Descripcion</th>
+                <th>Accion</th>
+
+            </tr>
+            <tr ng-repeat="item in items | orderBy:'descripcion'">
+                <td>{{item.descripcion}}</td>
+
+                <td>
+                    
+                     <button ng-click="Editar(item)" type="button" class="btn btn-primary" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    </button>
+                    <button ng-click="Borrar(item)" type="button" class="btn btn-danger" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                </td>
+
+
+            </tr>
+
+        </table>
+    </p>
+
+</div>

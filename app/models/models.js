@@ -17,6 +17,7 @@ var Apuestas = sequelize.import(path.join(__dirname, 'Apuestas'));
 var Jugadores = sequelize.import(path.join(__dirname, 'Jugadores'));
 var TiposEstadosApuesta = sequelize.import(path.join(__dirname, 'TiposEstadosApuesta'));
 var TiposEstadosJugador = sequelize.import(path.join(__dirname, 'TiposEstadosJugador'));
+var TiposMovimientos = sequelize.import(path.join(__dirname, 'TiposMovimientos'));
 var TiposRoles = sequelize.import(path.join(__dirname, 'TiposRoles'));
 var Saldos = sequelize.import(path.join(__dirname, 'Saldos'));
 
@@ -52,8 +53,9 @@ exports.TiposRoles = TiposRoles;
 exports.Saldos = Saldos;
 
 exports.TiposEstadosJugador = TiposEstadosJugador;
-
 exports.TiposEstadosApuesta = TiposEstadosApuesta;
+exports.TiposMovimientos = TiposMovimientos;
+
 
 
 var CrearLosTipos = function() {
@@ -63,7 +65,8 @@ var CrearLosTipos = function() {
   Q.all([
       utils.CrearTabla(TiposEstadosJugador, DatosPreCarga.TiposEstadosJugador),
       utils.CrearTabla(TiposEstadosApuesta, DatosPreCarga.TiposEstadosApuesta),
-      utils.CrearTabla(TiposRoles, DatosPreCarga.TiposRoles)
+      utils.CrearTabla(TiposRoles, DatosPreCarga.TiposRoles),
+      utils.CrearTabla(TiposMovimientos, DatosPreCarga.TiposMovimientos)
     ])
     .then(function() {
       deferred.resolve();
@@ -90,7 +93,7 @@ sequelize.sync().then(function() {
       
       
        utils.CrearTabla(Saldos, DatosPreCarga.Saldos).then(function() {
-        console.log('Jugadores creados.............');
+        console.log('Saldos creados.............');
       });
       
     });

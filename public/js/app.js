@@ -127,36 +127,46 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
           }]
       } 
     })
-    .when('/RolList', {
-      templateUrl: 'views/RolList.html',
+   
+   
+     .when('/RolList', {
+      templateUrl: 'views/GenericList.html',
+      TablaDatos : TABLA.TiposRoles,
+      Titulo : 'Tipos de Roles',
       data: {
 			authorized: [ROLES.ADMIN]
 		},
-      controller: 'RolListCtrl',
+      controller: 'GenericListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
           return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposRoles,-1,null);
           }]
       } 
     })
+    
      .when('/EstadoJugadoresList', {
-      templateUrl: 'views/EstadoJugadoresList.html',
+      templateUrl: 'views/GenericList.html',
+      TablaDatos : TABLA.TiposEstadosJugador,
+      Titulo : 'Tipos de Estados de Jugador',
       data: {
 			authorized: [ROLES.ADMIN]
 		},
-      controller: 'EstadoJugadoresListCtrl',
+      controller: 'GenericListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
           return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposEstadosJugador,-1,null);
           }]
       } 
     })
+    
      .when('/EstadoApuestaList', {
-      templateUrl: 'views/EstadoApuestaList.html',
+      templateUrl: 'views/GenericList.html',
+      TablaDatos : TABLA.TiposEstadosApuesta,
+      Titulo : 'Tipos de Estados de Apuesta',
       data: {
 			authorized: [ROLES.ADMIN]
 		},
-      controller: 'EstadoApuestaListCtrl',
+      controller: 'GenericListCtrl',
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
           return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposEstadosApuesta,-1,null);
@@ -164,21 +174,26 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
       } 
     })
     
+    .when('/TiposMovimientos', {
+      templateUrl: 'views/GenericList.html',
+      TablaDatos : TABLA.TiposMovimientos,
+      Titulo : 'Tipos de Movimientos',
+      data: {
+			authorized: [ROLES.ADMIN]
+		},
+      controller: 'GenericListCtrl',
+      resolve: {
+        datosServer: ['remoteResource', function (remoteResource) {
+          return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposMovimientos,-1,null);
+          }]
+      } 
+    })
+    
     .when('/UserEdit', {
       templateUrl: 'views/UserEdit.html',
       controller: 'UserEditCtrl',
-      FromMenu : true,
        data: {
-			  authorized: [ROLES.USUARIO]
-		  }
-    })
-    
-    .when('/UserEditAdmin', {
-      templateUrl: 'views/UserEdit.html',
-      controller: 'UserEditCtrl',
-      FromMenu : false,
-       data: {
-			  authorized: [ROLES.ADMIN]
+			  authorized: [ROLES.ADMIN,ROLES.USUARIO]
 		  }
     })
     .otherwise({

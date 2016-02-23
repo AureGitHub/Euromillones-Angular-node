@@ -3,6 +3,11 @@ module.exports.TiposRoles = function(rol,updateRol)
      rol.descripcion = updateRol.descripcion;
 }
 
+module.exports.TiposMovimientos = function(TiposMovimientos,updateTiposMovimientos)
+{
+     TiposMovimientos.descripcion = updateTiposMovimientos.descripcion;
+}
+
 
 module.exports.TiposEstadosApuesta = function(EstadosApuesta,updateEstadosApuesta)
 {

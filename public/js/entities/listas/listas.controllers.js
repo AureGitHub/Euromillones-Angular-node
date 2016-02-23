@@ -1,29 +1,40 @@
-// **************** ROLES ************************************************************************
-myApp.controller("RolListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas',
-    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
+// **************** GenericList ************************************************************************
+myApp.controller("GenericListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas','$route',
+    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas,$route) {
 
-        $scope.roles = datosServer.data;
 
-        $scope.Editar = function (rol) {
-            $scope.rol = rol;
+
+        $scope.items = datosServer.data;
+
+        var TablaDatos = $route.current.$$route.TablaDatos;
+        
+        $scope.Titulo=$route.current.$$route.Titulo;
+        
+        
+
+        $scope.Editar = function (item) {
+            $scope.item = item;
 
             var modalInstance = $uibModal.open({
 
-                templateUrl: 'myModalRol.html',
-                controller: 'ModalRolCtrl',
+                templateUrl: 'myModalGenericList.html',
+                controller: 'ModalGenericItemCtrl',
 
                 resolve: {
-                    rol: function () {
-                        return $scope.rol;
+                    item: function () {
+                        return $scope.item;
+                    },
+                    Titulo : function () {
+                        return $scope.Titulo;
                     }
                 }
             });
 
-            modalInstance.result.then(function (rolUpdate) {
+            modalInstance.result.then(function (item) {
 
-                accesoBDfactory.update(Tablas.TiposRoles,rolUpdate).then(function () {
+                accesoBDfactory.update(Tablas[TablaDatos], item).then(function () {
 
-                    accesoBDfactory.get(Tablas.TiposRoles).then(function () {
+                    accesoBDfactory.get(Tablas[TablaDatos]).then(function () {
                         growl.success('Guardado correctamente', { title: 'Guardado' });
                     });
                 });
@@ -50,12 +61,14 @@ myApp.controller("RolListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfa
     }
 ]);
 
-myApp.controller('ModalRolCtrl', function ($scope, $uibModalInstance, rol) {
+myApp.controller('ModalGenericItemCtrl', function ($scope, $uibModalInstance, item,Titulo) {
 
-    $scope.rol = rol;
+    $scope.item = item;
+    
+    $scope.Titulo = Titulo;
 
     $scope.ok = function () {
-        $uibModalInstance.close($scope.rol);
+        $uibModalInstance.close($scope.item);
     };
 
     $scope.cancel = function () {
@@ -63,140 +76,4 @@ myApp.controller('ModalRolCtrl', function ($scope, $uibModalInstance, rol) {
     };
 });
 
-// **************** FIN ROLES ************************************************************************
-
-
-// **************** EstadoApuesta ************************************************************************
-myApp.controller("EstadoApuestaListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas',
-    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
-
-        $scope.EstadosApuesta = datosServer.data;
-
-        $scope.Editar = function (estadoapuesta) {
-            $scope.EstadoApuesta = estadoapuesta;
-
-            var modalInstance = $uibModal.open({
-
-                templateUrl: 'myModalEstadoApuesta.html',
-                controller: 'ModalEstadoApuestaCtrl',
-
-                resolve: {
-                    EstadoApuesta: function () {
-                        return $scope.EstadoApuesta;
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (EstadoApuestaUpdate) {
-
-                accesoBDfactory.update(Tablas.TiposEstadosApuesta,EstadoApuestaUpdate).then(function () {
-
-                    accesoBDfactory.get(Tablas.TiposEstadosApuesta).then(function () {
-                        growl.success('Guardado correctamente', { title: 'Guardado' });
-                    });
-                });
-
-            });
-
-
-
-        }
-
-
-        $scope.Crear = function () {
-
-
-        }
-
-
-
-        $scope.Borrar = function (User) {
-
-
-        }
-
-    }
-]);
-
-myApp.controller('ModalEstadoApuestaCtrl', function ($scope, $uibModalInstance, EstadoApuesta) {
-
-    $scope.EstadoApuesta = EstadoApuesta;
-
-    $scope.ok = function () {
-        $uibModalInstance.close($scope.EstadoApuesta);
-    };
-
-    $scope.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
-    };
-});
-
-// **************** FIN EstadoApuesta ************************************************************************
-
-
-// **************** EstadoApuesta ************************************************************************
-myApp.controller("EstadoJugadoresListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas',
-    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
-
-        $scope.EstadosJugador = datosServer.data;
-
-        $scope.Editar = function (EstadoJugador) {
-            $scope.EstadoJugador = EstadoJugador;
-
-            var modalInstance = $uibModal.open({
-
-                templateUrl: 'myModalEstadosJugador.html',
-                controller: 'ModalEstadosJugadorCtrl',
-
-                resolve: {
-                    EstadoJugador: function () {
-                        return $scope.EstadoJugador;
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (EstadoJugadorUpdate) {
-
-                accesoBDfactory.update(Tablas.TiposEstadosJugador, EstadoJugadorUpdate).then(function () {
-
-                    accesoBDfactory.get(Tablas.TiposEstadosJugador).then(function () {
-                        growl.success('Guardado correctamente', { title: 'Guardado' });
-                    });
-                });
-
-            });
-
-
-
-        }
-
-
-        $scope.Crear = function () {
-
-
-        }
-
-
-
-        $scope.Borrar = function (User) {
-
-
-        }
-
-    }
-]);
-
-myApp.controller('ModalEstadosJugadorCtrl', function ($scope, $uibModalInstance, EstadoJugador) {
-
-    $scope.EstadoJugador = EstadoJugador;
-
-    $scope.ok = function () {
-        $uibModalInstance.close($scope.EstadoJugador);
-    };
-
-    $scope.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
-    };
-});
-
-// **************** FIN EstadoApuesta ************************************************************************
+// **************** FIN GenericList ************************************************************************

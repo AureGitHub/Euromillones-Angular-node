@@ -22,7 +22,7 @@ exports.validateRequest = function (req, res, next) {
     //if(req.method == 'OPTIONS') next();
  
     var token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];
-    //var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
+    
 
     if (token) {
         try {
@@ -36,15 +36,37 @@ exports.validateRequest = function (req, res, next) {
                 });
                 return;
             }
+            
+            if (userInClient) {
+                if (
+                    req.url.indexOf('/api/admin/') >= 0 && userInClient.IdRol == Roles.ADMIN  //Acceso de Admin
+                    ||
+                    (req.url.indexOf('/api/private/') >= 0 && (userInClient.IdRol == Roles.ADMIN || userInClient.IdRol == Roles.USUARIO))
+                    ) 
+                    {
+                        req.userInClient = userInClient;
+                        next(); //Todo OK. Pasa al siguiente  middleware
+                    }
+                      
+                else {
+                    next(new Error("No está autorizado para realizar esta operación"));
+                }
+
+            } 
+            else {
+                 next(new Error("Usuario / Password Incorrecto"));
+                return;
+            }
+            
+            
+            /*
  
             // Authorize the user to see if s/he can access our resources
  
- 
-            models.Jugadores.find({
-                where: { username: userInClient.username }
-            }).then(function (dbUser) {
+            utils.get(utils.TABLAS.JUGADORES, { id: userInClient.id },true)
+            .then(function (dbUsers) {
+                var dbUser=dbUsers[0];
                 if (dbUser) {
-
                     if (
                         req.url.indexOf('/api/admin/') >= 0 && dbUser.IdRol == Roles.ADMIN  //Acceso de Admin
                         ||
@@ -86,7 +108,7 @@ exports.validateRequest = function (req, res, next) {
                 });
 
 
-
+*/
 
         } catch (err) {
             next(err);
@@ -116,13 +138,12 @@ exports.login = function (req, res) {
     }
 
 
-    models.Jugadores.find({
-        where: { username: username, password: password }
-    }).then(function (user) {
-        if (user) {
+    utils.get(utils.TABLAS.JUGADORES, { username: username, password: password },true)
+   .then(function (user) {
+        if (user[0]) {
             res.status(200);
             res.json({
-                Security: genToken(user),
+                Security: genToken(user[0]),
             });
         } else {
             res.status(401);

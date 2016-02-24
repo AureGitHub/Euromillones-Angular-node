@@ -104,11 +104,16 @@ function finalizar (req, res, next) {
     var dato = res.data;
     res.data = null;
     
-     res.json({
-            data: dato,
-            Security: req.tokenRefresh,
-
-        });
+    var userInClient = req.userInClient;
+    
+      utils.get(utils.TABLAS.JUGADORES, { id: userInClient.id },true)
+            .then(function (user) {
+                res.json({
+                    data: dato,
+                    Security: controller_user.genToken(user[0])
+                });
+            });
+     
 }
 
 

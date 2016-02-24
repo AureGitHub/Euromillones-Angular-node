@@ -1,0 +1,22 @@
+<div class="container-fluid">
+
+  <div class="row ">
+
+    <div class="col-md-6">
+      <div class="quote-container">
+        <i class="pin"></i>
+        <blockquote class="note yellow">
+          <span ng-class="user.Saldo.saldo < 1 ? 'rojo' : 'negro'">
+         <h1>  Tu saldo es:  {{user.Saldo.saldo}} <span class="glyphicon glyphicon-euro"/></h1>
+             </span>
+          <cite class="author"><h4>{{user.Nombre}}</h4>({{user.username}})</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+    </div>
+
+  </div>
+</div>

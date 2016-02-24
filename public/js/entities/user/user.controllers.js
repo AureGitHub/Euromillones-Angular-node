@@ -1,8 +1,22 @@
-myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', "$location",'$uibModal', 'growl','Tablas',
-    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas) {
+myApp.controller("UserListCtrl", ['$rootScope','$scope', '$window', 'datosServer', 'accesoBDfactory', "$location",'$uibModal', 'growl','Tablas','$filter',
+    function ($rootScope,$scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas,$filter) {
 
         $scope.usuarios = datosServer.data;
-       
+        $scope.filtro = {
+          dato: ""
+        }
+
+       $scope.myFilter = function (item) { 
+           if( $scope.filtro.dato=='') return true;
+           
+           if($rootScope.normalizeTexto(item.username).indexOf($rootScope.normalizeTexto($scope.filtro.dato))>-1) return true;
+            if($rootScope.normalizeTexto(item.Nombre).indexOf($rootScope.normalizeTexto($scope.filtro.dato))>-1) return true;
+           
+           
+            return false;
+               
+                
+        };
 
         $scope.IncrementaSaldo = function (User) {
             
@@ -12,6 +26,7 @@ myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDf
             if(isNaN(User.Saldo.saldo))
                 User.Saldo.saldo=0;
             User.Saldo.saldo += User.Saldo.IncrementoSaldo;
+             User.Saldo.id=User.id;
             
             
             
@@ -69,10 +84,6 @@ myApp.controller("UserListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDf
             });
            
         }
-        
-
-
-
 
 
         $scope.Borrar = function (User) {
@@ -163,3 +174,15 @@ myApp.controller("UserEditCtrl", ['$scope', 'accesoBDfactory', "$location", 'Aut
 
     }
 ]);
+
+
+myApp.controller("MisDatosCtrl", ['$scope', 'accesoBDfactory', 'AuthenticationFactory', 'growl',
+    function ($scope, accesoBDfactory, AuthenticationFactory, growl) {
+         $scope.user = AuthenticationFactory.User;
+         if(!$scope.user.Saldo){
+             $scope.user.Saldo={};
+             $scope.user.Saldo.saldo=0;
+         }
+            
+    }]);
+

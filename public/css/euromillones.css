@@ -1,3 +1,35 @@
+.divContenido{
+  height: 45em;
+   background-color: gray;
+    background-image:url('/img/fondo.jpg')
+}
+
+.fondo {
+     padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    height: 55em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+  
+   background-image:url('/img/fondo.jpg')
+   
+}
+
+
+.rojo {
+  color : red;
+}
+
+
+.negro {
+  color : black;
+}
 
 .hero {
   background-color: #e7e7e7;
@@ -84,3 +116,4 @@
   -ms-transform-origin: 50% 100%;
   -o-transform-origin: 50% 100%;
 }
+

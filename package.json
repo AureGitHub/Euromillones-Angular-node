@@ -6,14 +6,15 @@
   "repository": "",
   "author": "Mostafa Eweda <mo.eweda@gmail.com>",
   "dependencies": {
-    "express": "~3.2.4",
-    "sqlite3": "latest",
-    "sequelize": "latest",
-    "jsonwebtoken": "0.4.0",
-    "morgan": "latest",
+    "angular-ui-grid": "^3.1.1",
     "body-parser": "~1.0.0",
+    "express": "~3.2.4",
+    "jsonwebtoken": "0.4.0",
     "jwt-simple": "latest",
     "log4js": "latest",
-    "q": "latest"
+    "morgan": "latest",
+    "q": "latest",
+    "sequelize": "latest",
+    "sqlite3": "latest"
   }
 }

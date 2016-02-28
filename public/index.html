@@ -1,33 +1,36 @@
 <!doctype html>
 <html lang="en" ng-app="angularTodo">
- <head>  
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Euromillones (Nodejs - Angularjs - bootstrap)</title>
-    
-    <link  href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css"> 
-    
+
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet" href="css/euromillones.css">
-    
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/angular-growl.min.css">
     <link rel="stylesheet" href="css/pace.css">
-    
-    
-   
-    
-</head>  
-  <body 
-   
-    <div>
-      <div ng-include="'views/header.html'"></div>      
-      <div growl></div>
-      <div class="fondo">
-          <div class="divContenido" ng-view></div>
-      </div>
+    <link rel="stylesheet" href="css/ui-grid.min.css">
+    <link rel="stylesheet" href="css/ngDialog.min.css">
+    <link rel="stylesheet" href="css/ngDialog-theme-default.min.css">
+
+
+
+
+</head>
+
+<body <div>
+    <div ng-include="'views/header.html'"></div>
+    <div growl></div>
+    <div class="fondo">
+        <div class="divContenido" ng-view></div>
     </div>
-      <div class="panel-footer"><span class="glyphicon glyphicon-copyright-mark">Aure 2016</div>
+    </div>
+    <div class="panel-footer"><span class="glyphicon glyphicon-copyright-mark">Aure 2016</div>
       
      <!-- LIBRERIAS EXTERNAS -->
      <script src="/js/lib/jquery.min.js"></script>
@@ -39,6 +42,8 @@
      <script src="/js/lib/ngStorage.js"></script>
      <script src="/js/lib/ui-bootstrap-tpls-1.0.3.min.js"></script>
      <script src="/js/lib/Pace/pace.min.js"></script>
+     <script src="/js/lib/ui-grid.min.js"></script>
+     <script src="/js/lib/ngDialog.min.js"></script>
      
      
      <!-- LIBRERIAS PROPIAS -->
@@ -62,6 +67,28 @@
      <script src="/js/entities/controller/controllers.js"></script>
      
      
+     
+     <script type="text/ng-template" id="PanelConfirm">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <h3 class="panel-title">Confirmación</h3>
+          </div>
+          <div class="panel-body">
+              <div class="thumbnail">
+    
+      <div class="caption">
+      <p>{{confirmacion.mensaje}}</p>
+      <p></p>
+        <h3>¿Continuar con la operación?</h3>
+        <p></p>
+        <p><button type="button" class="btn btn-warning" ng-click="closeThisDialog(0)">No</button>
+        <button type="button" class="btn btn-danger" ng-click="confirm(1)">Si</button>
+        </p>
+      </div>
+    </div>
+          </div>
+      </div>
+</script>
     
   </body>
 </html>

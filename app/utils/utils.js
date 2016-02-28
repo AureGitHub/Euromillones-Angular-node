@@ -31,6 +31,17 @@ var FormateaError=function(error,item)
         //salReturn= 'Duplicado (' +  error.fields.join() + ')';
     }
     
+     if(error.name=='SequelizeValidationError')
+    {
+        var fieldDuplicate = '';
+        error.errors.forEach(function(err) {
+            fieldDuplicate+=err.path + ' ' + err.value.message;
+        });
+            
+        salReturn= 'Validacion (' +  fieldDuplicate + ')';
+        //salReturn= 'Duplicado (' +  error.fields.join() + ')';
+    }
+    
     return salReturn;
    
 }

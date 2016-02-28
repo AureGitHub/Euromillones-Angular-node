@@ -1,4 +1,4 @@
-var myApp = angular.module('angularTodo', ['ngRoute', 'ngStorage','angular-growl','ui.bootstrap']);
+var myApp = angular.module('angularTodo', ['ngRoute', 'ngStorage','angular-growl','ui.bootstrap','ui.grid','ngDialog']);
 
 
 myApp.constant('ROLES', {
@@ -232,6 +232,21 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
       resolve: {
         datosServer: ['remoteResource', function (remoteResource) {
           return remoteResource.GoServer('GET',apiAdmin + TABLA.TiposMovimientos,-1,null);
+          }]
+      } 
+    })
+    
+    
+    
+    .when('/Refresh', {
+     
+     redirectTo: '/',
+       data: {
+			  authorized: [ROLES.ADMIN,ROLES.USUARIO]
+		  },
+		resolve: {
+        datosServer: ['remoteResource', function (remoteResource) {
+          return remoteResource.GoServer('GET',apiPrivate + 'Refresh',-1,null);
           }]
       } 
     })

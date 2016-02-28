@@ -3,7 +3,36 @@
         <button type="button" ng-click="Editar()" class="btn btn-primary">Crear Jugador</button>
     </p>
 
+<script type="text/ng-template" id="templateId">
+    <div ng-controller="IncrementarSaldoCtrl">
+    Incrementar saldo de <b><h3> {{jugador.username}}</h3> </b> en <input class="incrementaSaldo" type="number" id="Saldo" placeholder=" + Saldo" ng-model="jugador.Saldo.IncrementoSaldo" required>
+     <button ng-click="IncrementaSaldo()" type="button" class="btn btn-warning">
+      <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> Incrementar
+    </button>
+    </div>
+</script>
 
+ <script type="text/ng-template" id="PanelIncrementarSaldo">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <h3 class="panel-title">Incrementar saldo de <b> {{UserIncrementar.Nombre}} </b></h3>
+          </div>
+          <div class="panel-body">
+              <div class="thumbnail">
+    
+      <div class="caption">
+       
+        <p>Incrementar en <input class="incrementaSaldo" type="number" id="Saldo" placeholder=" + Saldo" ng-model="UserIncrementar.Saldo.IncrementoSaldo" required>
+        ({{UserIncrementar.Saldo.IncrementoSaldo + UserIncrementar.Saldo.saldo_$u}})</p>
+        <p><button type="button" class="btn btn-primary" ng-click="closeThisDialog(UserIncrementar)">Incremetar</button>
+        <button type="button" class="btn btn-danger" ng-click="closeThisDialog(false)">Cancelar</button>
+        </p>
+      </div>
+    </div>
+          </div>
+      </div>
+
+ </script>
 
     <script type="text/ng-template" id="myModalUser.html">
         <div class="modal-header">
@@ -65,61 +94,8 @@
             </div>
         </form>
     </script>
-
-    
-    Buscar por : <input ng-model="filtro.dato" >
-    
-    <a ng-click="filtro.dato=''"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a>
-    
     
 
-
-    <p class="lead">
-        <table class="table table-striped"> 
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>username</th>
-                <th>password</th>
-                <th>Rol</th>
-                <th>activo</th>
-                 <th>Saldo</th>
-                <th>Accion</th>
-                <th>Incrementar Saldo</th>
-            </tr>
-            <tr  ng-repeat="u in usuarios | filter: myFilter">
-                <td>{{u.id}}</td>
-                <td>{{u.Nombre}}</td>
-                <td>{{u.username}}</td>
-                <td>{{u.password}}</td>
-                <td>{{u.TiposRole.descripcion}}</td>
-                <td>{{u.activo}}</td>
-                <td>{{u.Saldo.saldo}}</td>
-                <td>
-                   
-                    
-                     <button ng-click="Editar(u)" type="button" class="btn btn-primary" aria-label="Left Align">
-                      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    </button>
-                    <button ng-click="Borrar(u)" type="button" class="btn btn-danger" aria-label="Left Align">
-                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                </td>
-                
-                
-                 <td>
-                    <input type="number" id="Saldo" placeholder=" + Saldo" ng-model="u.Saldo.IncrementoSaldo" required>
-                     <button ng-click="IncrementaSaldo(u)" type="button" class="btn btn-warning">
-                      <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
-                    </button>
-                    
-                </td>
-                
-
-
-            </tr>
-
-        </table>
-    </p>
-
+    <div id="grid1" ui-grid="gridOptions" class="grid"></div>    
+   
 </div>

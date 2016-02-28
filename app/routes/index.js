@@ -14,6 +14,14 @@ var utils = require('../utils/utils.js');
 router.post('/login', controller_user.login);
 
 
+router.get('/api/private/Refresh', function(req,res,next){
+    next();
+    
+});
+
+
+
+
 
 router.get('/api/admin/*', function(req,res,next){
     var arr = req.url.toString().split("/");
@@ -40,6 +48,7 @@ router.post('/api/admin/*', function(req,res,next){
              next(error);
         });
 });
+
 
 //app.get('/:type(discussion|page)/:id', ...)
 //router.put('/api/admin/ + (TiposEstadosApuesta | Saldos | TiposEstadosJugador | TiposRoles) /:id', function(req,res,next){
@@ -97,6 +106,12 @@ router.delete('/api/admin/Jugadores/:id', function(req,res,next){
              next(error);
         });
 });
+
+
+
+
+
+
 
 
 function finalizar (req, res, next) {

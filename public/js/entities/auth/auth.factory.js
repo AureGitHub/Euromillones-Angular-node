@@ -142,9 +142,6 @@ function ($q, $window,AuthenticationFactory,$rootScope) {
       
       FinDeIrServidor($rootScope);
       
-      
-      console.log("status :" + response.status);
-     
       return response || $q.when(response);
     },
     

@@ -1,0 +1,54 @@
+[2016-02-25 10:32:33.886] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
+TypeError: Cannot read property 'findAll' of undefined
+    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:91:18)
+    at /home/ubuntu/workspace/app/routes/index.js:22:11
+    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
+    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
+    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
+    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
+    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
+[2016-02-25 10:33:26.639] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
+TypeError: Cannot read property 'findAll' of undefined
+    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:91:18)
+    at /home/ubuntu/workspace/app/routes/index.js:30:11
+    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
+    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
+    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
+    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
+    at /home/ubuntu/workspace/app/routes/index.js:18:5
+    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
+    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
+    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
+    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+[2016-02-26 10:14:05.517] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
+[2016-02-26 10:38:32.685] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
+[2016-02-26 19:02:03.886] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
+[2016-02-26 19:07:11.511] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
+[2016-02-26 19:07:28.016] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
+[2016-02-26 19:08:35.252] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
+[2016-02-26 19:14:32.071] [FATAL] euromillones - Duplicado (password Validation len failed)
+[2016-02-26 19:15:46.518] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:16:30.459] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:18:26.338] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:18:57.940] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:19:22.783] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:19:49.769] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:20:43.069] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:23:04.140] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:29:02.515] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:30:58.717] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-26 19:32:04.945] [FATAL] euromillones - Validacion (password Validation len failed)

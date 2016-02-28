@@ -87,15 +87,24 @@
                     <img src="img/Moneda1Euro.gif" alt="Smiley face" height="50" width="50">
                    
                 </li>
+                
+                
+                <li ng-show="IsLogin()">
+                    <a ng-href="#/Refresh"><span ng-click="alert('a');" class="glyphicon glyphicon-refresh" aria-hidden="true">
+                        <span class="text-right">Expira:{{session.FechaInExpire}}</span>
+                    </a>
+                </li>
+                
 
                 <li ng-show="IsLogin()">
+                    
                     <a ng-href="#/UserEdit">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <span class="text-right">{{session.User.username}}</span> |
-                        <span class="text-right">Expira:{{session.FechaInExpire}}</span></a>
+                        <span class="text-right">{{session.User.username}}</span></a>
+                       
                 </li>
-
-
+                
+                
                 <li ng-show="IsLogin()">
                     <a title="Desconexion" href="javascript:" ng-click="logout()">
                         <button type="button" class="btn btn-success btn-default btn-sm">

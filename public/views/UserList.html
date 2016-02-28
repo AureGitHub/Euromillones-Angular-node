@@ -3,14 +3,6 @@
         <button type="button" ng-click="Editar()" class="btn btn-primary">Crear Jugador</button>
     </p>
 
-<script type="text/ng-template" id="templateId">
-    <div ng-controller="IncrementarSaldoCtrl">
-    Incrementar saldo de <b><h3> {{jugador.username}}</h3> </b> en <input class="incrementaSaldo" type="number" id="Saldo" placeholder=" + Saldo" ng-model="jugador.Saldo.IncrementoSaldo" required>
-     <button ng-click="IncrementaSaldo()" type="button" class="btn btn-warning">
-      <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> Incrementar
-    </button>
-    </div>
-</script>
 
  <script type="text/ng-template" id="PanelIncrementarSaldo">
       <div class="panel panel-primary">
@@ -38,35 +30,35 @@
         <div class="modal-header">
             <h3 class="modal-title">Modificar Usuario</h3>
         </div>
-        <form autocomplete="off" ng-submit="ok()">
+       
             <div class="modal-body">
             
             <div class="form-group">
                     <label for="Saldo">Saldo</label>
-                    <input type="number" class="form-control" id="Saldo" placeholder="Saldo" ng-model="userEdit.Saldo.saldo" required>
+                    <input type="number" class="form-control" id="Saldo" placeholder="Saldo" ng-model="userEdit.Saldo$.saldo" required>
                 </div>
             
 
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username" ng-model="userEdit.username" required>
+                    <input type="text" class="form-control" id="username" placeholder="Username" ng-model="userEdit.username$" required>
                 </div>
 
                 <div class="form-group">
                     <label for="Nombre">Nombre</label>
-                    <input type="text" class="form-control" id="N" placeholder="Nombre" ng-model="userEdit.Nombre" required>
+                    <input type="text" class="form-control" id="N" placeholder="Nombre" ng-model="userEdit.Nombre$" required>
                 </div>
 
 
                 <div class="form-group">
                     <label for="password">password</label>
-                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="userEdit.password" required>
+                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="userEdit.password$" required>
                 </div>
 
 
                 <div class="form-group">
                     <label for="CorreoExterno">CorreoExterno</label>
-                    <input type="email" class="form-control" id="CorreoExterno" placeholder="CorreoExterno" ng-model="userEdit.CorreoExterno">
+                    <input type="email" class="form-control" id="CorreoExterno" placeholder="CorreoExterno" ng-model="userEdit.CorreoExterno$">
                 </div>
 
                 <div class="form-group">
@@ -81,13 +73,13 @@
 
 
                 </div>
+            
                 
-                
-                <button  type="submit" class="btn btn-primary">
+                <button  type="button" class="btn btn-primary" ng-click="closeThisDialog(userEdit)">
                           <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                 </button>
                 
-                 <button ng-click="cancelar()" type="button" class="btn btn-warning" aria-label="Left Align">
+                 <button ng-click="closeThisDialog(false)" type="button" class="btn btn-warning" aria-label="Left Align">
                       <span class="glyphicon glyphicon-off"></span>
                     </button>
                

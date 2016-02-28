@@ -1,5 +1,5 @@
-myApp.controller("UserListCtrl", ['$rootScope', '$scope', '$window', 'datosServer', 'accesoBDfactory', "$location", '$uibModal', 'growl', 'Tablas', '$filter', 'ngDialog',
-    function($rootScope, $scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl, Tablas, $filter, ngDialog) {
+myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'accesoBDfactory', 'growl', 'Tablas', '$filter', 'ngDialog',
+    function($rootScope, $scope, datosServer, accesoBDfactory, growl, Tablas, $filter, ngDialog) {
 
         $scope.usuarios = datosServer.data;
 
@@ -77,7 +77,7 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', '$window', 'datosServe
             }
             else
                 $scope.UserIncrementar.Saldo.saldo_$u = $scope.UserIncrementar.Saldo.saldo;
-           
+
 
             var dialog = ngDialog.open({
                 template: 'PanelIncrementarSaldo',
@@ -88,12 +88,12 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', '$window', 'datosServe
 
             dialog.closePromise.then(function(data) {
                 if (data.value && $scope.UserIncrementar.Saldo.IncrementoSaldo > 0) {
-                    var SaldoUpdate= jQuery.extend(true, {}, $scope.UserIncrementar.Saldo);
+                    var SaldoUpdate = jQuery.extend(true, {}, $scope.UserIncrementar.Saldo);
                     if (isNaN(SaldoUpdate.saldo))
                         SaldoUpdate.saldo = 0;
                     SaldoUpdate.saldo += SaldoUpdate.IncrementoSaldo;
                     accesoBDfactory.update(Tablas.Saldos, SaldoUpdate).then(function() {
-                        $scope.UserIncrementar.Saldo= jQuery.extend(true, {}, SaldoUpdate);
+                        $scope.UserIncrementar.Saldo = jQuery.extend(true, {}, SaldoUpdate);
                         growl.success('Saldo incrementado correctamente en ' + $scope.UserIncrementar.Saldo.IncrementoSaldo + ' €', {
                             title: 'Guardado'
                         });
@@ -101,45 +101,68 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', '$window', 'datosServe
                     });
                 }
                 else
-                    $scope.UserIncrementar.Saldo.IncrementoSaldo=null;
+                    $scope.UserIncrementar.Saldo.IncrementoSaldo = null;
             });
         };
 
 
-        $scope.PreIncrementaSaldo1 = function(row) {
-            ngDialog.open({
-                template: 'templateId',
-                controller: 'IncrementarSaldoCtrl',
-                data: row.entity
-            });
-        };
-
-
+        $scope.dropboxitemselected = function(item) {
+                $scope.RolSeleccionado = item;
+                $scope.userEdit.IdRol$ = item.Id;
+            }
 
         $scope.Editar = function(row) {
-            var User = row.entity;
-            if (!User) {
-                $scope.UserEdit = {};
-                $scope.UserEdit.IdRol = 2;
+
+            $scope.ListaRoles = [{
+                Id: '1',
+                Name: 'Administrador'
+            }, {
+                Id: '2',
+                Name: 'Usuario'
+            }];
+
+
+           
+
+
+            
+            if (!row) {
+                $scope.userEdit = {};
+                $scope.userEdit.IdRol = 2;
+                 $scope.userEdit.Saldo={id :$scope.userEdit.id  };
+                
             }
             else
-                $scope.UserEdit = User;
-
-            var modalInstance = $uibModal.open({
-
-                templateUrl: 'myModalUser.html',
-                controller: 'ModalUserCtrl',
-
-                resolve: {
-                    UserEdit: function() {
-                        return $scope.UserEdit;
-                    }
+                $scope.userEdit = row.entity;
+                
+                if(!$scope.userEdit.Saldo)
+                {
+                    $scope.userEdit.Saldo={id :$scope.userEdit.id  };
                 }
+                
+            
+            $rootScope.beforeUpdate($scope.userEdit);
+
+            $scope.RolSeleccionado = $.grep($scope.ListaRoles, function(e) {
+                return e.Id == $scope.userEdit.IdRol$;
+            })[0];
+
+
+           
+
+
+            var dialog = ngDialog.open({
+                template: 'myModalUser.html',
+                scope: $scope
+
             });
 
-            modalInstance.result.then(function(userUpdate) {
-
-                if (!userUpdate.id) {
+            dialog.closePromise.then(function(data) {
+                if(data.value=='$closeButton')  return ;
+                var userUpdate=data.value;
+                if (data.value ) {
+                    if (!userUpdate.id) {
+                         $rootScope.afterUpdate(userUpdate);
 
                     accesoBDfactory.create(Tablas.Jugadores, userUpdate).then(function(UserCreated) {
 
@@ -151,7 +174,9 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', '$window', 'datosServe
 
                 }
                 else {
-                    accesoBDfactory.update(Tablas.Jugadores, userUpdate).then(function(userUpdated) {
+                    var forUpdateBD = jQuery.extend(true, {}, userUpdate);
+                     $rootScope.afterUpdate(forUpdateBD);
+                    accesoBDfactory.update(Tablas.Jugadores, forUpdateBD).then(function(userUpdated) {
                         var index = $scope.usuarios.indexOf(userUpdate);
                         $scope.usuarios[index] = userUpdated.data;
                         growl.success('Guardado correctamente', {
@@ -159,19 +184,28 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', '$window', 'datosServe
                         });
                     });
                 }
+                    
+        }     
+                    
+                   
+               
 
             });
+
 
         }
 
 
+
         $scope.Borrar = function(row) {
             var User = row.entity;
-            $scope.confirmacion = {mensaje : 'Se va a borrar el jugador ' + row.entity.Nombre};
+            $scope.confirmacion = {
+                mensaje: 'Se va a borrar el jugador ' + row.entity.Nombre
+            };
 
             ngDialog.openConfirm({
                 template: 'PanelConfirm',
-                scope  : $scope
+                scope: $scope
             }).then(function(value) {
                 accesoBDfactory.delete(Tablas.Jugadores, User).then(function() {
                     growl.success('Borrado correctamente', {
@@ -189,76 +223,6 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', '$window', 'datosServe
 ]);
 
 
-myApp.controller('IncrementarSaldoCtrl', ['$scope', 'accesoBDfactory', 'Tablas', 'growl',
-    function($scope, accesoBDfactory, Tablas, growl) {
-
-        $scope.jugador = $scope.ngDialogData;
-
-        $scope.IncrementaSaldo = function() {
-
-            if (isNaN($scope.jugador.Saldo.IncrementoSaldo) || $scope.jugador.Saldo.IncrementoSaldo == 0)
-                return;
-
-            if (isNaN($scope.jugador.Saldo.saldo))
-                $scope.jugador.Saldo.saldo = 0;
-            $scope.jugador.Saldo.saldo += $scope.jugador.Saldo.IncrementoSaldo;
-            $scope.jugador.Saldo.id = $scope.jugador.id;
-
-
-
-            accesoBDfactory.update(Tablas.Saldos, $scope.jugador.Saldo).then(function() {
-                growl.success('Saldo incrementado correctamente en ' + $scope.jugador.Saldo.IncrementoSaldo + ' €', {
-                    title: 'Guardado'
-                });
-                this.closeThisDialog();
-            });
-
-
-        }
-
-    }
-]);
-
-
-myApp.controller('ModalUserCtrl', function($rootScope, $scope, $uibModalInstance, UserEdit) {
-
-
-    $scope.ListaRoles = [{
-        Id: '1',
-        Name: 'Administrador'
-    }, {
-        Id: '2',
-        Name: 'Usuario'
-    }];
-
-    $scope.userEdit = UserEdit;
-
-    $scope.RolSeleccionado = $.grep($scope.ListaRoles, function(e) {
-        return e.Id == $scope.userEdit.IdRol;
-    })[0];
-
-
-
-    $scope.IsAdmin = function(route) {
-        return $rootScope.session.isAdmin();
-    }
-
-
-
-    $scope.dropboxitemselected = function(item) {
-        $scope.RolSeleccionado = item;
-        $scope.userEdit.IdRol = item.Id;
-    }
-
-
-    $scope.ok = function() {
-        $uibModalInstance.close($scope.userEdit);
-    };
-
-    $scope.cancelar = function() {
-        $uibModalInstance.dismiss('cancel');
-    };
-});
 
 
 

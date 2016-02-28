@@ -276,6 +276,32 @@ myApp.run(["$rootScope", "$window", "$location", "AuthenticationFactory","ROLES"
             texto = texto.toUpperCase();
             return texto;
         };
+        
+        
+         $rootScope.beforeUpdate = function(objectInicial, objectUpdate) {
+            for(var propertyName in objectInicial) {
+                if(propertyName.indexOf('$$')<0)
+                    objectUpdate[propertyName + '$']=objectInicial[propertyName];
+            }
+        };
+        
+        
+         $rootScope.beforeUpdate = function(objectInicial) {
+            for(var propertyName in objectInicial) {
+                if(propertyName.indexOf('$$')<0 && propertyName.indexOf('$')<0)
+                    objectInicial[propertyName + '$']=objectInicial[propertyName];
+            }
+        };
+        
+         $rootScope.afterUpdate = function(objectInicial ) {
+            for(var propertyName in objectInicial) {
+                if(propertyName.indexOf('$$')<0)
+                    if(propertyName.indexOf('$')>-1)
+                        objectInicial[propertyName.replace('$','')]=objectInicial[propertyName];
+            }
+        };
+        
+        
 
     $rootScope.session = AuthenticationFactory;
     

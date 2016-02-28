@@ -52,3 +52,131 @@ TypeError: Cannot read property 'findAll' of undefined
 [2016-02-26 19:29:02.515] [FATAL] euromillones - Validacion (password Validation len failed)
 [2016-02-26 19:30:58.717] [FATAL] euromillones - Validacion (password Validation len failed)
 [2016-02-26 19:32:04.945] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-28 16:51:28.518] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)
+[2016-02-28 16:54:32.811] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)
+[2016-02-28 16:57:44.193] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)
+[2016-02-28 18:14:28.044] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-28 18:15:02.891] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)
+[2016-02-28 18:15:16.000] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)
+[2016-02-28 18:17:38.432] [FATAL] euromillones - [TypeError: Cannot set property 'id' of null]
+TypeError: Cannot set property 'id' of null
+    at Object.exports.update (/home/ubuntu/workspace/app/controllers/controller_Jugadores.js:8:29)
+    at /home/ubuntu/workspace/app/routes/index.js:72:26
+    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:132:11)
+    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
+    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
+    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
+    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+[2016-02-28 18:17:43.320] [FATAL] euromillones - [TypeError: Cannot set property 'id' of null]
+TypeError: Cannot set property 'id' of null
+    at Object.exports.update (/home/ubuntu/workspace/app/controllers/controller_Jugadores.js:8:29)
+    at /home/ubuntu/workspace/app/routes/index.js:72:26
+    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:132:11)
+    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
+    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
+    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
+    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+[2016-02-28 18:18:18.635] [FATAL] euromillones - [TypeError: Cannot set property 'id' of null]
+TypeError: Cannot set property 'id' of null
+    at Object.exports.update (/home/ubuntu/workspace/app/controllers/controller_Jugadores.js:8:29)
+    at /home/ubuntu/workspace/app/routes/index.js:72:26
+    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
+    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:132:11)
+    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
+    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
+    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
+    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
+    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+[2016-02-28 18:22:02.663] [FATAL] euromillones - Duplicado (jdesande )
+[2016-02-28 18:22:56.088] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)
+[2016-02-28 18:23:01.736] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)
+[2016-02-28 18:24:01.867] [FATAL] euromillones - { [Error: invalid json] status: 400 }
+Error: invalid json
+    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
+    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
+    at emitNone (events.js:67:13)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:903:12)
+    at doNTCallback2 (node.js:439:9)
+    at process._tickCallback (node.js:353:17)

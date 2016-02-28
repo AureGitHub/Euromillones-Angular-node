@@ -2,29 +2,29 @@
 
     <script type="text/ng-template" id="myModalGenericList.html">
         <div class="modal-header">
-            <h1><small>Editar  </small>{{Titulo}}</h1>
+            <h1><small>Editar  </small>{{itemUpdate.Titulo}}</h1>
         </div>
-        <form ng-submit="ok()">
+        
             <div class="modal-body">
 
                 <div class="form-group">
-                    <label for="Descripcion">Descripcion</label>
-                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="item.descripcion" required>
+                    <label for="Descripcion">Descripcion</label> 
+                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="itemUpdate.item.descripcion$" required>
                 </div>
 
 
 
             </div>
             <div class="modal-footer">
-                 <button  type="submit" class="btn btn-primary">
+                 <button ng-click="closeThisDialog(itemUpdate.item)"   class="btn btn-primary">
                           <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                 </button>
                 
-                 <button ng-click="cancel()" type="button" class="btn btn-warning" aria-label="Left Align">
+                 <button ng-click="closeThisDialog(false)" type="button" class="btn btn-warning" aria-label="Left Align">
                       <span class="glyphicon glyphicon-off"></span>
                     </button>
             </div>
-        </form>
+        
     </script>
 
 <div class="page-header">

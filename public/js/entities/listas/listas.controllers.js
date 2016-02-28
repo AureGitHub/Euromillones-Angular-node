@@ -1,79 +1,51 @@
 // **************** GenericList ************************************************************************
-myApp.controller("GenericListCtrl", ['$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', '$uibModal', 'growl','Tablas','$route',
-    function ($scope, $window, datosServer, accesoBDfactory, $location, $uibModal, growl,Tablas,$route) {
-
-
+myApp.controller("GenericListCtrl", ['$rootScope','$scope', '$window', 'datosServer', 'accesoBDfactory', '$location', 'growl','Tablas','$route','ngDialog',
+    function ($rootScope,$scope, $window, datosServer, accesoBDfactory, $location, growl,Tablas,$route,ngDialog) {
 
         $scope.items = datosServer.data;
 
         var TablaDatos = $route.current.$$route.TablaDatos;
         
-        $scope.Titulo=$route.current.$$route.Titulo;
-        
-        
-
         $scope.Editar = function (item) {
-            $scope.item = item;
+           
+            $scope.itemUpdate ={ 
+                item : {},
+                Titulo : $route.current.$$route.Titulo
+                
+            };
+             $rootScope.beforeUpdate(item,$scope.itemUpdate.item);
+            
+            
+              var dialog = ngDialog.open({
+                template: 'myModalGenericList.html',
+                scope: $scope
 
-            var modalInstance = $uibModal.open({
-
-                templateUrl: 'myModalGenericList.html',
-                controller: 'ModalGenericItemCtrl',
-
-                resolve: {
-                    item: function () {
-                        return $scope.item;
-                    },
-                    Titulo : function () {
-                        return $scope.Titulo;
-                    }
-                }
             });
-
-            modalInstance.result.then(function (item) {
-
-                accesoBDfactory.update(Tablas[TablaDatos], item).then(function () {
-
-                    accesoBDfactory.get(Tablas[TablaDatos]).then(function () {
+            
+            dialog.closePromise.then(function(data) {
+                if (data.value) {
+                    var itemUpdate={};
+                    $rootScope.afterUpdate(data.value,itemUpdate),
+                     accesoBDfactory.update(Tablas[TablaDatos], itemUpdate).then(function () {
+                         $rootScope.afterUpdate(data.value,item),
                         growl.success('Guardado correctamente', { title: 'Guardado' });
                     });
-                });
-
+                }
+               
             });
 
-
-
         }
-
-
+        
         $scope.Crear = function () {
 
-
         }
 
-
-
         $scope.Borrar = function (User) {
-
 
         }
 
     }
 ]);
 
-myApp.controller('ModalGenericItemCtrl', function ($scope, $uibModalInstance, item,Titulo) {
-
-    $scope.item = item;
-    
-    $scope.Titulo = Titulo;
-
-    $scope.ok = function () {
-        $uibModalInstance.close($scope.item);
-    };
-
-    $scope.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
-    };
-});
 
 // **************** FIN GenericList ************************************************************************

@@ -4,59 +4,41 @@
         <div class="modal-header">
             <h1><small>Editar  </small>{{itemUpdate.Titulo}}</h1>
         </div>
-        
+        <form ng-submit="closeThisDialog(itemUpdate.item)">
             <div class="modal-body">
 
                 <div class="form-group">
                     <label for="Descripcion">Descripcion</label> 
-                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="itemUpdate.item.descripcion$" required>
+                    <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion" ng-model="itemUpdate.item.descripcion" required>
                 </div>
 
 
 
             </div>
             <div class="modal-footer">
-                 <button ng-click="closeThisDialog(itemUpdate.item)"   class="btn btn-primary">
-                          <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                 <button type="submit"   class="btn btn-primary">
+                          <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
                 </button>
                 
                  <button ng-click="closeThisDialog(false)" type="button" class="btn btn-warning" aria-label="Left Align">
-                      <span class="glyphicon glyphicon-off"></span>
+                     <span class="glyphicon glyphicon-remove-circle"></span>
                     </button>
             </div>
+            </form>
         
     </script>
+     <p>
+        <button type="button" ng-click="Editar()" class="btn btn-success"><span>Crear</span></button>
+    </p>
 
 <div class="page-header">
   <h1><small>Listado de  </small>{{Titulo}}</h1>
 </div>
 
     <p class="lead">
-        <table class="table table-striped">
-            <tr>
-
-                
-                <th>Descripcion</th>
-                <th>Accion</th>
-
-            </tr>
-            <tr ng-repeat="item in items | orderBy:'descripcion'">
-                <td>{{item.descripcion}}</td>
-
-                <td>
-                    
-                     <button ng-click="Editar(item)" type="button" class="btn btn-primary" aria-label="Left Align">
-                      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    </button>
-                    <button ng-click="Borrar(item)" type="button" class="btn btn-danger" aria-label="Left Align">
-                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                </td>
-
-
-            </tr>
-
-        </table>
+        
+        <div id="grid1" ui-grid="gridOptions" class="grid"></div>    
+        
     </p>
 
 </div>

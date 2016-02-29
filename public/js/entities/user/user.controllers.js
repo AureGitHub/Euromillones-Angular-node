@@ -67,6 +67,7 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
         };
 
 
+ 
         $scope.PreIncrementaSaldo = function(row) {
             $scope.UserIncrementar = row.entity;
             if (!$scope.UserIncrementar.Saldo) {
@@ -107,9 +108,13 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
 
 
         $scope.dropboxitemselected = function(item) {
+            
                 $scope.RolSeleccionado = item;
                 $scope.userEdit.IdRol$ = item.Id;
             }
+            
+            
+       
 
         $scope.Editar = function(row) {
 
@@ -132,16 +137,18 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
                  $scope.userEdit.Saldo={id :$scope.userEdit.id  };
                 
             }
-            else
+            else{
                 $scope.userEdit = row.entity;
+                $scope.Back = angular.copy(row.entity);
+            }
                 
-                if(!$scope.userEdit.Saldo)
-                {
-                    $scope.userEdit.Saldo={id :$scope.userEdit.id  };
-                }
+            if(!$scope.userEdit.Saldo)
+            {
+                $scope.userEdit.Saldo={id :$scope.userEdit.id  };
+            }
                 
             
-            $rootScope.beforeUpdate($scope.userEdit);
+            
 
             $scope.RolSeleccionado = $.grep($scope.ListaRoles, function(e) {
                 return e.Id == $scope.userEdit.IdRol$;
@@ -158,11 +165,15 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
             });
 
             dialog.closePromise.then(function(data) {
-                if(data.value=='$closeButton')  return ;
+                if(data.value=='$closeButton')  
+                {
+                     row.entity = angular.copy($scope.Back);
+                    return ;
+                }
                 var userUpdate=data.value;
                 if (data.value ) {
                     if (!userUpdate.id) {
-                         $rootScope.afterUpdate(userUpdate);
+                         
 
                     accesoBDfactory.create(Tablas.Jugadores, userUpdate).then(function(UserCreated) {
 
@@ -172,20 +183,24 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
                         });
                     });
 
-                }
-                else {
-                    var forUpdateBD = jQuery.extend(true, {}, userUpdate);
-                     $rootScope.afterUpdate(forUpdateBD);
-                    accesoBDfactory.update(Tablas.Jugadores, forUpdateBD).then(function(userUpdated) {
-                        var index = $scope.usuarios.indexOf(userUpdate);
-                        $scope.usuarios[index] = userUpdated.data;
-                        growl.success('Guardado correctamente', {
-                            title: 'Guardado'
+                    }
+                    else {
+                        var forUpdateBD = jQuery.extend(true, {}, userUpdate);
+                         
+                        accesoBDfactory.update(Tablas.Jugadores, forUpdateBD).then(function(userUpdated) {
+                            var index = $scope.usuarios.indexOf(userUpdate);
+                            $scope.usuarios[index] = userUpdated.data;
+                            growl.success('Guardado correctamente', {
+                                title: 'Guardado'
+                            });
                         });
-                    });
-                }
+                    }
                     
-        }     
+                }   
+                else
+                {
+                    row.entity = angular.copy($scope.Back);
+                }
                     
                    
                

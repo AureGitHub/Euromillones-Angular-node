@@ -1,6 +1,6 @@
 <div class="container">
     <p>
-        <button type="button" ng-click="Editar()" class="btn btn-primary">Crear Jugador</button>
+        <button type="button" ng-click="Editar()" class="btn btn-success">Crear Jugador</button>
     </p>
 
 
@@ -13,11 +13,12 @@
               <div class="thumbnail">
     
       <div class="caption">
-       
+       <form ng-submit="closeThisDialog(UserIncrementar)">
         <p>Incrementar en <input class="incrementaSaldo" type="number" id="Saldo" placeholder=" + Saldo" ng-model="UserIncrementar.Saldo.IncrementoSaldo" required>
         ({{UserIncrementar.Saldo.IncrementoSaldo + UserIncrementar.Saldo.saldo_$u}})</p>
-        <p><button type="button" class="btn btn-primary" ng-click="closeThisDialog(UserIncrementar)">Incremetar</button>
+        <p><button type="submit" class="btn btn-primary">Incremetar</button>
         <button type="button" class="btn btn-danger" ng-click="closeThisDialog(false)">Cancelar</button>
+        </form>
         </p>
       </div>
     </div>
@@ -31,34 +32,35 @@
             <h3 class="modal-title">Modificar Usuario</h3>
         </div>
        
+       <form ng-submit="closeThisDialog(userEdit)">
             <div class="modal-body">
             
             <div class="form-group">
                     <label for="Saldo">Saldo</label>
-                    <input type="number" class="form-control" id="Saldo" placeholder="Saldo" ng-model="userEdit.Saldo$.saldo" required>
+                    <input type="number" class="form-control" id="Saldo" placeholder="Saldo" ng-model="userEdit.Saldo.saldo" required>
                 </div>
             
 
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username" ng-model="userEdit.username$" required>
+                    <input type="text" class="form-control" id="username" placeholder="Username" ng-model="userEdit.username" required>
                 </div>
 
                 <div class="form-group">
                     <label for="Nombre">Nombre</label>
-                    <input type="text" class="form-control" id="N" placeholder="Nombre" ng-model="userEdit.Nombre$" required>
+                    <input type="text" class="form-control" id="N" placeholder="Nombre" ng-model="userEdit.Nombre" required>
                 </div>
 
 
                 <div class="form-group">
                     <label for="password">password</label>
-                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="userEdit.password$" required>
+                    <input type="password" class="form-control" id="password" placeholder="password" ng-model="userEdit.password" required>
                 </div>
 
 
                 <div class="form-group">
                     <label for="CorreoExterno">CorreoExterno</label>
-                    <input type="email" class="form-control" id="CorreoExterno" placeholder="CorreoExterno" ng-model="userEdit.CorreoExterno$">
+                    <input type="email" class="form-control" id="CorreoExterno" placeholder="CorreoExterno" ng-model="userEdit.CorreoExterno">
                 </div>
 
                 <div class="form-group">
@@ -75,12 +77,12 @@
                 </div>
             
                 
-                <button  type="button" class="btn btn-primary" ng-click="closeThisDialog(userEdit)">
-                          <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                <button  type="submit" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
                 </button>
                 
                  <button ng-click="closeThisDialog(false)" type="button" class="btn btn-warning" aria-label="Left Align">
-                      <span class="glyphicon glyphicon-off"></span>
+                      <span class="glyphicon glyphicon-remove-circle"></span>
                     </button>
                
             </div>

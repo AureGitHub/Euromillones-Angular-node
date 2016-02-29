@@ -1,0 +1,27 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+<script>
+    angular.module('app', []).controller('MyCtrl', function($scope) {
+  $scope.initial = [{
+    data1: 10,
+    data2: 20
+  }];
+  $scope.datas = angular.copy($scope.initial);
+  $scope.reset = function () {
+    $scope.datas = angular.copy($scope.initial);
+    // or
+    // angular.copy($scope.initial, $scope.datas);
+  }
+});
+</script>
+
+<div ng-app="app" ng-controller="MyCtrl">
+  <div ng-repeat="data in datas">
+    <input type="text" ng-model="data.data1" />
+    <input type="text" ng-model="data.data2" />
+  </div> 
+  <a ng-click="reset()">Reset to initial value</a>
+  or
+  <hr />
+  <p ng-repeat="data in datas">{{data.data1}}, {{data.data2}}</p>{{initial}}
+</div>

@@ -37,12 +37,26 @@ router.get('/api/admin/*', function(req,res,next){
 });
 
 
-router.post('/api/admin/*', function(req,res,next){
+router.post('/api/admin/:type(Saldos|TiposRoles|TiposEstadosApuesta|TiposEstadosJugador|TiposMovimientos)', function(req,res,next){
     var arr = req.url.toString().split("/");
     var Tabla=arr[arr.length - 1];
     utils.create(Tabla,req.body)
     .then(function(dato){
              res.data = dato.dataValues;
+             next();
+        }).catch(function(error){
+             next(error);
+        });
+});
+
+router.post('/api/admin/Jugadores', function(req,res,next){
+    var arr = req.url.toString().split("/");
+    var Tabla=arr[arr.length - 1];
+    
+    
+     controller_Jugadores.create(Tabla,req.body).
+    then(function(dato){
+             res.data = dato;
              next();
         }).catch(function(error){
              next(error);
@@ -96,6 +110,19 @@ router.put('/api/private/Jugadores/:id', function(req,res,next){
 
 
 router.delete('/api/admin/Jugadores/:id', function(req,res,next){
+    var arr = req.url.toString().split("/");
+    var Tabla=arr[arr.length - 2];
+    utils.delete(Tabla,req.body.id).
+    then(function(dato){
+             res.data = dato.dataValues;
+             next();
+        }).catch(function(error){
+             next(error);
+        });
+});
+
+
+router.delete('/api/admin/:type(Saldos|TiposRoles|TiposEstadosApuesta|TiposEstadosJugador|TiposMovimientos)/:id', function(req,res,next){
     var arr = req.url.toString().split("/");
     var Tabla=arr[arr.length - 2];
     utils.delete(Tabla,req.body.id).

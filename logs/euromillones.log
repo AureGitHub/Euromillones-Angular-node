@@ -181,3 +181,5 @@ Error: invalid json
     at doNTCallback2 (node.js:439:9)
     at process._tickCallback (node.js:353:17)
 [2016-02-29 20:54:42.782] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-02-29 23:23:25.957] [FATAL] euromillones - Duplicado (jdesande1 )
+[2016-03-02 21:32:55.199] [FATAL] euromillones - Validacion (password Validation len failed)

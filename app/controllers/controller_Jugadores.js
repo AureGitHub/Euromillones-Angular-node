@@ -37,7 +37,12 @@ exports.create = function (Tabla, JugadorToAdd) {
         utils.create(utils.TABLAS.SALDOS, JugadorToAdd.Saldo)
         .then(function(Saldo){
             newJugador.dataValues.Saldo=Saldo.dataValues;
-            deferred.resolve(newJugador);
+             utils.create(utils.TABLAS.MOVIMIENTOS, {idJugador:newJugador.dataValues.id,idTipoMovimiento:3,cantidad :Saldo.dataValues.saldo })
+            .then(function(){
+                deferred.resolve(newJugador);
+            })
+            
+           
         })
         .catch(function(error){
             deferred.reject(error);
@@ -62,7 +67,7 @@ exports.update = function (Tabla, JugadorToUpdate) {
      
       Q.all([
       utils.update(Tabla,{ id: JugadorToUpdate.id }, JugadorToUpdate),
-      utils.update(utils.TABLAS.SALDOS,{ id: JugadorToUpdate.id }, JugadorToUpdate.Saldo)
+      utils.update(utils.TABLAS.SALDOS,{ id: JugadorToUpdate.id }, JugadorToUpdate.Saldo),
     ])
     .then(function() {
       deferred.resolve(JugadorToUpdate)

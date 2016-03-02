@@ -20,6 +20,7 @@ var TiposEstadosJugador = sequelize.import(path.join(__dirname, 'TiposEstadosJug
 var TiposMovimientos = sequelize.import(path.join(__dirname, 'TiposMovimientos'));
 var TiposRoles = sequelize.import(path.join(__dirname, 'TiposRoles'));
 var Saldos = sequelize.import(path.join(__dirname, 'Saldos'));
+var Movimientos = sequelize.import(path.join(__dirname, 'Movimientos'));
 
 
 
@@ -29,6 +30,16 @@ var Saldos = sequelize.import(path.join(__dirname, 'Saldos'));
 
 Jugadores.belongsTo(Saldos, {
   foreignKey: 'id'
+});
+
+//REL JUGADORES x MOVIMIENTOS
+Jugadores.belongsTo(Movimientos, {
+  foreignKey: 'idJugador'
+});
+
+//REL MOVIMIENTOS x TiposMovimientos
+Movimientos.belongsTo(TiposMovimientos, {
+  foreignKey: 'idTipoMovimiento'
 });
 
 
@@ -55,6 +66,7 @@ exports.Saldos = Saldos;
 exports.TiposEstadosJugador = TiposEstadosJugador;
 exports.TiposEstadosApuesta = TiposEstadosApuesta;
 exports.TiposMovimientos = TiposMovimientos;
+exports.Movimientos = Movimientos;
 
 
 
@@ -94,6 +106,10 @@ sequelize.sync().then(function() {
       
        utils.CrearTabla(Saldos, DatosPreCarga.Saldos).then(function() {
         console.log('Saldos creados.............');
+      });
+      
+      utils.CrearTabla(Movimientos, DatosPreCarga.Movimientos).then(function() {
+        console.log('Movimientos creados.............');
       });
       
     });

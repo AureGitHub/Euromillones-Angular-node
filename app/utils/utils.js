@@ -11,7 +11,8 @@ exports.TABLAS = {
     JUGADORES: 'Jugadores',
     TIPOSESTADOSAPUESTA: 'TiposEstadosApuesta',
     TIPOSUSUARIOESTADO: 'TiposUsuarioEstado',
-    SALDOS : 'Saldos'
+    SALDOS : 'Saldos',
+    MOVIMIENTOS : 'Movimientos',
     
 };
 

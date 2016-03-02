@@ -96,7 +96,6 @@ myApp.controller("GenericListCtrl", ['$rootScope','$scope', '$window', 'datosSer
         }
 
         $scope.Borrar = function (row) {
-             var item = row.entity;
             $scope.confirmacion = {
                 mensaje: 'Se va a borrar el item ' + row.entity.descripcion
             };
@@ -105,11 +104,11 @@ myApp.controller("GenericListCtrl", ['$rootScope','$scope', '$window', 'datosSer
                 template: 'PanelConfirm',
                 scope: $scope
             }).then(function(value) {
-                accesoBDfactory.delete(Tablas[TablaDatos], item).then(function() {
+                accesoBDfactory.delete(Tablas[TablaDatos], row.entity).then(function() {
                     growl.success('Borrado correctamente', {
                         title: 'Borrado'
                     });
-                    var index = $scope.items.indexOf(item);
+                    var index = $scope.items.indexOf(row.entity);
                     $scope.items.splice(index, 1);
                 });
             }, function(value) {

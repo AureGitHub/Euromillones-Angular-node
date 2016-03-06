@@ -110,7 +110,7 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
         $scope.dropboxitemselected = function(item) {
             
                 $scope.RolSeleccionado = item;
-                $scope.userEdit.IdRol$ = item.Id;
+                $scope.userEdit.IdRol = item.Id;
             }
             
             
@@ -139,6 +139,7 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
             }
             else{
                 $scope.userEdit = row.entity;
+                 $scope.userEdit.IdRol = row.entity.IdRol;
                 $scope.Back = angular.copy(row.entity);
             }
                 
@@ -151,7 +152,7 @@ myApp.controller("UserListCtrl", ['$rootScope', '$scope', 'datosServer', 'acceso
             
 
             $scope.RolSeleccionado = $.grep($scope.ListaRoles, function(e) {
-                return e.Id == $scope.userEdit.IdRol$;
+                return e.Id == $scope.userEdit.IdRol;
             })[0];
 
 

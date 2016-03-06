@@ -183,3 +183,25 @@ Error: invalid json
 [2016-02-29 20:54:42.782] [FATAL] euromillones - Validacion (password Validation len failed)
 [2016-02-29 23:23:25.957] [FATAL] euromillones - Duplicado (jdesande1 )
 [2016-03-02 21:32:55.199] [FATAL] euromillones - Validacion (password Validation len failed)
+[2016-03-06 19:14:50.588] [FATAL] euromillones - [TypeError: Cannot read property 'id' of undefined]
+TypeError: Cannot read property 'id' of undefined
+    at /home/ubuntu/workspace/app/controllers/controller_Jugadores.js:51:94
+    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
+    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
+    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
+    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
+    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
+    at doNTCallback0 (node.js:417:9)
+    at process._tickCallback (node.js:346:13)
+[2016-03-06 19:29:23.803] [FATAL] euromillones - [TypeError: Cannot read property 'id' of undefined]
+TypeError: Cannot read property 'id' of undefined
+    at /home/ubuntu/workspace/app/controllers/controller_Jugadores.js:51:94
+    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
+    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
+    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
+    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
+    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
+    at doNTCallback0 (node.js:417:9)
+    at process._tickCallback (node.js:346:13)

@@ -67,17 +67,7 @@ exports.update = function (Tabla, JugadorToUpdate) {
       deferred.reject(error);
     })
      
-      Q.all([
-      utils.update(Tabla,{ id: JugadorToUpdate.id }, JugadorToUpdate),
-      utils.update(utils.TABLAS.SALDOS,{ id: JugadorToUpdate.id }, JugadorToUpdate.Saldo),
-    ])
-    .then(function() {
-      deferred.resolve(JugadorToUpdate)
-    })
-    .catch(function(error) {
-      deferred.reject(error);
-    })
-     
+      
     
     return deferred.promise;
         

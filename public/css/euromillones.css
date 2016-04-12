@@ -1,25 +1,55 @@
+@font-face {
+    font-family: LetraManual;
+    src: url(rabiohead.ttf);
+}
+ 
+ 
+ .fondoHeader{
+    background-color: #A31;   
+   
+ }
+ html, body {
+  margin:0; padding:0; height:95%;
+  
+}
+
+.fondo {
+  height: 93%;
+  font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+  color: #232323;
+  background-color: #fff;   
+  
+  background-image: url(../img/fondo.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;   
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
 .incrementaSaldo{
   width : 10em;
    
 }
 .divContenido{
-  height: 45em;
+ 
     
 }
 
-.fondo {
-     padding: 0;
-    margin: 0;
-    border: 0;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-   
-   
+.TitulosDeSeccion{
+   font-family: LetraManual;
+   font-size: 4em;
 }
+
+
+.container{
+  
+   margin:5em;
+   padding:2em;
+  background-color: #E6E6E6;
+    
+}
+
 
 
 .rojo {

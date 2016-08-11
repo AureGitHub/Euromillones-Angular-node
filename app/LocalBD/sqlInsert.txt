@@ -1,0 +1,6 @@
+SELECT '{ Id: '+CStr(Id)+', idJugador: '+CStr(id_usu)+', idTipoMovimiento: '+CStr(id_tipoMov)+',cantidad: '+Replace(CStr(importe),',','.')+'},' AS Expr1
+FROM Mov_Automaticos
+union
+SELECT '{ Id: '+CStr(Id)+', idJugador: '+CStr(id_usu)+', idTipoMovimiento: '+CStr(id_tipoMov)+',cantidad: '+Replace(CStr(importe),',','.')+'},' AS Expr1
+FROM Mov_Manuales
+;

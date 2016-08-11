@@ -1,3 +1,48 @@
+
+* {margin:0;padding:0;} 
+html, body {height: 100%;}
+#wrap {min-height: 100%;}
+
+#main {
+  overflow:auto;
+  padding-bottom: 180px; /* must be same height as the footer */
+}
+
+/*
+footer {
+  position:fixed;
+  bottom:0;
+   right: 20px;
+    font-family: LetraManual;
+   font-size: 3em;
+} */
+
+
+.footer {
+  font-family: LetraManual;
+  font-size: 2em;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-right:5px;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  line-height: 50px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+  
+}
+
+
+/*Opera Fix thanks to Maleika (Kohoutec)*/
+body:before {
+  content:"";
+  height:100%;
+  float:left;
+  width:0;
+  margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
 @font-face {
     font-family: LetraManual;
     src: url(rabiohead.ttf);
@@ -8,18 +53,13 @@
     background-color: #A31;   
    
  }
- html, body {
-  margin:0; padding:0; height:95%;
-  
-}
+
 
 .fondo {
-  height: 93%;
+  
   font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
   color: #232323;
   background-color: #fff;   
-  
-  background-image: url(../img/fondo.jpg);
   background-repeat: no-repeat;
   background-position: top center;   
   background-attachment: fixed;
@@ -32,7 +72,7 @@
    
 }
 .divContenido{
- 
+  
     
 }
 
@@ -44,7 +84,7 @@
 
 .container{
   
-   margin:5em;
+   margin:2em;
    padding:2em;
   background-color: #E6E6E6;
     

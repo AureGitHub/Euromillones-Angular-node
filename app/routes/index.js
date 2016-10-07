@@ -22,6 +22,22 @@ router.get('/api/private/Refresh', function(req,res,next){
 
 
 
+router.get('/api/admin/Movimientos/:id', function(req,res,next){
+    var arr = req.url.toString().split("/");
+    var Tabla=arr[arr.length - 2];
+    
+     var idJugador =arr[arr.length - 1];
+    
+   
+    utils.get(Tabla,{ idJugador: 1 },false).then(function(dato){
+         res.data = dato;
+         next(finalizar);
+    }).catch(function(error){
+         next(error);
+    });
+    
+});
+
 
 router.get('/api/admin/*', function(req,res,next){
     var arr = req.url.toString().split("/");
@@ -35,6 +51,13 @@ router.get('/api/admin/*', function(req,res,next){
     });
     
 });
+
+
+
+
+
+
+
 
 
 router.post('/api/admin/:type(Saldos|TiposRoles|TiposEstadosApuesta|TiposEstadosJugador|TiposMovimientos)', function(req,res,next){
@@ -62,6 +85,8 @@ router.post('/api/admin/Jugadores', function(req,res,next){
              next(error);
         });
 });
+
+
 
 
 //app.get('/:type(discussion|page)/:id', ...)

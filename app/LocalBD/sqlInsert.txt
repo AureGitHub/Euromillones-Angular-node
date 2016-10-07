@@ -4,3 +4,10 @@ union
 SELECT '{ Id: '+CStr(Id)+', idJugador: '+CStr(id_usu)+', idTipoMovimiento: '+CStr(id_tipoMov)+',cantidad: '+Replace(CStr(importe),',','.')+'},' AS Expr1
 FROM Mov_Manuales
 ;
+
+
+
+SELECT '{idJugador: '+CStr(id_usu)+', idTipoMovimiento: '+    IIf([id_tipoMov]=1, '0','1') +',cantidad: '+Replace(CStr(importe),',','.')+ ', idApuesta: '+CStr(id_Apu)  +    '},' AS Expr1
+FROM Mov_Automaticos
+where ID_usu > 0 and id_Apu >0
+

@@ -4,8 +4,11 @@ myApp.factory('accesoBDfactory', ['$http', 'apiAdmin', 'apiPrivate', 'remoteReso
             create: function(Tabla, item) {
                 return remoteResource.GoServer('POST', apiAdmin + Tabla, -1, item);
             },
-            get: function(Tabla) {
-                return remoteResource.GoServer('GET', apiAdmin + Tabla, -1, null);
+            get: function(Tabla, id) {
+                if(!id)
+                    return remoteResource.GoServer('GET', apiAdmin + Tabla, -1, null);
+                else
+                return remoteResource.GoServer('GET', apiAdmin + Tabla, id, null);
             },
             update: function(Tabla, item) {
 

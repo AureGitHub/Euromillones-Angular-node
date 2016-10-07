@@ -171,7 +171,7 @@ function ($routeProvider, $httpProvider,ROLES,growlProvider) {
       data: {
 			  authorized: [ROLES.ADMIN,ROLES.USUARIO]
 		  },
-      controller: 'MisDatosCtrl'
+      controller: 'MisDatosCtrl',
      
     })
    

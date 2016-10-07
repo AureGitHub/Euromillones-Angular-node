@@ -2,6 +2,9 @@ var Q = require("q");
 var path = require('path');
 var utils = require('../utils/utils.js');
 var DatosPreCarga = require('../utils/datosPreCarga.js');
+
+var datosPreCargaMovimientos = require('../utils/datosPreCargaMovimientos.js');
+
 var Sequelize = require('sequelize');
 
 // Usar BBDD SQLite:
@@ -108,7 +111,7 @@ sequelize.sync().then(function() {
         console.log('Saldos creados.............');
       });
       
-      utils.CrearTabla(Movimientos, DatosPreCarga.Movimientos).then(function() {
+      utils.CrearTabla(Movimientos, datosPreCargaMovimientos.Movimientos).then(function() {
         console.log('Movimientos creados.............');
       });
       

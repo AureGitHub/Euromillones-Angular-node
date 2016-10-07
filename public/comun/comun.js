@@ -7,6 +7,7 @@ var TABLA = {
     TiposEstadosJugador: 'TiposEstadosJugador',
     Saldos: 'Saldos',
     TiposMovimientos: 'TiposMovimientos',
+    Movimientos: 'Movimientos',
     
 };
 

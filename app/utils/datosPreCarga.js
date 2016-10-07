@@ -71,8 +71,9 @@ module.exports.TIPO_MOVIMIENTO =  [
 
 
 module.exports.Jugadores =  [
-          { id: 1000, username: 'jdesande', password:'123456', Nombre: 'Jose Aurelio de Sande Villarroel', IdEstado: 1, CorreoExterno: 'aure.desande@gmail.com', IdRol: 1 },
-          { id: 1, username: 'aalonso', password:'123456', Nombre: 'Alberto Alonso Alonso', IdEstado: 1, CorreoExterno: '', IdRol: 2 },
+          { id: 1, username: 'jdesande', password:'123456', Nombre: 'Jose Aurelio de Sande Villarroel', IdEstado: 1, CorreoExterno: 'aure.desande@gmail.com', IdRol: 1 },
+          //{ id: 1000, username: 'jdesande', password:'123456', Nombre: 'Jose Aurelio de Sande Villarroel', IdEstado: 1, CorreoExterno: 'aure.desande@gmail.com', IdRol: 1 },
+          //{ id: 1, username: 'aalonso', password:'123456', Nombre: 'Alberto Alonso Alonso', IdEstado: 1, CorreoExterno: '', IdRol: 2 },
           { id: 2, username: 'aaranzue', password:'123456', Nombre: 'Alberto Aranzueque González', IdEstado: 2, CorreoExterno: '', IdRol: 2 },
           { id: 3, username: 'aencinas', password:'123456', Nombre: 'Alberto Encinas Escobar', IdEstado: 1, CorreoExterno: '', IdRol: 2 },
           { id: 4, username: 'azani', password:'123456', Nombre: 'Alberto Zani Fernández', IdEstado: 1, CorreoExterno: '', IdRol: 2 },

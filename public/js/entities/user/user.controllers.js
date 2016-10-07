@@ -278,13 +278,53 @@ myApp.controller("UserEditCtrl", ['$scope', 'accesoBDfactory', "$location", 'Aut
 ]);
 
 
-myApp.controller("MisDatosCtrl", ['$scope', 'accesoBDfactory', 'AuthenticationFactory', 'growl', 'ngDialog',
-    function($scope, accesoBDfactory, AuthenticationFactory, growl, ngDialog) {
+myApp.controller("MisDatosCtrl", ['$scope', 'Tablas','accesoBDfactory', 'AuthenticationFactory', 'growl', 'ngDialog',
+    function($scope,Tablas, accesoBDfactory, AuthenticationFactory, growl, ngDialog) {
         $scope.user = AuthenticationFactory.User;
         if (!$scope.user.Saldo) {
             $scope.user.Saldo = {};
             $scope.user.Saldo.saldo = 0;
         }
+        
+        
+         
+          
+          accesoBDfactory.get(Tablas.Movimientos, $scope.user.id).then(function(response){
+               $scope.gridOptions = {
+            enableFiltering: true,
+            enableSorting: true,
+            columnDefs: [{
+                name: 'id',
+                field: 'id',
+                visible: false
+            }, {
+                name: 'idJugador',
+                field: 'idJugador',
+                width: '20%'
+            }, {
+                name: 'idApuesta',
+                field: 'idApuesta',
+                width: '50%'
+            }, {
+                name: 'idTipoMovimiento',
+                field: 'idTipoMovimiento',
+                enableCellEdit: true,
+                width: '10%'
+            }, {
+                name: 'cantidad',
+                field: 'cantidad',
+                enableCellEdit: true,
+                width: '10%'
+            }],
+            data: response.data
+        };
+          }
+          );
+
+
+       
+        
+        
 
     }
 ]);

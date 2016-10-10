@@ -6,8 +6,8 @@ FROM Mov_Manuales
 ;
 
 
-
-SELECT '{idJugador: '+CStr(id_usu)+', idTipoMovimiento: '+    IIf([id_tipoMov]=1, '0','1') +',cantidad: '+Replace(CStr(importe),',','.')+ ', idApuesta: '+CStr(id_Apu)  +    '},' AS Expr1
+SELECT '{fcFecha : ''' + CStr(Format(fecha,"mm/dd/yyyy hh:mm")) + ''', idJugador: '+CStr(id_usu)+', idTipoMovimiento: '+    IIf([id_tipoMov]=1, '1','2') +',cantidad: '+Replace(CStr(importe),',','.')+ ', idApuesta: '+CStr(id_Apu)  +    '},' AS Expr1
 FROM Mov_Automaticos
 where ID_usu > 0 and id_Apu >0
+
 

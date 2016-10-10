@@ -286,40 +286,50 @@ myApp.controller("MisDatosCtrl", ['$scope', 'Tablas','accesoBDfactory', 'Authent
             $scope.user.Saldo.saldo = 0;
         }
         
-        
-         
+          $scope.Movimientos = [];
           
-          accesoBDfactory.get(Tablas.Movimientos, $scope.user.id).then(function(response){
-               $scope.gridOptions = {
+           $scope.gridOptions = {
             enableFiltering: true,
             enableSorting: true,
-            columnDefs: [{
+            columnDefs: [
+                {
                 name: 'id',
                 field: 'id',
                 visible: false
-            }, {
-                name: 'idJugador',
-                field: 'idJugador',
-                width: '20%'
-            }, {
+                }, 
+                {
+                name: 'Fecha',
+                field: 'fcFecha',
+                width: '18%',
+                cellFilter: 'date:"dd-MM-yyyy hh:mm"'
+                }, 
+                
+                {
                 name: 'idApuesta',
                 field: 'idApuesta',
-                width: '50%'
-            }, {
-                name: 'idTipoMovimiento',
-                field: 'idTipoMovimiento',
+                width: '20%'
+                }, 
+                {
+                name: 'Tipo',
+                field: 'TiposMovimiento.descripcion',
                 enableCellEdit: true,
-                width: '10%'
-            }, {
+                width: '40%'
+                }, 
+                {
                 name: 'cantidad',
                 field: 'cantidad',
                 enableCellEdit: true,
                 width: '10%'
-            }],
-            data: response.data
-        };
-          }
-          );
+                }],
+            data: 'Movimientos'
+           };
+      
+         
+          
+          accesoBDfactory.get(Tablas.Movimientos, $scope.user.id).then(function(response){
+              $scope.Movimientos = response.data;
+          
+          });
 
 
        

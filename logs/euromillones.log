@@ -618,3 +618,51 @@ Error: Jugadores is not associated to Movimientos!
     at Async._drainQueues (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:135:10)
     at Immediate.__dirname.drainQueues [as _onImmediate] (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:16:14)
     at processImmediate [as _immediateCallback] (timers.js:368:17)
+[2016-10-10 20:53:20.199] [FATAL] euromillones - { [SequelizeDatabaseError: SQLITE_ERROR: no such column: Movimientos.fcFecha]
+  name: 'SequelizeDatabaseError',
+  message: 'SQLITE_ERROR: no such column: Movimientos.fcFecha',
+  parent: 
+   { [Error: SQLITE_ERROR: no such column: Movimientos.fcFecha]
+     errno: 1,
+     code: 'SQLITE_ERROR',
+     sql: 'SELECT `Movimientos`.`id`, `Movimientos`.`fcFecha`, `Movimientos`.`idJugador`, `Movimientos`.`idApuesta`, `Movimientos`.`idTipoMovimiento`, `Movimientos`.`cantidad`, `Movimientos`.`createdAt`, `Movimientos`.`updatedAt`, `TiposMovimiento`.`id` AS `TiposMovimiento.id`, `TiposMovimiento`.`descripcion` AS `TiposMovimiento.descripcion`, `TiposMovimiento`.`createdAt` AS `TiposMovimiento.createdAt`, `TiposMovimiento`.`updatedAt` AS `TiposMovimiento.updatedAt` FROM `Movimientos` AS `Movimientos` LEFT OUTER JOIN `TiposMovimientos` AS `TiposMovimiento` ON `Movimientos`.`idTipoMovimiento` = `TiposMovimiento`.`id` WHERE `Movimientos`.`idJugador` = 1;' },
+  original: 
+   { [Error: SQLITE_ERROR: no such column: Movimientos.fcFecha]
+     errno: 1,
+     code: 'SQLITE_ERROR',
+     sql: 'SELECT `Movimientos`.`id`, `Movimientos`.`fcFecha`, `Movimientos`.`idJugador`, `Movimientos`.`idApuesta`, `Movimientos`.`idTipoMovimiento`, `Movimientos`.`cantidad`, `Movimientos`.`createdAt`, `Movimientos`.`updatedAt`, `TiposMovimiento`.`id` AS `TiposMovimiento.id`, `TiposMovimiento`.`descripcion` AS `TiposMovimiento.descripcion`, `TiposMovimiento`.`createdAt` AS `TiposMovimiento.createdAt`, `TiposMovimiento`.`updatedAt` AS `TiposMovimiento.updatedAt` FROM `Movimientos` AS `Movimientos` LEFT OUTER JOIN `TiposMovimientos` AS `TiposMovimiento` ON `Movimientos`.`idTipoMovimiento` = `TiposMovimiento`.`id` WHERE `Movimientos`.`idJugador` = 1;' },
+  sql: 'SELECT `Movimientos`.`id`, `Movimientos`.`fcFecha`, `Movimientos`.`idJugador`, `Movimientos`.`idApuesta`, `Movimientos`.`idTipoMovimiento`, `Movimientos`.`cantidad`, `Movimientos`.`createdAt`, `Movimientos`.`updatedAt`, `TiposMovimiento`.`id` AS `TiposMovimiento.id`, `TiposMovimiento`.`descripcion` AS `TiposMovimiento.descripcion`, `TiposMovimiento`.`createdAt` AS `TiposMovimiento.createdAt`, `TiposMovimiento`.`updatedAt` AS `TiposMovimiento.updatedAt` FROM `Movimientos` AS `Movimientos` LEFT OUTER JOIN `TiposMovimientos` AS `TiposMovimiento` ON `Movimientos`.`idTipoMovimiento` = `TiposMovimiento`.`id` WHERE `Movimientos`.`idJugador` = 1;' }
+SequelizeDatabaseError: SQLITE_ERROR: no such column: Movimientos.fcFecha
+    at Query.formatError (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:336:14)
+    at Query.run.self.database.serialize.afterExecute (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:100:29)
+    at replacement (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sqlite3\lib\trace.js:20:31)
+    at Statement.errBack (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sqlite3\lib\sqlite3.js:16:21)
+From previous event:
+    at Query.run.self.database.serialize.executeSql (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:96:19)
+From previous event:
+    at Promise.then (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\promise.js:21:17)
+    at Database.<anonymous> (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:266:14)
+    at D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:91:19
+From previous event:
+    at Query.run (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:89:13)
+    at D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\sequelize.js:799:18
+From previous event:
+    at Promise.then (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\promise.js:21:17)
+    at Model.findAll (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\model.js:1369:6)
+    at Object.get (D:\Desarrollos\Node\Euromillones-Angular-node\app\utils\utils.js:103:19)
+    at D:\Desarrollos\Node\Euromillones-Angular-node\app\routes\index.js:50:11
+    at callbacks (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:161:37)
+    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:135:11)
+    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:132:11)
+    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:33:10)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.expressInit [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\middleware.js:31:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.query [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\query.js:44:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Function.app.handle (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:198:3)
+    at Object.app.use.fn [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\application.js:119:11)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:107:24)

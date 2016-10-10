@@ -4,3 +4,4 @@ miBD.sqlite
 .vscode/
 public/js/constantsServer.js
 windows/
+logs/

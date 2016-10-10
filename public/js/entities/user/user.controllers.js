@@ -326,7 +326,7 @@ myApp.controller("MisDatosCtrl", ['$scope', 'Tablas','accesoBDfactory', 'Authent
       
          
           
-          accesoBDfactory.get(Tablas.Movimientos, $scope.user.id).then(function(response){
+          accesoBDfactory.getMovimientos(Tablas.Movimientos, $scope.user.id).then(function(response){
               $scope.Movimientos = response.data;
           
           });

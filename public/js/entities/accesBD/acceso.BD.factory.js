@@ -23,6 +23,9 @@ myApp.factory('accesoBDfactory', ['$http', 'apiAdmin', 'apiPrivate', 'remoteReso
              return  remoteResource.GoServer('PUT', apiPrivate + Tabla , user.id,user);
               
             },
+             getMovimientos: function(Tabla, id) {
+                return remoteResource.GoServer('GET', apiPrivate + Tabla, id, null);
+            },
             
 
         };

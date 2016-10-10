@@ -1,10 +1,14 @@
 {
-  "name": "chat-example",
+  "name": "aureuromillones",
   "version": "0.0.0",
-  "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
-  "main": "server.js",
-  "repository": "",
-  "author": "Mostafa Eweda <mo.eweda@gmail.com>",
+  "private": true,
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
+  "devDependencies": {
+    "sqlite3": "latest"
+  },
   "dependencies": {
     "angular-ui-grid": "^3.1.1",
     "body-parser": "~1.0.0",

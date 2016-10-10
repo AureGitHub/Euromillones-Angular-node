@@ -40,14 +40,14 @@ router.get('/api/admin/:type(Jugadores|Saldos|TiposRoles|TiposEstadosApuesta|Tip
 
 
 
-router.get('/api/admin/Movimientos/:id', function(req,res,next){
+router.get('/api/private/Movimientos/:id', function(req,res,next){
     var arr = req.url.toString().split("/");
     var Tabla=arr[arr.length - 2];
     
      var idJugador =arr[arr.length - 1];
     
    
-    utils.get(Tabla,{ idJugador: 1 },true).then(function(dato){
+    utils.get(Tabla,{ idJugador: idJugador },true).then(function(dato){
          res.data = dato;
          next();
     }).catch(function(error){

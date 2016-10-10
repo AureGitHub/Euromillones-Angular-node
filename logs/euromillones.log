@@ -1,668 +1,108 @@
-[2016-02-25 10:32:33.886] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:91:18)
-    at /home/ubuntu/workspace/app/routes/index.js:22:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-02-25 10:33:26.639] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:91:18)
-    at /home/ubuntu/workspace/app/routes/index.js:30:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:18:5
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-[2016-02-26 10:14:05.517] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
-[2016-02-26 10:38:32.685] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
-[2016-02-26 19:02:03.886] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
-[2016-02-26 19:07:11.511] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
-[2016-02-26 19:07:28.016] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
-[2016-02-26 19:08:35.252] [FATAL] euromillones - No controlado :SequelizeValidationError Validation error: Validation len failed
-[2016-02-26 19:14:32.071] [FATAL] euromillones - Duplicado (password Validation len failed)
-[2016-02-26 19:15:46.518] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:16:30.459] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:18:26.338] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:18:57.940] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:19:22.783] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:19:49.769] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:20:43.069] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:23:04.140] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:29:02.515] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:30:58.717] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-26 19:32:04.945] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-28 16:51:28.518] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-28 16:54:32.811] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-28 16:57:44.193] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-28 18:14:28.044] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-28 18:15:02.891] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-28 18:15:16.000] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-28 18:17:38.432] [FATAL] euromillones - [TypeError: Cannot set property 'id' of null]
-TypeError: Cannot set property 'id' of null
-    at Object.exports.update (/home/ubuntu/workspace/app/controllers/controller_Jugadores.js:8:29)
-    at /home/ubuntu/workspace/app/routes/index.js:72:26
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:132:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-[2016-02-28 18:17:43.320] [FATAL] euromillones - [TypeError: Cannot set property 'id' of null]
-TypeError: Cannot set property 'id' of null
-    at Object.exports.update (/home/ubuntu/workspace/app/controllers/controller_Jugadores.js:8:29)
-    at /home/ubuntu/workspace/app/routes/index.js:72:26
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:132:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-[2016-02-28 18:18:18.635] [FATAL] euromillones - [TypeError: Cannot set property 'id' of null]
-TypeError: Cannot set property 'id' of null
-    at Object.exports.update (/home/ubuntu/workspace/app/controllers/controller_Jugadores.js:8:29)
-    at /home/ubuntu/workspace/app/routes/index.js:72:26
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:132:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-[2016-02-28 18:22:02.663] [FATAL] euromillones - Duplicado (jdesande )
-[2016-02-28 18:22:56.088] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-28 18:23:01.736] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-28 18:24:01.867] [FATAL] euromillones - { [Error: invalid json] status: 400 }
-Error: invalid json
-    at Object.exports.error (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/utils.js:60:13)
-    at IncomingMessage.<anonymous> (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/json.js:74:71)
-    at emitNone (events.js:67:13)
-    at IncomingMessage.emit (events.js:166:7)
-    at endReadableNT (_stream_readable.js:903:12)
-    at doNTCallback2 (node.js:439:9)
-    at process._tickCallback (node.js:353:17)
-[2016-02-29 20:54:42.782] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-02-29 23:23:25.957] [FATAL] euromillones - Duplicado (jdesande1 )
-[2016-03-02 21:32:55.199] [FATAL] euromillones - Validacion (password Validation len failed)
-[2016-03-06 19:14:50.588] [FATAL] euromillones - [TypeError: Cannot read property 'id' of undefined]
-TypeError: Cannot read property 'id' of undefined
-    at /home/ubuntu/workspace/app/controllers/controller_Jugadores.js:51:94
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-03-06 19:29:23.803] [FATAL] euromillones - [TypeError: Cannot read property 'id' of undefined]
-TypeError: Cannot read property 'id' of undefined
-    at /home/ubuntu/workspace/app/controllers/controller_Jugadores.js:51:94
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 10:46:58.172] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 10:47:24.604] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 10:47:56.767] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 10:48:24.522] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 10:49:08.981] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 10:49:57.693] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 10:56:35.905] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 10:58:45.918] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 11:01:11.705] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 11:02:30.431] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:29:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 11:05:34.739] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:28:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 11:07:29.775] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:28:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 11:08:10.726] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:28:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 11:11:55.194] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:46:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:33:10
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 11:17:35.770] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:46:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:33:10
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 11:20:19.456] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:46:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:33:10
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 11:21:13.084] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:46:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:33:10
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 11:21:48.516] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:46:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:33:10
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 11:23:44.233] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:46:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:33:10
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 11:32:36.764] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:46:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at nextRoute (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:100:7)
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:164:11)
-    at /home/ubuntu/workspace/app/routes/index.js:33:10
-    at _fulfilled (/home/ubuntu/workspace/node_modules/q/q.js:834:54)
-    at Promise.then.Q.nextTick.self.promiseDispatch.done (/home/ubuntu/workspace/node_modules/q/q.js:863:30)
-    at Promise.promise.promiseDispatch (/home/ubuntu/workspace/node_modules/q/q.js:796:13)
-    at /home/ubuntu/workspace/node_modules/q/q.js:604:44
-    at runSingle (/home/ubuntu/workspace/node_modules/q/q.js:137:13)
-    at flush (/home/ubuntu/workspace/node_modules/q/q.js:125:13)
-    at doNTCallback0 (node.js:417:9)
-    at process._tickCallback (node.js:346:13)
-[2016-10-07 11:42:46.315] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:32:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-07 18:59:15.697] [FATAL] euromillones - [TypeError: Cannot read property 'findAll' of undefined]
-TypeError: Cannot read property 'findAll' of undefined
-    at Object.get (/home/ubuntu/workspace/app/utils/utils.js:103:18)
-    at /home/ubuntu/workspace/app/routes/index.js:32:11
-    at callbacks (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:161:37)
-    at param (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:135:11)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:142:5)
-    at Router._dispatch (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:170:5)
-    at Object.router (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:33:10)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.expressInit [as handle] (/home/ubuntu/workspace/node_modules/express/lib/middleware.js:31:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Object.query [as handle] (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/middleware/query.js:44:5)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at Function.app.handle (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:198:3)
-    at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
-    at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
-    at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
-[2016-10-10 07:34:33.838] [FATAL] euromillones - [Function: finalizar]
-[2016-10-10 07:59:59.478] [FATAL] euromillones - [Error: Jugadores is not associated to Movimientos!]
-Error: Jugadores is not associated to Movimientos!
-    at validateIncludedElement (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:569:11)
-    at /home/ubuntu/workspace/node_modules/sequelize/lib/model.js:452:29
-    at Array.map (native)
-    at validateIncludedElements (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:448:37)
-    at null.<anonymous> (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:1360:32)
-    at tryCatcher (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/util.js:16:23)
-    at Promise.module.exports.Promise._settlePromiseFromHandler (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:497:31)
-    at Promise.module.exports.Promise._settlePromise (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:555:18)
-    at Promise.module.exports.Promise._settlePromise0 (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:600:10)
-    at Promise.module.exports.Promise._settlePromises (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:683:18)
-    at Async._drainQueue (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:125:16)
-    at Async._drainQueues (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:135:10)
-    at Immediate.__dirname.drainQueues [as _onImmediate] (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:16:14)
-    at processImmediate [as _immediateCallback] (timers.js:368:17)
-[2016-10-10 20:53:20.199] [FATAL] euromillones - { [SequelizeDatabaseError: SQLITE_ERROR: no such column: Movimientos.fcFecha]
-  name: 'SequelizeDatabaseError',
-  message: 'SQLITE_ERROR: no such column: Movimientos.fcFecha',
-  parent: 
-   { [Error: SQLITE_ERROR: no such column: Movimientos.fcFecha]
-     errno: 1,
-     code: 'SQLITE_ERROR',
-     sql: 'SELECT `Movimientos`.`id`, `Movimientos`.`fcFecha`, `Movimientos`.`idJugador`, `Movimientos`.`idApuesta`, `Movimientos`.`idTipoMovimiento`, `Movimientos`.`cantidad`, `Movimientos`.`createdAt`, `Movimientos`.`updatedAt`, `TiposMovimiento`.`id` AS `TiposMovimiento.id`, `TiposMovimiento`.`descripcion` AS `TiposMovimiento.descripcion`, `TiposMovimiento`.`createdAt` AS `TiposMovimiento.createdAt`, `TiposMovimiento`.`updatedAt` AS `TiposMovimiento.updatedAt` FROM `Movimientos` AS `Movimientos` LEFT OUTER JOIN `TiposMovimientos` AS `TiposMovimiento` ON `Movimientos`.`idTipoMovimiento` = `TiposMovimiento`.`id` WHERE `Movimientos`.`idJugador` = 1;' },
-  original: 
-   { [Error: SQLITE_ERROR: no such column: Movimientos.fcFecha]
-     errno: 1,
-     code: 'SQLITE_ERROR',
-     sql: 'SELECT `Movimientos`.`id`, `Movimientos`.`fcFecha`, `Movimientos`.`idJugador`, `Movimientos`.`idApuesta`, `Movimientos`.`idTipoMovimiento`, `Movimientos`.`cantidad`, `Movimientos`.`createdAt`, `Movimientos`.`updatedAt`, `TiposMovimiento`.`id` AS `TiposMovimiento.id`, `TiposMovimiento`.`descripcion` AS `TiposMovimiento.descripcion`, `TiposMovimiento`.`createdAt` AS `TiposMovimiento.createdAt`, `TiposMovimiento`.`updatedAt` AS `TiposMovimiento.updatedAt` FROM `Movimientos` AS `Movimientos` LEFT OUTER JOIN `TiposMovimientos` AS `TiposMovimiento` ON `Movimientos`.`idTipoMovimiento` = `TiposMovimiento`.`id` WHERE `Movimientos`.`idJugador` = 1;' },
-  sql: 'SELECT `Movimientos`.`id`, `Movimientos`.`fcFecha`, `Movimientos`.`idJugador`, `Movimientos`.`idApuesta`, `Movimientos`.`idTipoMovimiento`, `Movimientos`.`cantidad`, `Movimientos`.`createdAt`, `Movimientos`.`updatedAt`, `TiposMovimiento`.`id` AS `TiposMovimiento.id`, `TiposMovimiento`.`descripcion` AS `TiposMovimiento.descripcion`, `TiposMovimiento`.`createdAt` AS `TiposMovimiento.createdAt`, `TiposMovimiento`.`updatedAt` AS `TiposMovimiento.updatedAt` FROM `Movimientos` AS `Movimientos` LEFT OUTER JOIN `TiposMovimientos` AS `TiposMovimiento` ON `Movimientos`.`idTipoMovimiento` = `TiposMovimiento`.`id` WHERE `Movimientos`.`idJugador` = 1;' }
-SequelizeDatabaseError: SQLITE_ERROR: no such column: Movimientos.fcFecha
-    at Query.formatError (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:336:14)
-    at Query.run.self.database.serialize.afterExecute (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:100:29)
-    at replacement (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sqlite3\lib\trace.js:20:31)
-    at Statement.errBack (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sqlite3\lib\sqlite3.js:16:21)
-From previous event:
-    at Query.run.self.database.serialize.executeSql (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:96:19)
-From previous event:
-    at Promise.then (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\promise.js:21:17)
-    at Database.<anonymous> (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:266:14)
-    at D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:91:19
-From previous event:
-    at Query.run (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\dialects\sqlite\query.js:89:13)
-    at D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\sequelize.js:799:18
-From previous event:
-    at Promise.then (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\promise.js:21:17)
-    at Model.findAll (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\sequelize\lib\model.js:1369:6)
-    at Object.get (D:\Desarrollos\Node\Euromillones-Angular-node\app\utils\utils.js:103:19)
-    at D:\Desarrollos\Node\Euromillones-Angular-node\app\routes\index.js:50:11
+[2016-10-10 21:12:01.858] [FATAL] euromillones - [Error: No está autorizado para realizar esta operación]
+Error: No está autorizado para realizar esta operación
+    at exports.validateRequest (D:\Desarrollos\Node\Euromillones-Angular-node\app\controllers\controller_user.js:52:26)
     at callbacks (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:161:37)
     at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:135:11)
-    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:132:11)
     at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:142:5)
     at Router._dispatch (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:170:5)
     at Object.router (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:33:10)
     at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
-    at Object.expressInit [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\middleware.js:31:5)
+    at Object.handle (D:\Desarrollos\Node\Euromillones-Angular-node\server.js:47:5)
     at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
-    at Object.query [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\query.js:44:5)
+    at Object.logger (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\morgan\index.js:144:5)
     at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
-    at Function.app.handle (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:198:3)
-    at Object.app.use.fn [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\application.js:119:11)
+    at Object.jsonParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:31:38)
     at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
-    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:107:24)
+    at Object.urlencodedParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:70:44)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.methodOverride [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\methodOverride.js:37:5)
+[2016-10-10 21:12:12.826] [FATAL] euromillones - [Error: No está autorizado para realizar esta operación]
+Error: No está autorizado para realizar esta operación
+    at exports.validateRequest (D:\Desarrollos\Node\Euromillones-Angular-node\app\controllers\controller_user.js:52:26)
+    at callbacks (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:161:37)
+    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:135:11)
+    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:33:10)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.handle (D:\Desarrollos\Node\Euromillones-Angular-node\server.js:47:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.logger (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\morgan\index.js:144:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.jsonParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:31:38)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.urlencodedParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:70:44)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.methodOverride [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\methodOverride.js:37:5)
+[2016-10-10 21:12:15.295] [FATAL] euromillones - [Error: No está autorizado para realizar esta operación]
+Error: No está autorizado para realizar esta operación
+    at exports.validateRequest (D:\Desarrollos\Node\Euromillones-Angular-node\app\controllers\controller_user.js:52:26)
+    at callbacks (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:161:37)
+    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:135:11)
+    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:33:10)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.handle (D:\Desarrollos\Node\Euromillones-Angular-node\server.js:47:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.logger (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\morgan\index.js:144:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.jsonParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:31:38)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.urlencodedParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:70:44)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.methodOverride [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\methodOverride.js:37:5)
+[2016-10-10 21:12:17.610] [FATAL] euromillones - [Error: No está autorizado para realizar esta operación]
+Error: No está autorizado para realizar esta operación
+    at exports.validateRequest (D:\Desarrollos\Node\Euromillones-Angular-node\app\controllers\controller_user.js:52:26)
+    at callbacks (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:161:37)
+    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:135:11)
+    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:33:10)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.handle (D:\Desarrollos\Node\Euromillones-Angular-node\server.js:47:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.logger (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\morgan\index.js:144:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.jsonParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:31:38)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.urlencodedParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:70:44)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.methodOverride [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\methodOverride.js:37:5)
+[2016-10-10 21:13:29.420] [FATAL] euromillones - [Error: No está autorizado para realizar esta operación]
+Error: No está autorizado para realizar esta operación
+    at exports.validateRequest (D:\Desarrollos\Node\Euromillones-Angular-node\app\controllers\controller_user.js:52:26)
+    at callbacks (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:161:37)
+    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:135:11)
+    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:33:10)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.handle (D:\Desarrollos\Node\Euromillones-Angular-node\server.js:47:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.logger (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\morgan\index.js:144:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.jsonParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:31:38)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.urlencodedParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:70:44)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.methodOverride [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\methodOverride.js:37:5)
+[2016-10-10 21:13:32.230] [FATAL] euromillones - [Error: No está autorizado para realizar esta operación]
+Error: No está autorizado para realizar esta operación
+    at exports.validateRequest (D:\Desarrollos\Node\Euromillones-Angular-node\app\controllers\controller_user.js:52:26)
+    at callbacks (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:161:37)
+    at param (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:135:11)
+    at pass (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\express\lib\router\index.js:33:10)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.handle (D:\Desarrollos\Node\Euromillones-Angular-node\server.js:47:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.logger (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\morgan\index.js:144:5)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.jsonParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:31:38)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.urlencodedParser [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\body-parser\index.js:70:44)
+    at next (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\proto.js:190:15)
+    at Object.methodOverride [as handle] (D:\Desarrollos\Node\Euromillones-Angular-node\node_modules\connect\lib\middleware\methodOverride.js:37:5)

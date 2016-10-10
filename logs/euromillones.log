@@ -601,3 +601,20 @@ TypeError: Cannot read property 'findAll' of undefined
     at Object.app.use.fn [as handle] (/home/ubuntu/workspace/node_modules/express/lib/application.js:119:11)
     at next (/home/ubuntu/workspace/node_modules/express/node_modules/connect/lib/proto.js:190:15)
     at pass (/home/ubuntu/workspace/node_modules/express/lib/router/index.js:107:24)
+[2016-10-10 07:34:33.838] [FATAL] euromillones - [Function: finalizar]
+[2016-10-10 07:59:59.478] [FATAL] euromillones - [Error: Jugadores is not associated to Movimientos!]
+Error: Jugadores is not associated to Movimientos!
+    at validateIncludedElement (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:569:11)
+    at /home/ubuntu/workspace/node_modules/sequelize/lib/model.js:452:29
+    at Array.map (native)
+    at validateIncludedElements (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:448:37)
+    at null.<anonymous> (/home/ubuntu/workspace/node_modules/sequelize/lib/model.js:1360:32)
+    at tryCatcher (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise.module.exports.Promise._settlePromiseFromHandler (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:497:31)
+    at Promise.module.exports.Promise._settlePromise (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:555:18)
+    at Promise.module.exports.Promise._settlePromise0 (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:600:10)
+    at Promise.module.exports.Promise._settlePromises (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/promise.js:683:18)
+    at Async._drainQueue (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:125:16)
+    at Async._drainQueues (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:135:10)
+    at Immediate.__dirname.drainQueues [as _onImmediate] (/home/ubuntu/workspace/node_modules/sequelize/node_modules/bluebird/js/release/async.js:16:14)
+    at processImmediate [as _immediateCallback] (timers.js:368:17)
